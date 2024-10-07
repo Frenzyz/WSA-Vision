@@ -1,1702 +1,377 @@
-2024/10/01 21:46:21 Debug logging enabled.
-2024/10/01 21:47:36 Failed to get shell command: empty response from LLM
-2024/10/01 21:49:44 Debug logging enabled.
-2024/10/01 21:49:48 Failed to pull llama3.2 model: exit status 127
-2024/10/01 21:50:08 Debug logging enabled.
-2024/10/01 21:50:09 Failed to pull llama3.2 model: exit status 127
-2024/10/01 21:51:59 Debug logging enabled.
-2024/10/01 21:52:08 Failed to get shell command: empty response from LLM
-2024/10/01 21:59:01 Debug logging enabled.
-2024/10/01 22:03:31 Failed to get shell command: empty response from LLM
-2024/10/01 22:12:54 Debug logging enabled.
-2024/10/01 22:14:48 Debug logging enabled.
-2024/10/01 22:16:33 Debug logging enabled.
-2024/10/01 22:26:58 Logging started
-2024/10/01 22:35:17 Logging started
-2024/10/01 22:38:09 Logging started
-2024/10/01 22:51:11 Logging started
-2024/10/01 22:51:15 Error getting shell command: failed to decode LLM response: invalid character '{' after top-level value
-Response body: {"model":"llama3.2","created_at":"2024-10-02T02:51:15.5464193Z","message":{"role":"assistant","content":"{\""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.6361871Z","message":{"role":"assistant","content":"nl"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.6862895Z","message":{"role":"assistant","content":"Response"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.6943154Z","message":{"role":"assistant","content":"\":"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7003487Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.708403Z","message":{"role":"assistant","content":"Sp"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7149436Z","message":{"role":"assistant","content":"otify"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7206984Z","message":{"role":"assistant","content":" has"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7274072Z","message":{"role":"assistant","content":" been"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7334603Z","message":{"role":"assistant","content":" opened"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7406282Z","message":{"role":"assistant","content":".\","},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7469648Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7530555Z","message":{"role":"assistant","content":"commands"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7607934Z","message":{"role":"assistant","content":"\":"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7670783Z","message":{"role":"assistant","content":" [\""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7749953Z","message":{"role":"assistant","content":"start"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.779939Z","message":{"role":"assistant","content":" \\\""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7872803Z","message":{"role":"assistant","content":"spotify"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.7944305Z","message":{"role":"assistant","content":"\\\""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.8009205Z","message":{"role":"assistant","content":"\"]"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.8081304Z","message":{"role":"assistant","content":" }"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-02T02:51:15.8149921Z","message":{"role":"assistant","content":""},"done_reason":"stop","done":true,"total_duration":396023700,"load_duration":19289400,"prompt_eval_count":134,"prompt_eval_duration":105913000,"eval_count":22,"eval_duration":268427000}
+2024/10/06 16:54:34 Logging started
+2024/10/06 16:56:27 System index generation completed successfully.
+2024/10/06 16:56:39 Failed to generate tasks: failed to parse assistant's message as tasks: unexpected end of JSON input
+Message content: 
+2024/10/06 17:04:19 Logging started
+2024/10/06 17:04:28 Failed to generate tasks: failed to parse assistant's message as tasks: unexpected end of JSON input
+Message content: 
+2024/10/06 17:14:21 Logging started
+2024/10/06 17:14:26 Failed to generate tasks: failed to parse assistant's message as tasks: unexpected end of JSON input
+Message content: 
+2024/10/06 17:22:50 Logging started
+2024/10/06 17:22:53 Failed to generate tasks: failed to parse assistant's message as tasks: unexpected end of JSON input
+Message content: 
+2024/10/06 17:23:51 Logging started
+2024/10/06 17:24:02 Failed to generate tasks: failed to decode LLM response: invalid character '{' after top-level value
+Response body: {"model":"llama3.2","created_at":"2024-10-06T21:24:01.2714899Z","message":{"role":"assistant","content":"Here"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.2876705Z","message":{"role":"assistant","content":" is"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.2934683Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3002592Z","message":{"role":"assistant","content":" breakdown"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3062933Z","message":{"role":"assistant","content":" of"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3163669Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3228122Z","message":{"role":"assistant","content":" goal"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3295441Z","message":{"role":"assistant","content":" into"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3365361Z","message":{"role":"assistant","content":" actionable"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3427725Z","message":{"role":"assistant","content":" tasks"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3495734Z","message":{"role":"assistant","content":":\n\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3554562Z","message":{"role":"assistant","content":"``"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3615353Z","message":{"role":"assistant","content":"`\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3689494Z","message":{"role":"assistant","content":"[\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3750568Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3815689Z","message":{"role":"assistant","content":" {\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3881992Z","message":{"role":"assistant","content":"   "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.3941491Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4006702Z","message":{"role":"assistant","content":"description"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4072264Z","message":{"role":"assistant","content":"\":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.413578Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4203015Z","message":{"role":"assistant","content":"Click"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4261149Z","message":{"role":"assistant","content":" on"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4324746Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4394794Z","message":{"role":"assistant","content":" Spotify"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4464292Z","message":{"role":"assistant","content":" icon"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.452392Z","message":{"role":"assistant","content":" on"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4592537Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4652085Z","message":{"role":"assistant","content":" task"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4723003Z","message":{"role":"assistant","content":"bar"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4789615Z","message":{"role":"assistant","content":"\"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4846587Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4915876Z","message":{"role":"assistant","content":" },\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.4978453Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5051173Z","message":{"role":"assistant","content":" {\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5112489Z","message":{"role":"assistant","content":"   "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5185196Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5272201Z","message":{"role":"assistant","content":"description"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5328054Z","message":{"role":"assistant","content":"\":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5399089Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5464402Z","message":{"role":"assistant","content":"Hover"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5527346Z","message":{"role":"assistant","content":" over"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5595737Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5653899Z","message":{"role":"assistant","content":" Spotify"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5729906Z","message":{"role":"assistant","content":" icon"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5792392Z","message":{"role":"assistant","content":" with"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5850484Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5914736Z","message":{"role":"assistant","content":" mouse"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.5975318Z","message":{"role":"assistant","content":" to"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6052793Z","message":{"role":"assistant","content":" ensure"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6113852Z","message":{"role":"assistant","content":" it"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6176094Z","message":{"role":"assistant","content":"'s"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6235606Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6301977Z","message":{"role":"assistant","content":" correct"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6371868Z","message":{"role":"assistant","content":" application"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6437032Z","message":{"role":"assistant","content":"\"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6497906Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6562803Z","message":{"role":"assistant","content":" },\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6619925Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6692609Z","message":{"role":"assistant","content":" {\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.675244Z","message":{"role":"assistant","content":"   "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6817577Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6884642Z","message":{"role":"assistant","content":"description"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.6944244Z","message":{"role":"assistant","content":"\":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7007282Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7065969Z","message":{"role":"assistant","content":"Double"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7134372Z","message":{"role":"assistant","content":"-click"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7202819Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7264149Z","message":{"role":"assistant","content":" Spotify"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7366045Z","message":{"role":"assistant","content":" icon"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7424915Z","message":{"role":"assistant","content":" to"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.749247Z","message":{"role":"assistant","content":" open"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7552005Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.761397Z","message":{"role":"assistant","content":" application"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7690003Z","message":{"role":"assistant","content":"\"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7751089Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7812068Z","message":{"role":"assistant","content":" }\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7880737Z","message":{"role":"assistant","content":"]\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.7939893Z","message":{"role":"assistant","content":"``"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8003988Z","message":{"role":"assistant","content":"`\n\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8072632Z","message":{"role":"assistant","content":"Alternatively"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8129769Z","message":{"role":"assistant","content":","},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8194737Z","message":{"role":"assistant","content":" if"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8254293Z","message":{"role":"assistant","content":" you"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8317146Z","message":{"role":"assistant","content":" want"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8383952Z","message":{"role":"assistant","content":" a"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8452291Z","message":{"role":"assistant","content":" more"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8512904Z","message":{"role":"assistant","content":" detailed"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.857999Z","message":{"role":"assistant","content":" version"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8638546Z","message":{"role":"assistant","content":":\n\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8711774Z","message":{"role":"assistant","content":"``"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8775596Z","message":{"role":"assistant","content":"`\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8846621Z","message":{"role":"assistant","content":"[\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8907464Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.8971185Z","message":{"role":"assistant","content":" {\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.903703Z","message":{"role":"assistant","content":"   "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.9103046Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.916324Z","message":{"role":"assistant","content":"description"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.9226476Z","message":{"role":"assistant","content":"\":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.929358Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.9360768Z","message":{"role":"assistant","content":"Move"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.9452376Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.9513972Z","message":{"role":"assistant","content":" cursor"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.9577114Z","message":{"role":"assistant","content":" to"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.9635961Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.9714382Z","message":{"role":"assistant","content":" bottom"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.9775371Z","message":{"role":"assistant","content":" right"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.9832774Z","message":{"role":"assistant","content":" corner"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.9890176Z","message":{"role":"assistant","content":" of"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:01.9960703Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0037906Z","message":{"role":"assistant","content":" screen"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0094951Z","message":{"role":"assistant","content":"\"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0160934Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0219024Z","message":{"role":"assistant","content":" },\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0285248Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0349796Z","message":{"role":"assistant","content":" {\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0415678Z","message":{"role":"assistant","content":"   "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0483764Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.05402Z","message":{"role":"assistant","content":"description"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0609931Z","message":{"role":"assistant","content":"\":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.067207Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0733209Z","message":{"role":"assistant","content":"Click"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0802249Z","message":{"role":"assistant","content":" and"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.086495Z","message":{"role":"assistant","content":" hold"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0922317Z","message":{"role":"assistant","content":" on"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.0991278Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1055252Z","message":{"role":"assistant","content":" task"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1120373Z","message":{"role":"assistant","content":"bar"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1186987Z","message":{"role":"assistant","content":" until"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1247265Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1312409Z","message":{"role":"assistant","content":" mouse"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1385261Z","message":{"role":"assistant","content":" menu"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1447421Z","message":{"role":"assistant","content":" appears"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.153483Z","message":{"role":"assistant","content":"\"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1595206Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1661766Z","message":{"role":"assistant","content":" },\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1733358Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1793037Z","message":{"role":"assistant","content":" {\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1864048Z","message":{"role":"assistant","content":"   "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1922996Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.1992219Z","message":{"role":"assistant","content":"description"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2062317Z","message":{"role":"assistant","content":"\":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2131511Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2192527Z","message":{"role":"assistant","content":"Release"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2249809Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2313353Z","message":{"role":"assistant","content":" mouse"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2385647Z","message":{"role":"assistant","content":" button"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.245119Z","message":{"role":"assistant","content":" and"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2510638Z","message":{"role":"assistant","content":" click"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2577283Z","message":{"role":"assistant","content":" on"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2638677Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2710679Z","message":{"role":"assistant","content":" Spotify"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2773173Z","message":{"role":"assistant","content":" icon"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2834191Z","message":{"role":"assistant","content":"\"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2902649Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.2964006Z","message":{"role":"assistant","content":" }\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.303783Z","message":{"role":"assistant","content":"]\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.309682Z","message":{"role":"assistant","content":"``"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.3165368Z","message":{"role":"assistant","content":"`\n\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.3222033Z","message":{"role":"assistant","content":"Let"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.3291682Z","message":{"role":"assistant","content":" me"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.336405Z","message":{"role":"assistant","content":" know"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.3431757Z","message":{"role":"assistant","content":" if"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.3492845Z","message":{"role":"assistant","content":" you"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.3549363Z","message":{"role":"assistant","content":" need"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.3634532Z","message":{"role":"assistant","content":" any"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.3709652Z","message":{"role":"assistant","content":" further"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.3772833Z","message":{"role":"assistant","content":" assistance"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.3835493Z","message":{"role":"assistant","content":"!"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:02.3906443Z","message":{"role":"assistant","content":""},"done_reason":"stop","done":true,"total_duration":6899701000,"load_duration":5690435100,"prompt_eval_count":92,"prompt_eval_duration":87237000,"eval_count":170,"eval_duration":1118683000}
+
+2024/10/06 17:24:23 Failed to generate tasks: failed to decode LLM response: invalid character '{' after top-level value
+Response body: {"model":"llama3.2","created_at":"2024-10-06T21:24:22.6280824Z","message":{"role":"assistant","content":"Here"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.7760445Z","message":{"role":"assistant","content":" is"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.7823261Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.7892606Z","message":{"role":"assistant","content":" JSON"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.7948909Z","message":{"role":"assistant","content":" array"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8045653Z","message":{"role":"assistant","content":" of"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8104709Z","message":{"role":"assistant","content":" tasks"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8171918Z","message":{"role":"assistant","content":" to"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.82276Z","message":{"role":"assistant","content":" close"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8294538Z","message":{"role":"assistant","content":" Spotify"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8364577Z","message":{"role":"assistant","content":" on"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8424017Z","message":{"role":"assistant","content":" a"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8493097Z","message":{"role":"assistant","content":" Windows"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8545377Z","message":{"role":"assistant","content":"-based"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8610489Z","message":{"role":"assistant","content":" operating"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8670174Z","message":{"role":"assistant","content":" system"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8734098Z","message":{"role":"assistant","content":":\n\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8802852Z","message":{"role":"assistant","content":"```"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8860416Z","message":{"role":"assistant","content":"json"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8920396Z","message":{"role":"assistant","content":"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.8984758Z","message":{"role":"assistant","content":"[\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9048457Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9113567Z","message":{"role":"assistant","content":" {\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.917359Z","message":{"role":"assistant","content":"   "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9237557Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9302297Z","message":{"role":"assistant","content":"description"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9373794Z","message":{"role":"assistant","content":"\":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9432502Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9493793Z","message":{"role":"assistant","content":"Click"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9554443Z","message":{"role":"assistant","content":" on"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9616818Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9670963Z","message":{"role":"assistant","content":" Spotify"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9741919Z","message":{"role":"assistant","content":" icon"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9801308Z","message":{"role":"assistant","content":" in"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9861383Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9922681Z","message":{"role":"assistant","content":" task"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:22.9991126Z","message":{"role":"assistant","content":"bar"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0080958Z","message":{"role":"assistant","content":"\"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0142024Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0213534Z","message":{"role":"assistant","content":" },\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.027864Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0336688Z","message":{"role":"assistant","content":" {\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0405112Z","message":{"role":"assistant","content":"   "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0464106Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0530511Z","message":{"role":"assistant","content":"description"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0593895Z","message":{"role":"assistant","content":"\":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0654202Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0729401Z","message":{"role":"assistant","content":"Hover"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0791561Z","message":{"role":"assistant","content":" over"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0852988Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0915434Z","message":{"role":"assistant","content":" Close"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.0982675Z","message":{"role":"assistant","content":" button"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1043411Z","message":{"role":"assistant","content":" at"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1102476Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1162698Z","message":{"role":"assistant","content":" top"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1228637Z","message":{"role":"assistant","content":"-right"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1293763Z","message":{"role":"assistant","content":" corner"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1360769Z","message":{"role":"assistant","content":" of"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.141927Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1483513Z","message":{"role":"assistant","content":" Spotify"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1541433Z","message":{"role":"assistant","content":" window"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1602888Z","message":{"role":"assistant","content":"\"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.166139Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1731865Z","message":{"role":"assistant","content":" },\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1794103Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1853414Z","message":{"role":"assistant","content":" {\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1914253Z","message":{"role":"assistant","content":"   "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.1983516Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2046101Z","message":{"role":"assistant","content":"description"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.213122Z","message":{"role":"assistant","content":"\":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2191418Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2246191Z","message":{"role":"assistant","content":"Release"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2311299Z","message":{"role":"assistant","content":" the"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2381763Z","message":{"role":"assistant","content":" right"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2445272Z","message":{"role":"assistant","content":"-click"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2511737Z","message":{"role":"assistant","content":" button"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2563208Z","message":{"role":"assistant","content":" to"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.262855Z","message":{"role":"assistant","content":" confirm"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2696398Z","message":{"role":"assistant","content":" closing"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2764409Z","message":{"role":"assistant","content":" Spotify"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2820362Z","message":{"role":"assistant","content":"\"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2882645Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.2941997Z","message":{"role":"assistant","content":" }\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3003006Z","message":{"role":"assistant","content":"]\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3074627Z","message":{"role":"assistant","content":"``"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3132297Z","message":{"role":"assistant","content":"`\n\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3192697Z","message":{"role":"assistant","content":"Alternatively"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3248047Z","message":{"role":"assistant","content":","},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3318588Z","message":{"role":"assistant","content":" if"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3391814Z","message":{"role":"assistant","content":" you"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3453925Z","message":{"role":"assistant","content":" want"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3517778Z","message":{"role":"assistant","content":" to"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3582108Z","message":{"role":"assistant","content":" close"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3649733Z","message":{"role":"assistant","content":" all"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3711867Z","message":{"role":"assistant","content":" instances"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3781962Z","message":{"role":"assistant","content":" of"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.383836Z","message":{"role":"assistant","content":" Spotify"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3904302Z","message":{"role":"assistant","content":":\n\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.3960427Z","message":{"role":"assistant","content":"```"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4027478Z","message":{"role":"assistant","content":"json"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4095554Z","message":{"role":"assistant","content":"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4175897Z","message":{"role":"assistant","content":"[\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4240071Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4302235Z","message":{"role":"assistant","content":" {\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4372768Z","message":{"role":"assistant","content":"   "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4434419Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.449168Z","message":{"role":"assistant","content":"description"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4562248Z","message":{"role":"assistant","content":"\":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4619323Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4682733Z","message":{"role":"assistant","content":"Press"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.474178Z","message":{"role":"assistant","content":" Ctrl"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4799694Z","message":{"role":"assistant","content":"+"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4864399Z","message":{"role":"assistant","content":"Shift"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4928698Z","message":{"role":"assistant","content":"+"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.4984105Z","message":{"role":"assistant","content":"Esc"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5060672Z","message":{"role":"assistant","content":" keys"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5125382Z","message":{"role":"assistant","content":" simultaneously"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5186212Z","message":{"role":"assistant","content":" to"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.524804Z","message":{"role":"assistant","content":" open"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5313472Z","message":{"role":"assistant","content":" Task"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5382202Z","message":{"role":"assistant","content":" Manager"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5444664Z","message":{"role":"assistant","content":"\"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5506646Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5572674Z","message":{"role":"assistant","content":" },\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5635909Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5707431Z","message":{"role":"assistant","content":" {\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5772242Z","message":{"role":"assistant","content":"   "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5828814Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5892288Z","message":{"role":"assistant","content":"description"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.5951071Z","message":{"role":"assistant","content":"\":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6006727Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6073129Z","message":{"role":"assistant","content":"Click"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6126735Z","message":{"role":"assistant","content":" on"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6214115Z","message":{"role":"assistant","content":" '"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6282219Z","message":{"role":"assistant","content":"Processes"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6339721Z","message":{"role":"assistant","content":"'"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6406968Z","message":{"role":"assistant","content":" tab"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6461703Z","message":{"role":"assistant","content":" in"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.652755Z","message":{"role":"assistant","content":" Task"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.659205Z","message":{"role":"assistant","content":" Manager"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6653068Z","message":{"role":"assistant","content":"\"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6721019Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6790284Z","message":{"role":"assistant","content":" },\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6850751Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6911645Z","message":{"role":"assistant","content":" {\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.6974087Z","message":{"role":"assistant","content":"   "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.705146Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.710495Z","message":{"role":"assistant","content":"description"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.7171542Z","message":{"role":"assistant","content":"\":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.7231453Z","message":{"role":"assistant","content":" \""},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.7293899Z","message":{"role":"assistant","content":"Look"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.7360738Z","message":{"role":"assistant","content":" for"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.7426589Z","message":{"role":"assistant","content":" '"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.749132Z","message":{"role":"assistant","content":"spotify"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.7561488Z","message":{"role":"assistant","content":".exe"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.7619191Z","message":{"role":"assistant","content":"'"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.7691177Z","message":{"role":"assistant","content":" process"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.7753921Z","message":{"role":"assistant","content":" and"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.7819069Z","message":{"role":"assistant","content":" click"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.7884721Z","message":{"role":"assistant","content":" '"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.7941466Z","message":{"role":"assistant","content":"End"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8006182Z","message":{"role":"assistant","content":" task"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8072752Z","message":{"role":"assistant","content":"'"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8131635Z","message":{"role":"assistant","content":" button"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8190222Z","message":{"role":"assistant","content":" next"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8279761Z","message":{"role":"assistant","content":" to"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8338798Z","message":{"role":"assistant","content":" it"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8412446Z","message":{"role":"assistant","content":"\"\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.847433Z","message":{"role":"assistant","content":" "},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8539134Z","message":{"role":"assistant","content":" }\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8601306Z","message":{"role":"assistant","content":"]\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.864691Z","message":{"role":"assistant","content":"``"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8732713Z","message":{"role":"assistant","content":"`\n\n"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8793239Z","message":{"role":"assistant","content":"Note"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8860211Z","message":{"role":"assistant","content":":"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8916354Z","message":{"role":"assistant","content":" The"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.8982563Z","message":{"role":"assistant","content":" second"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.9047457Z","message":{"role":"assistant","content":" set"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.9112581Z","message":{"role":"assistant","content":" of"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.9173938Z","message":{"role":"assistant","content":" tasks"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.9236106Z","message":{"role":"assistant","content":" requires"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.9293411Z","message":{"role":"assistant","content":" some"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.9364Z","message":{"role":"assistant","content":" basic"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.9429646Z","message":{"role":"assistant","content":" knowledge"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.9495473Z","message":{"role":"assistant","content":" of"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.9560918Z","message":{"role":"assistant","content":" Windows"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.9616719Z","message":{"role":"assistant","content":" shortcuts"},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.9671727Z","message":{"role":"assistant","content":"."},"done":false}
+{"model":"llama3.2","created_at":"2024-10-06T21:24:23.9747857Z","message":{"role":"assistant","content":""},"done_reason":"stop","done":true,"total_duration":1582825500,"load_duration":19058500,"prompt_eval_count":92,"prompt_eval_duration":215369000,"eval_count":189,"eval_duration":1346164000}
 
-2024/10/01 23:07:47 Logging started
-2024/10/01 23:08:33 Error executing command 'net stop spid': error executing command: exit status 1
-Output: The service name is invalid.
-
-More help is available by typing NET HELPMSG 2185.
-
-
-2024/10/01 23:12:18 Logging started
-2024/10/01 23:12:35 Error executing command 'net stop spotty': error executing command: exit status 1
-Output: The service name is invalid.
-
-More help is available by typing NET HELPMSG 2185.
-
-
-2024/10/01 23:12:47 Error executing command 'start': error executing command: exit status 1
-Output: Start-Process : Cannot process command because of one or more missing mandatory parameters: FilePath.
-At line:1 char:1
-+ start
-+ ~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [Start-Process], ParameterBindingException
-    + FullyQualifiedErrorId : MissingMandatoryParameter,Microsoft.PowerShell.Commands.StartProcessCommand
- 
-
-2024/10/01 23:12:48 Error executing command 'netflix.exe': error executing command: exit status 1
-Output: netflix.exe : The term 'netflix.exe' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and 
-try again.
-At line:1 char:1
-+ netflix.exe
-+ ~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (netflix.exe:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/01 23:13:47 Error executing command 'start': error executing command: exit status 1
-Output: Start-Process : Cannot process command because of one or more missing mandatory parameters: FilePath.
-At line:1 char:1
-+ start
-+ ~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [Start-Process], ParameterBindingException
-    + FullyQualifiedErrorId : MissingMandatoryParameter,Microsoft.PowerShell.Commands.StartProcessCommand
- 
-
-2024/10/01 23:15:02 Error executing command 'type': error executing command: exit status 1
-Output: Get-Content : Cannot process command because of one or more missing mandatory parameters: Path.
-At line:1 char:1
-+ type
-+ ~~~~
-    + CategoryInfo          : InvalidArgument: (:) [Get-Content], ParameterBindingException
-    + FullyQualifiedErrorId : MissingMandatoryParameter,Microsoft.PowerShell.Commands.GetContentCommand
- 
-
-2024/10/01 23:15:03 Error executing command 'Enter': error executing command: exit status 1
-Output: Enter : The term 'Enter' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:1
-+ Enter
-+ ~~~~~
-    + CategoryInfo          : ObjectNotFound: (Enter:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/01 23:25:30 Error reading input: EOF
-2024/10/01 23:25:33 Logging started
-2024/10/01 23:25:50 Error executing command 'type 'Snakes are reptiles'': error executing command: exit status 1
-Output: type : Cannot find path 'H:\WSA\Snakes are reptiles' because it does not exist.
-At line:1 char:1
-+ type 'Snakes are reptiles'
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (H:\WSA\Snakes are reptiles:String) [Get-Content], ItemNotFoundException
-    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
- 
-
-2024/10/01 23:28:10 Logging started
-2024/10/01 23:28:27 Error reading input: EOF
-2024/10/01 23:29:36 Logging started
-2024/10/01 23:34:59 Logging started
-2024/10/01 23:35:11 Error executing command 'chrome https://via.com': error executing command: exit status 1
-Output: chrome : The term 'chrome' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:1
-+ chrome https://via.com
-+ ~~~~~~
-    + CategoryInfo          : ObjectNotFound: (chrome:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/01 23:41:55 Logging started
-2024/10/01 23:43:07 Error executing command 'wmic product where "name="Get- installed software" and result=0", outputformat=json|base64 -q | ForEach-Object { $_ = [_]::ConvertFromJson($_) }': error executing command: exit status 1
-Output: base64 : The term 'base64' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:85
-+ ... - installed software" and result=0", outputformat=json|base64 -q | Fo ...
-+                                                            ~~~~~~
-    + CategoryInfo          : ObjectNotFound: (base64:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/01 23:43:07 Retrying with improved command: winget install Microsoft.MSBuild
-2024/10/01 23:43:07 Error executing command 'powershell -Command "Invoke-RestAPI -Uri https://api.github.com/repos/microsoft/terminal/releases/latest"': error executing command: exit status 1
-Output: Invoke-RestAPI : The term 'Invoke-RestAPI' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is 
-correct and try again.
-At line:1 char:1
-+ Invoke-RestAPI -Uri https://api.github.com/repos/microsoft/terminal/r ...
-+ ~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (Invoke-RestAPI:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/01 23:43:08 Retrying with improved command: choco install -y git chrome vscode codespaces nodejs python3
-2024/10/01 23:43:12 Error executing command 'winget install Microsoft.MSBuild': error executing command: exit status 1
-Output:    -    \                                                                                                                           █████████████████████▒▒▒▒▒▒▒▒▒  1024 KB / 1.36 MB  ██████████████████████████████  1.36 MB / 1.36 MB                                                                                                                          ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  0%  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  0%  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  1%  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  2%  █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  4%  █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  5%  ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  7%  ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  8%  ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  9%  ███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  11%  ███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  12%  ████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  14%  ████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  15%  █████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  17%  █████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  18%  ██████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  20%  ██████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  22%  ███████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  24%  ███████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  26%  ████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  27%  ████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  28%  ████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  28%  █████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  30%  █████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  32%  █████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  33%  ██████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  34%  ██████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  35%  ██████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  36%  ███████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  37%  ███████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  38%  ████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  40%  ████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  41%  ████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  42%  ████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  43%  █████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  44%  █████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  45%  █████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  46%  ██████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  47%  ███████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  51%  ████████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒  56%  █████████████████████▒▒▒▒▒▒▒▒▒  72%  █████████████████████████████▒  99%  █████████████████████████████▒  99%  ██████████████████████████████  100%                                                                                                                           -    \                                                                                                                         No package found matching input criteria.
-
-2024/10/01 23:47:01 Logging started
-2024/10/01 23:47:12 Error executing command 'powershell Start-Process -FilePath "C:\Program Files (x86)\ Spotify\spotify.exe"': error executing command: exit status 1
-Output: x86 : The term 'x86' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:43
-+ Start-Process -FilePath C:\Program Files (x86)\ Spotify\spotify.exe
-+                                           ~~~
-    + CategoryInfo          : ObjectNotFound: (x86:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/01 23:47:13 Retrying with improved command: Start-Process -FilePath "C:\Program Files (x86)\Spotify\spotify.exe" -ArgumentList "--no-skip-connectivity --no-shuffle --play"
-2024/10/01 23:47:14 Error executing command 'Start-Process -FilePath "C:\Program Files (x86)\Spotify\spotify.exe" -ArgumentList "--no-skip-connectivity --no-shuffle --play"': error executing command: exit status 1
-Output: Start-Process : This command cannot be run due to the error: The system cannot find the file specified.
-At line:1 char:1
-+ Start-Process -FilePath "C:\Program Files (x86)\Spotify\spotify.exe"  ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
-    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
- 
-
-2024/10/01 23:47:15 Retrying with improved command: Where-Object {$_.Path -like 'C:\Program Files\Spotify\spotify.exe'} | Select-Object -ExpandProperty Path
-2024/10/02 00:03:58 Logging started
-2024/10/02 00:04:25 Logging started
-2024/10/02 00:04:49 Error executing command 'powershell New-PsScriptBlock {param($args) $script = @'@ While ($True) { Write-Host 'Ssss!' } '@} -ScriptBlock $script': error executing command: exit status 1
-Output: At line:1 char:56
-+ powershell New-PsScriptBlock {param($args) $script = @'@ While ($True ...
-+                                                        ~
-No characters are allowed after a here-string header but before the end of the line.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : UnexpectedCharactersAfterHereStringHeader
- 
-
-2024/10/02 00:04:50 Error executing command 'powershell Start-Process powershell.exe -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File C:	emp
-ew.ps1'': error executing command: exit status 1
-Output: Start-Process : A positional parameter cannot be found that accepts argument 'powershell.exe'.
-At line:1 char:1
-+ Start-Process powershell.exe -ArgumentList -NoProfile -ExecutionPolic ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [Start-Process], ParameterBindingException
-    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.StartProcessCommand
- 
-ew.ps1 : The term 'ew.ps1' is not recognized as the name of a cmdlet, function, script file, or operable program. 
-Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:2 char:1
-+ ew.ps1
-+ ~~~~~~
-    + CategoryInfo          : ObjectNotFound: (ew.ps1:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/02 00:04:50 Retrying with improved command: powershell New-PsScriptBlock {param($args) $script = @'@ While (True) {$snakeName = Read-Host 'Enter snake name: '} Write-Host "You have to enter a valid snake name" | Out-File -FilePath C:\Users\Public\snake.txt&
-2024/10/02 00:04:51 Retrying with improved command: powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\path\to\your\script.ps1
-2024/10/02 00:04:51 Error executing command 'powershell New-PsScriptBlock {param($args) $script = @'@ While (True) {$snakeName = Read-Host 'Enter snake name: '} Write-Host "You have to enter a valid snake name" | Out-File -FilePath C:\Users\Public\snake.txt&': error executing command: exit status 1
-Output: At line:1 char:56
-+ powershell New-PsScriptBlock {param($args) $script = @'@ While (True) ...
-+                                                        ~
-No characters are allowed after a here-string header but before the end of the line.
-At line:1 char:30
-+ powershell New-PsScriptBlock {param($args) $script = @'@ While (True) ...
-+                              ~
-Missing closing '}' in statement block or type definition.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : UnexpectedCharactersAfterHereStringHeader
- 
-
-2024/10/02 00:04:52 Error executing command 'powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\path\to\your\script.ps1': error executing command: exit status 1
-Output: The argument 'C:\path\to\your\script.ps1' to the -File parameter does not exist. Provide the path to an existing '.ps1' file as an argument to the -File parameter.
-Windows PowerShell
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
-
-
-2024/10/02 00:04:53 Error getting improved command from LLM: LLM generated a dangerous command: powershell -Command "New-PsScriptBlock {param($args) $script = @'@ While (1==1) {$a = Get-Process -Name 'snake.exe'} if ($a -eq $null) {Start-Process -FilePath 'C:\Windows\System32\snakes.exe' -Wait -PassThru} else {Stop-Process -Id $a.Id -Force}"
-2024/10/02 00:04:53 Failed to execute command 'powershell New-PsScriptBlock {param($args) $script = @'@ While (True) {$snakeName = Read-Host 'Enter snake name: '} Write-Host "You have to enter a valid snake name" | Out-File -FilePath C:\Users\Public\snake.txt&' after 3 attempts.
-2024/10/02 00:04:53 Retrying with improved command: start ms-paint
-2024/10/02 00:04:54 Error executing command 'start ms-paint': error executing command: exit status 1
-Output: start : This command cannot be run due to the error: The system cannot find the file specified.
-At line:1 char:1
-+ start ms-paint
-+ ~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
-    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
- 
-
-2024/10/02 00:04:55 Retrying with improved command: start ms-paint
-2024/10/02 00:04:55 Failed to execute command 'start ms-paint' after 3 attempts.
-2024/10/02 00:12:41 Logging started
-2024/10/02 00:20:51 Logging started
-2024/10/02 00:30:25 Logging started
-2024/10/02 00:39:40 Logging started
-2024/10/02 00:40:18 Logging started
-2024/10/02 00:40:46 Error getting shell command: no commands generated by LLM
-2024/10/02 00:59:45 Logging started
-2024/10/02 01:00:03 Error getting shell command: no commands generated by LLM
-2024/10/02 01:16:19 Error reading input: EOF
-2024/10/02 01:16:21 Logging started
-2024/10/02 01:16:58 Error getting shell command: no commands generated by LLM
-2024/10/02 01:19:57 Logging started
-2024/10/02 01:20:51 Error executing command 'type NUL > C:\Users\YourUsername\AppData\Roaming\Microsoft\Windows\Notepad\note.txt': error executing command: exit status 1
-Output: out-file : Could not find a part of the path 'C:\Users\YourUsername\AppData\Roaming\Microsoft\Windows\Notepad\note.txt'.
-At line:1 char:1
-+ type NUL > C:\Users\YourUsername\AppData\Roaming\Microsoft\Windows\No ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : OpenError: (:) [Out-File], DirectoryNotFoundException
-    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
- 
-
-2024/10/02 01:20:52 Retrying with improved command: mkdir C:\Users\YourUsername\AppData\Roaming\Microsoft\Windows\Notepad
-2024/10/02 01:20:53 Error executing command 'mkdir C:\Users\YourUsername\AppData\Roaming\Microsoft\Windows\Notepad': error executing command: exit status 1
-Output: mkdir : An item with the specified name C:\Users\YourUsername\AppData\Roaming\Microsoft\Windows\Notepad already exists.
-At line:1 char:1
-+ mkdir C:\Users\YourUsername\AppData\Roaming\Microsoft\Windows\Notepad
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ResourceExists: (C:\Users\YourUs...Windows\Notepad:String) [New-Item], IOException
-    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.NewItemCommand
- 
-
-2024/10/02 01:20:54 Retrying with improved command: mkdir C:\\Users\\YourUsername\\AppData\\Roaming\\Microsoft\\Windows\\Notepad
-2024/10/02 01:20:55 Error executing command 'mkdir C:\\Users\\YourUsername\\AppData\\Roaming\\Microsoft\\Windows\\Notepad': error executing command: exit status 1
-Output: mkdir : An item with the specified name C:\Users\YourUsername\AppData\Roaming\Microsoft\Windows\Notepad already exists.
-At line:1 char:1
-+ mkdir C:\\Users\\YourUsername\\AppData\\Roaming\\Microsoft\\Windows\\ ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ResourceExists: (C:\Users\YourUs...Windows\Notepad:String) [New-Item], IOException
-    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.NewItemCommand
- 
-
-2024/10/02 01:20:56 Retrying with improved command: mkdir C:\Users\YourUsername\AppData\Roaming\Microsoft\Windows\Notepad
-2024/10/02 01:20:56 Failed to execute command 'mkdir C:\Users\YourUsername\AppData\Roaming\Microsoft\Windows\Notepad' after 3 attempts.
-2024/10/02 01:24:44 Logging started
-2024/10/02 01:24:56 Error executing command 'type Hello, World!': error executing command: exit status 1
-Output: type : Cannot find path 'H:\WSA\Hello' because it does not exist.
-At line:1 char:1
-+ type Hello, World!
-+ ~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (H:\WSA\Hello:String) [Get-Content], ItemNotFoundException
-    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
- 
-type : Cannot find path 'H:\WSA\World!' because it does not exist.
-At line:1 char:1
-+ type Hello, World!
-+ ~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (H:\WSA\World!:String) [Get-Content], ItemNotFoundException
-    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
- 
-
-2024/10/02 01:24:57 Retrying with improved command: notepad
-2024/10/02 01:38:01 Logging started
-2024/10/02 01:38:22 Error executing command 'type "Notes about Snakes"': error executing command: exit status 1
-Output: type : Cannot find path 'H:\WSA\Notes about Snakes' because it does not exist.
-At line:1 char:1
-+ type "Notes about Snakes"
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (H:\WSA\Notes about Snakes:String) [Get-Content], ItemNotFoundException
-    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
- 
-
-2024/10/02 01:38:23 Retrying with improved command: notepad
-2024/10/02 01:44:00 Logging started
-2024/10/02 01:45:30 Command 'notepad' executed successfully on attempt 1.
-2024/10/02 01:45:30 Command 'echo Hello World!' executed successfully on attempt 1.
-2024/10/02 01:55:05 Logging started
-2024/10/02 01:55:14 Command 'notepad' executed successfully on attempt 1.
-2024/10/02 01:55:14 Error executing command 'type Hello World': error executing command: exit status 1
-Output: Get-Content : A positional parameter cannot be found that accepts argument 'World'.
-At line:1 char:1
-+ type Hello World
-+ ~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [Get-Content], ParameterBindingException
-    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.GetContentCommand
- 
-
-2024/10/02 01:55:15 Retrying with improved command: [Code] $note = New-Item -ItemType Directory -Path 'C:\Users\username\Documents\Notes' ; if (!(Test-Path -Path $note)) { New-Item -ItemType Directory -Path $note }
-2024/10/02 01:55:16 Error executing command '[Code] $note = New-Item -ItemType Directory -Path 'C:\Users\username\Documents\Notes' ; if (!(Test-Path -Path $note)) { New-Item -ItemType Directory -Path $note }': error executing command: exit status 1
-Output: Unable to find type [Code].
-At line:1 char:1
-+ [Code] $note = New-Item -ItemType Directory -Path 'C:\Users\username\ ...
-+ ~~~~~~
-    + CategoryInfo          : InvalidOperation: (Code:TypeName) [], RuntimeException
-    + FullyQualifiedErrorId : TypeNotFound
- 
-Test-Path : Cannot bind argument to parameter 'Path' because it is null.
-At line:1 char:111
-+ ... Users\username\Documents\Notes' ; if (!(Test-Path -Path $note)) { New ...
-+                                                             ~~~~~
-    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
-    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Commands.TestPathCommand
- 
-
-2024/10/02 01:55:17 Retrying with improved command: notepad C:\Users\username\Documents\Notes.txt
-2024/10/02 01:55:33 Command 'notepad C:\Users\username\Documents\Notes.txt' executed successfully on attempt 3.
-2024/10/02 02:01:23 Logging started
-2024/10/02 02:01:35 Command 'notepad' executed successfully on attempt 1.
-2024/10/02 02:01:36 Error executing command 'type Hello, World!': error executing command: exit status 1
-Output: type : Cannot find path 'H:\WSA\Hello' because it does not exist.
-At line:1 char:1
-+ type Hello, World!
-+ ~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (H:\WSA\Hello:String) [Get-Content], ItemNotFoundException
-    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
- 
-type : Cannot find path 'H:\WSA\World!' because it does not exist.
-At line:1 char:1
-+ type Hello, World!
-+ ~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (H:\WSA\World!:String) [Get-Content], ItemNotFoundException
-    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
- 
-
-2024/10/02 02:01:43 Error getting improved command from LLM: failed to parse assistant's message as CombinedPrompt: json: cannot unmarshal number into Go struct field CombinedPrompt.commands of type string
-Message content: { "nlResponse": "", "commands": ["powershell -NoProfile -WindowStyle Hidden -InputFormat None -Command \"& 'C:\rogram Files\/windowsrs powershell\new.ps1'\"", "AUTOHOTKEY:Send,~ type Hello, World!] } } Note that I added the correct path for PowerShell executable and also used new command in new.ps1 file which is type command to input text. Please make sure you have replaced C:\rogram Files\/windowsrs with actual path of windows rs powershell executable if it different from default location. Also ensure you run this command in command prompt or PS to avoid errors. The previous command failed with the following error: " 
-
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0 
-  , 
-  -0
-]}
-2024/10/02 02:01:43 Failed to execute command 'type Hello, World!' after 3 attempts.
-2024/10/02 02:13:40 Logging started
-2024/10/02 02:13:48 Error executing command 'AUTOHOTKEY:Send,Hello World!{Enter}': error executing AutoHotkey script: error executing AutoHotkey script: exec: "AutoHotkey.exe": executable file not found in %PATH%
-Output: 
-2024/10/02 02:13:49 Retrying with improved command: notepad
-2024/10/02 02:13:49 Command 'notepad' executed successfully on attempt 1.
-2024/10/02 02:13:49 Error executing command 'if exist C:\Users\username\Documents otes.txt { mkdir C:\Users\username\Documents otes } else {mkdir C:\Users\username\Documents otes}': error executing command: exit status 1
-Output: At line:1 char:3
-+ if exist C:\Users\username\Documents otes.txt { mkdir C:\Users\userna ...
-+   ~
-Missing '(' after 'if' in if statement.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingOpenParenthesisInIfStatement
- 
-
-2024/10/02 02:13:50 Retrying with improved command: notepad.exe
-2024/10/02 02:14:07 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 02:14:10 Command 'notepad' executed successfully on attempt 2.
-2024/10/02 02:21:13 Logging started
-2024/10/02 02:21:25 Skipping unrecognized command: notepad.exe
-2024/10/02 02:21:25 Error executing command 'AUTOHOTKEY:Send, This is a new line.{Enter}': error executing AutoHotkey script: AutoHotkey.exe not found in PATH: exec: "AutoHotkey.exe": executable file not found in %PATH%
-2024/10/02 02:21:25 Error executing command 'AUTOHOTKEY:WinWaitActive, Untitled - Notepad': error executing AutoHotkey script: AutoHotkey.exe not found in PATH: exec: "AutoHotkey.exe": executable file not found in %PATH%
-2024/10/02 02:21:25 Error executing command 'AUTOHOTKEY:Send, Hello World!{Enter}': error executing AutoHotkey script: AutoHotkey.exe not found in PATH: exec: "AutoHotkey.exe": executable file not found in %PATH%
-2024/10/02 02:21:26 Retrying with improved command: notepad.exe
-2024/10/02 02:21:26 Retrying with improved command: notepad.exe
-2024/10/02 02:21:26 Retrying with improved command: notepad.exe
-2024/10/02 02:21:26 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 02:21:33 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 02:21:33 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 02:45:26 Logging started
-2024/10/02 02:45:36 Command 'notepad.exe' executed successfully on attempt 1.
-2024/10/02 02:45:36 Error executing command 'powershell -NoProfile -WindowStyle Hidden -Command "[Console]::Output("Open Notes and type something: ")" && start notepad.exe': error executing command: exit status 1
-Output: At line:1 char:107
-+ ... and "[Console]::Output("Open Notes and type something: ")" && start n ...
-+                                                                ~~
-The token '&&' is not a valid statement separator in this version.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : InvalidEndOfLine
- 
-
-2024/10/02 02:45:36 Retrying with improved command: notepad
-2024/10/02 02:46:06 Command 'notepad' executed successfully on attempt 2.
-2024/10/02 02:56:29 Logging started
-2024/10/02 02:56:42 Error executing command 'WinWaitActive, Untitled - Notepad': error executing command: exit status 1
-Output: At line:1 char:14
-+ WinWaitActive, Untitled - Notepad
-+              ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 02:56:42 Error executing command 'Send, Definition of a snake: a legless, carnivorous mammal that moves without limbs. ': error executing command: exit status 1
-Output: At line:1 char:5
-+ Send, Definition of a snake: a legless, carnivorous mammal that moves ...
-+     ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 02:56:42 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 02:56:43 Retrying with improved command: notepad
-2024/10/02 02:56:43 Retrying with improved command: notepad.exe
-2024/10/02 02:56:44 Retrying with improved command: Run, notepad.exe
-2024/10/02 02:56:44 Command 'notepad' executed successfully on attempt 2.
-2024/10/02 02:56:45 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 02:56:46 Retrying with improved command: notepad
-2024/10/02 02:56:51 Command 'notepad' executed successfully on attempt 3.
-2024/10/02 02:56:51 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 02:59:24 Logging started
-2024/10/02 02:59:28 Command 'notepad.exe' executed successfully on attempt 1.
-2024/10/02 02:59:28 Error executing command 'WinWaitActive, Untitled - Notepad': error executing command: exit status 1
-Output: At line:1 char:14
-+ WinWaitActive, Untitled - Notepad
-+              ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 02:59:28 Error executing command 'Send, This is a test note.': error executing command: exit status 1
-Output: At line:1 char:5
-+ Send, This is a test note.
-+     ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 02:59:29 Retrying with improved command: Run, notepad.exe
-2024/10/02 02:59:29 Retrying with improved command: notepad.exe
-2024/10/02 02:59:29 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 02:59:30 Retrying with improved command: notepad
-2024/10/02 02:59:37 Command 'notepad' executed successfully on attempt 3.
-2024/10/02 02:59:38 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 03:04:33 Logging started
-2024/10/02 03:04:40 Error executing command 'AUTOHOTKEY:Send, This is a test note.': error executing AutoHotkey script: AutoHotkey.exe not found in PATH. Please ensure AutoHotkey is installed and the PATH is set correctly.
-2024/10/02 03:04:40 Error executing command 'AUTOHOTKEY:WinWaitActive, Untitled - Notepad': error executing AutoHotkey script: AutoHotkey.exe not found in PATH. Please ensure AutoHotkey is installed and the PATH is set correctly.
-2024/10/02 03:04:41 Retrying with improved command: notepad.exe
-2024/10/02 03:04:41 Command 'notepad.exe' executed successfully on attempt 1.
-2024/10/02 03:04:41 Retrying with improved command: notepad.exe
-2024/10/02 03:04:48 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 03:04:49 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 03:11:41 Logging started
-2024/10/02 03:11:47 Command 'notepad.exe' executed successfully on attempt 1.
-2024/10/02 03:11:47 Error executing command 'Send, Hello World!': error executing command: exit status 1
-Output: At line:1 char:5
-+ Send, Hello World!
-+     ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:11:47 Error executing command 'WinWaitActive, Untitled - Notepad': error executing command: exit status 1
-Output: At line:1 char:14
-+ WinWaitActive, Untitled - Notepad
-+              ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:11:48 Retrying with improved command: notepad.exe
-2024/10/02 03:11:48 Retrying with improved command: Run, notepad.exe
-2024/10/02 03:11:49 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:11:49 Retrying with improved command: notepad.exe
-2024/10/02 03:12:01 Command 'notepad.exe' executed successfully on attempt 3.
-2024/10/02 03:12:01 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 03:18:36 Logging started
-2024/10/02 03:18:41 Error executing command 'Send, This is a test note.': error executing command: exit status 1
-Output: At line:1 char:5
-+ Send, This is a test note.
-+     ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:18:41 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:18:41 Error executing command 'WinWaitActive, Untitled - Notepad': error executing command: exit status 1
-Output: At line:1 char:14
-+ WinWaitActive, Untitled - Notepad
-+              ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:18:42 Retrying with improved command: notepad.exe
-2024/10/02 03:18:42 Retrying with improved command: notepad.exe
-2024/10/02 03:18:42 Retrying with improved command: notepad.exe
-2024/10/02 03:18:43 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 03:18:55 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 03:18:55 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 03:19:03 Error getting shell command: no commands generated by LLM
-2024/10/02 03:19:11 Error executing command 'WinMinimize, Spotify': error executing command: exit status 1
-Output: At line:1 char:12
-+ WinMinimize, Spotify
-+            ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:19:11 Error executing command 'WinActivate, Spotify': error executing command: exit status 1
-Output: At line:1 char:12
-+ WinActivate, Spotify
-+            ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:19:12 Retrying with improved command: Spotify
-2024/10/02 03:19:12 Retrying with improved command: WinActivate, Spotify
-2024/10/02 03:19:13 Command 'Spotify' executed successfully on attempt 2.
-2024/10/02 03:19:13 Error executing command 'WinActivate, Spotify': error executing command: exit status 1
-Output: At line:1 char:12
-+ WinActivate, Spotify
-+            ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:19:14 Error getting improved command from LLM: no commands generated by LLM
-2024/10/02 03:19:14 Failed to execute command 'WinActivate, Spotify' after 3 attempts.
-2024/10/02 03:19:30 Command 'notepad.exe' executed successfully on attempt 1.
-2024/10/02 03:21:41 Logging started
-2024/10/02 03:21:44 Command 'notepad.exe' executed successfully on attempt 1.
-2024/10/02 03:21:44 Error executing command 'Send, This is a test note.': error executing command: exit status 1
-Output: At line:1 char:5
-+ Send, This is a test note.
-+     ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:21:44 Error executing command 'WinWaitActive, Untitled - Notepad': error executing command: exit status 1
-Output: At line:1 char:14
-+ WinWaitActive, Untitled - Notepad
-+              ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:21:45 Retrying with improved command: notepad.exe
-2024/10/02 03:21:45 Error getting improved command from LLM: failed to parse assistant's message as CombinedPrompt: json: cannot unmarshal object into Go struct field CombinedPrompt.commands of type string
-Message content: {
-  "nlResponse": "Opening Notepad and writing your note.",
-  "commands": [
-    "AUTOHOTKEY:Run, notepad.exe",
-    "WinActivate,notepad.exe",
-    "WinMinimize,notepad.exe",
-    "Send, +o", 	{ "open"   :  "open a file to edit"}
-    ]
-}
-2024/10/02 03:21:45 Failed to execute command 'WinWaitActive, Untitled - Notepad' after 3 attempts.
-2024/10/02 03:21:52 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 03:21:56 Error executing command 'WinWaitActive, Untitled - Notepad': error executing command: exit status 1
-Output: At line:1 char:14
-+ WinWaitActive, Untitled - Notepad
-+              ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:21:56 Error executing command 'Send, This is a test note.': error executing command: exit status 1
-Output: At line:1 char:5
-+ Send, This is a test note.
-+     ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:21:56 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:21:57 Retrying with improved command: Run, notepad.exe
-2024/10/02 03:21:57 Retrying with improved command: Run, notepad.exe
-2024/10/02 03:21:57 Retrying with improved command: Run, notepad.exe
-2024/10/02 03:21:58 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:21:58 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:21:58 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:21:58 Retrying with improved command: notepad.exe
-2024/10/02 03:21:59 Retrying with improved command: Run, notepad.exe
-2024/10/02 03:21:59 Retrying with improved command: WinWaitActive, Untitled - Notepad
-2024/10/02 03:21:59 Command 'notepad.exe' executed successfully on attempt 3.
-2024/10/02 03:22:00 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:22:00 Error executing command 'WinWaitActive, Untitled - Notepad': error executing command: exit status 1
-Output: At line:1 char:14
-+ WinWaitActive, Untitled - Notepad
-+              ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:22:01 Retrying with improved command: WinActivate, Notepad
-2024/10/02 03:22:01 Failed to execute command 'WinActivate, Notepad' after 3 attempts.
-2024/10/02 03:22:01 Retrying with improved command: Run, notepad.exe
-2024/10/02 03:22:01 Failed to execute command 'Run, notepad.exe' after 3 attempts.
-2024/10/02 03:22:02 Error executing command 'Send, ': error executing command: exit status 1
-Output: At line:1 char:5
-+ Send,
-+     ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:22:02 Error executing command 'WinWaitActive, Untitled - Notepad': error executing command: exit status 1
-Output: At line:1 char:14
-+ WinWaitActive, Untitled - Notepad
-+              ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:22:02 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:22:03 Retrying with improved command: Run, notepad.exe
-2024/10/02 03:22:03 Retrying with improved command: Run, notepad.exe
-2024/10/02 03:22:03 Retrying with improved command: Run, notepad.exe
-2024/10/02 03:22:04 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:22:04 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:22:04 Error executing command 'Run, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:4
-+ Run, notepad.exe
-+    ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:22:04 Retrying with improved command: WinActivate, notepad.exe
-2024/10/02 03:22:05 Retrying with improved command: WinActivate, notepad.exe
-2024/10/02 03:22:05 Retrying with improved command: AUTOHOTKEY:Run, notepad.exe
-2024/10/02 03:22:05 Error executing command 'WinActivate, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:12
-+ WinActivate, notepad.exe
-+            ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:22:06 Error getting improved command from LLM: no commands generated by LLM
-2024/10/02 03:22:06 Failed to execute command 'WinActivate, notepad.exe' after 3 attempts.
-2024/10/02 03:22:06 Error executing command 'WinActivate, notepad.exe': error executing command: exit status 1
-Output: At line:1 char:12
-+ WinActivate, notepad.exe
-+            ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:22:06 Retrying with improved command: Run, notepad.exe
-2024/10/02 03:22:06 Failed to execute command 'Run, notepad.exe' after 3 attempts.
-2024/10/02 03:22:11 Error executing command 'AUTOHOTKEY:Run, notepad.exe': error executing AutoHotkey script: error executing AutoHotkey script: exit status 2
-Output: 
-2024/10/02 03:22:11 Retrying with improved command: WinActivate notepad.exe
-2024/10/02 03:22:11 Failed to execute command 'WinActivate notepad.exe' after 3 attempts.
-2024/10/02 03:22:19 Error reading input: EOF
-2024/10/02 03:22:44 Logging started
-2024/10/02 03:22:52 Error executing command 'WinWaitActive, Untitled - Notepad': error executing command: exit status 1
-Output: At line:1 char:14
-+ WinWaitActive, Untitled - Notepad
-+              ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:22:52 Error executing command 'Send, This is a test note.': error executing command: exit status 1
-Output: At line:1 char:5
-+ Send, This is a test note.
-+     ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:22:53 Retrying with improved command: AUTOHOTKEY:Run, notepad.exe
-2024/10/02 03:22:53 Error executing command 'AUTOHOTKEY:Run, notepad.exe': AutoHotkey commands should be handled separately
-2024/10/02 03:22:53 Retrying with improved command: notepad.exe
-2024/10/02 03:22:53 Retrying with improved command: AUTOHOTKEY:Run, notepad.exe
-2024/10/02 03:22:53 Error executing command 'AUTOHOTKEY:Run, notepad.exe': AutoHotkey commands should be handled separately
-2024/10/02 03:22:54 Retrying with improved command: notepad.exe
-2024/10/02 03:22:54 Failed to execute command 'notepad.exe' after 3 attempts.
-2024/10/02 03:22:54 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 03:23:10 Error executing AutoHotkey script: error executing AutoHotkey script: exit status 2
-Output: 
-2024/10/02 03:40:40 Logging started
-2024/10/02 03:40:54 Command 'notepad.exe' executed successfully on attempt 1.
-2024/10/02 03:40:54 Error executing command 'Send, This is a test note.': error executing command: exit status 1
-Output: At line:1 char:5
-+ Send, This is a test note.
-+     ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:40:54 Error executing command 'WinWaitActive, Untitled - Notepad': error executing command: exit status 1
-Output: At line:1 char:14
-+ WinWaitActive, Untitled - Notepad
-+              ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 03:40:55 Retrying with improved command: notepad.exe
-2024/10/02 03:40:55 Retrying with improved command: cmd /c start notepad.exe
-2024/10/02 03:41:00 Command 'cmd /c start notepad.exe' executed successfully on attempt 2.
-2024/10/02 03:41:01 Command 'notepad.exe' executed successfully on attempt 2.
-2024/10/02 03:41:37 Error executing command 'powershell -Command "Start-Process google.com -ArgumentList ('anime' + ' chrome')"': error executing command: exit status 1
-Output: Start-Process : This command cannot be run due to the error: The system cannot find the file specified.
-At line:1 char:1
-+ Start-Process google.com -ArgumentList ('anime' + ' chrome')
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
-    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
- 
-
-2024/10/02 03:41:37 Command 'powershell -Command "Set-Location C:\Users\User\Desktop"; New-Item -ItemType Directory -Name AnimeChromeSearchResults;' executed successfully on attempt 1.
-2024/10/02 03:41:38 Retrying with improved command: Start-Process google.com -ArgumentList ('anime' + ' chrome')
-2024/10/02 03:41:39 Error executing command 'Start-Process google.com -ArgumentList ('anime' + ' chrome')': error executing command: exit status 1
-Output: Start-Process : This command cannot be run due to the error: The system cannot find the file specified.
-At line:1 char:1
-+ Start-Process google.com -ArgumentList ('anime' + ' chrome')
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
-    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
- 
-
-2024/10/02 03:41:39 Retrying with improved command: Start-Process google.com -ArgumentList ('anime' + ' chrome')
-2024/10/02 03:41:40 Error executing command 'Start-Process google.com -ArgumentList ('anime' + ' chrome')': error executing command: exit status 1
-Output: Start-Process : This command cannot be run due to the error: The system cannot find the file specified.
-At line:1 char:1
-+ Start-Process google.com -ArgumentList ('anime' + ' chrome')
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
-    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
- 
-
-2024/10/02 03:41:41 Retrying with improved command: start google.com
-2024/10/02 03:41:41 Failed to execute command 'start google.com' after 3 attempts.
-2024/10/02 03:42:09 Error executing command 'if not exist AnimeSearch (mkdir)': error executing command: exit status 1
-Output: At line:1 char:3
-+ if not exist AnimeSearch (mkdir)
-+   ~
-Missing '(' after 'if' in if statement.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingOpenParenthesisInIfStatement
- 
-
-2024/10/02 03:42:09 Command 'mkdir AnimeSearch' executed successfully on attempt 1.
-2024/10/02 03:42:10 Retrying with improved command: AUTOHOTKEY:
-2024/10/02 03:42:10 Error executing command 'AUTOHOTKEY:': AutoHotkey commands should be handled separately
-2024/10/02 03:42:11 Retrying with improved command: AUTOHOTKEY:*
-2024/10/02 03:42:11 Error executing command 'AUTOHOTKEY:*': AutoHotkey commands should be handled separately
-2024/10/02 03:42:12 Retrying with improved command: AUTOHOTKEY:
-2024/10/02 03:42:12 Failed to execute command 'AUTOHOTKEY:' after 3 attempts.
-2024/10/02 03:42:52 Error executing AutoHotkey script: error executing AutoHotkey script: exit status 2
-Output: 
-2024/10/02 03:53:53 Logging started
-2024/10/02 03:57:49 Error executing AutoHotkey script: error executing AutoHotkey script: exit status 2
-Output: 
-2024/10/02 04:04:34 Logging started
-2024/10/02 04:04:44 Error getting shell command: LLM generated a dangerous command: powershell -Command "Remove-Item -Path 'C:\\Users\\User\\Desktop\\Untitled.txt' -Force"
-2024/10/02 04:05:41 Logging started
-2024/10/02 04:06:01 Error executing AutoHotkey script: error executing AutoHotkey script: exit status 2
-Output: 
-2024/10/02 04:07:55 Executing command (Attempt 1): powershell -Command "New-Item -ItemType Note -Path 'C:\\Users\\User\\Desktop\\Notes'"
-2024/10/02 04:07:57 Error executing command 'powershell -Command "New-Item -ItemType Note -Path 'C:\\Users\\User\\Desktop\\Notes'"': error executing command: exit status 1
-Output: New-Item : The type is not a known type for the file system. Only "file","directory" or "symboliclink" can be 
-specified.
-At line:1 char:1
-+ New-Item -ItemType Note -Path 'C:\\Users\\User\\Desktop\\Notes'
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [New-Item], PSArgumentException
-    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.NewItemCommand
- 
-
-2024/10/02 04:07:57 Retrying with improved command: WinActivate, Notepad
-2024/10/02 04:07:57 Executing command (Attempt 2): WinActivate, Notepad
-2024/10/02 04:07:58 Error executing AutoHotkey script: error executing AutoHotkey script: exit status 2
-Output: 
-2024/10/02 04:07:58 Error executing command 'WinActivate, Notepad': error executing command: exit status 1
-Output: At line:1 char:12
-+ WinActivate, Notepad
-+            ~
-Missing argument in parameter list.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : MissingArgument
- 
-
-2024/10/02 04:07:59 Retrying with improved command: powershell -Command "if (-Not (Test-Path -Path 'C:\Users\User\AppData\Local\Microsoft\Neptune\Notes')) { New-Item -ItemType Directory -Path 'C:\Users\User\AppData\Local\Microsoft\Neptune\Notes' }"
-2024/10/02 04:07:59 Executing command (Attempt 3): powershell -Command "if (-Not (Test-Path -Path 'C:\Users\User\AppData\Local\Microsoft\Neptune\Notes')) { New-Item -ItemType Directory -Path 'C:\Users\User\AppData\Local\Microsoft\Neptune\Notes' }"
-2024/10/02 04:08:03 Logging started
-2024/10/02 04:08:16 Executing command (Attempt 1): powershell -Command "start-process firefox.exe -ArgumentList '/newtab'"
-2024/10/02 04:08:16 Executing command (Attempt 1): powershell -Command "New-Object -ComObject Mozilla.Application &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe"&quot;"
-2024/10/02 04:08:17 Error executing command 'powershell -Command "New-Object -ComObject Mozilla.Application &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe"&quot;"': error executing command: exit status 1
-Output: At line:1 char:118
-+ ... ication &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe"&quot;"
-+                                                                   ~
-The ampersand (&) character is not allowed. The & operator is reserved for future use; wrap an ampersand in double 
-quotation marks ("&") to pass it as part of a string.
-At line:1 char:124
-+ ... ication &quot;C:\\Program Files\\Mozilla Firefox\\firefox.exe"&quot;"
-+                                                                         ~
-The string is missing the terminator: ".
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : AmpersandNotAllowed
- 
-
-2024/10/02 04:08:18 Command 'powershell -Command "start-process firefox.exe -ArgumentList '/newtab'"' executed successfully on attempt 1.
-2024/10/02 04:08:19 Retrying with improved command: powershell -Command "New-Object System.Diagnostics.Process; $process = New-Object System.Diagnostics.Process; $process.StartInfo.FileName = "C:\Program Files\Mozilla Firefox\firefox.exe"; $process.Start();$process.WaitForExit();"
-2024/10/02 04:08:19 Executing command (Attempt 2): powershell -Command "New-Object System.Diagnostics.Process; $process = New-Object System.Diagnostics.Process; $process.StartInfo.FileName = "C:\Program Files\Mozilla Firefox\firefox.exe"; $process.Start();$process.WaitForExit();"
-2024/10/02 04:08:20 Error executing command 'powershell -Command "New-Object System.Diagnostics.Process; $process = New-Object System.Diagnostics.Process; $process.StartInfo.FileName = "C:\Program Files\Mozilla Firefox\firefox.exe"; $process.Start();$process.WaitForExit();"': error executing command: exit status 1
-Output: At line:1 char:158
-+ ... Name =  C:\Program Files\Mozilla Firefox\firefox.exe; .Start();.WaitF ...
-+                                                                  ~
-An expression was expected after '('.
-At line:1 char:173
-+ ... :\Program Files\Mozilla Firefox\firefox.exe; .Start();.WaitForExit();
-+                                                                        ~
-An expression was expected after '('.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : ExpectedExpression
- 
-
-2024/10/02 04:08:21 Retrying with improved command: powershell -Command "firefox.exe &"
-2024/10/02 04:08:21 Executing command (Attempt 3): powershell -Command "firefox.exe &"
-2024/10/02 04:08:24 Error executing command 'powershell -Command "firefox.exe &"': error executing command: exit status 1
-Output: At line:1 char:13
-+ firefox.exe &
-+             ~
-The ampersand (&) character is not allowed. The & operator is reserved for future use; wrap an ampersand in double 
-quotation marks ("&") to pass it as part of a string.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : AmpersandNotAllowed
- 
-
-2024/10/02 04:08:24 Failed to execute command 'powershell -Command "firefox.exe &"' after 3 attempts.
-2024/10/02 04:08:41 Executing command (Attempt 1): powershell -Command "New-Object -Com Firefox" & "Firefox" & "https://www.anime-portal.com/"
-2024/10/02 04:08:41 Executing command (Attempt 1): powershell -Command "New-Item -ItemType ScriptFile -Path 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'"
-2024/10/02 04:08:42 Error executing command 'powershell -Command "New-Object -Com Firefox" & "Firefox" & "https://www.anime-portal.com/"': error executing command: exit status 1
-Output: At line:1 char:47
-+ powershell -Command "New-Object -Com Firefox" & "Firefox" & "https:// ...
-+                                               ~
-The ampersand (&) character is not allowed. The & operator is reserved for future use; wrap an ampersand in double 
-quotation marks ("&") to pass it as part of a string.
-At line:1 char:59
-+ powershell -Command "New-Object -Com Firefox" & "Firefox" & "https:// ...
-+                                                           ~
-The ampersand (&) character is not allowed. The & operator is reserved for future use; wrap an ampersand in double 
-quotation marks ("&") to pass it as part of a string.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : AmpersandNotAllowed
- 
-
-2024/10/02 04:08:42 Executing command (Attempt 2): powershell -Command "New-Object -Com Firefox" & "Firefox" & "https://www.anime-portal.com/"
-2024/10/02 04:08:43 Error executing command 'powershell -Command "New-Item -ItemType ScriptFile -Path 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'"': error executing command: exit status 1
-Output: New-Item : The type is not a known type for the file system. Only "file","directory" or "symboliclink" can be 
-specified.
-At line:1 char:1
-+ New-Item -ItemType ScriptFile -Path 'C:\\Program Files (x86)\\Mozilla ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [New-Item], PSArgumentException
-    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.NewItemCommand
- 
-
-2024/10/02 04:08:43 Executing command (Attempt 2): powershell -Command "New-Item -ItemType ScriptFile -Path 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'"
-2024/10/02 04:08:43 Error executing command 'powershell -Command "New-Object -Com Firefox" & "Firefox" & "https://www.anime-portal.com/"': error executing command: exit status 1
-Output: At line:1 char:47
-+ powershell -Command "New-Object -Com Firefox" & "Firefox" & "https:// ...
-+                                               ~
-The ampersand (&) character is not allowed. The & operator is reserved for future use; wrap an ampersand in double 
-quotation marks ("&") to pass it as part of a string.
-At line:1 char:59
-+ powershell -Command "New-Object -Com Firefox" & "Firefox" & "https:// ...
-+                                                           ~
-The ampersand (&) character is not allowed. The & operator is reserved for future use; wrap an ampersand in double 
-quotation marks ("&") to pass it as part of a string.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : AmpersandNotAllowed
- 
-
-2024/10/02 04:08:44 Retrying with improved command: powershell -Command "New-Object -Com Firefox" & "Firefox" & "https://www.anime.com/"
-2024/10/02 04:08:44 Executing command (Attempt 3): powershell -Command "New-Object -Com Firefox" & "Firefox" & "https://www.anime.com/"
-2024/10/02 04:08:45 Error executing command 'powershell -Command "New-Object -Com Firefox" & "Firefox" & "https://www.anime.com/"': error executing command: exit status 1
-Output: At line:1 char:47
-+ powershell -Command "New-Object -Com Firefox" & "Firefox" & "https:// ...
-+                                               ~
-The ampersand (&) character is not allowed. The & operator is reserved for future use; wrap an ampersand in double 
-quotation marks ("&") to pass it as part of a string.
-At line:1 char:59
-+ powershell -Command "New-Object -Com Firefox" & "Firefox" & "https:// ...
-+                                                           ~
-The ampersand (&) character is not allowed. The & operator is reserved for future use; wrap an ampersand in double 
-quotation marks ("&") to pass it as part of a string.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : AmpersandNotAllowed
- 
-
-2024/10/02 04:08:45 Error executing command 'powershell -Command "New-Item -ItemType ScriptFile -Path 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'"': error executing command: exit status 1
-Output: New-Item : The type is not a known type for the file system. Only "file","directory" or "symboliclink" can be 
-specified.
-At line:1 char:1
-+ New-Item -ItemType ScriptFile -Path 'C:\\Program Files (x86)\\Mozilla ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [New-Item], PSArgumentException
-    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.NewItemCommand
- 
-
-2024/10/02 04:08:46 Executing command (Attempt 3): powershell -Command "New-Item -ItemType ScriptFile -Path 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'"
-2024/10/02 04:08:46 Retrying with improved command: "AUTOHOTKEY:Run, firefox.exe"
-2024/10/02 04:08:46 Failed to execute command '"AUTOHOTKEY:Run, firefox.exe"' after 3 attempts.
-2024/10/02 04:08:48 Error executing command 'powershell -Command "New-Item -ItemType ScriptFile -Path 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'"': error executing command: exit status 1
-Output: New-Item : The type is not a known type for the file system. Only "file","directory" or "symboliclink" can be 
-specified.
-At line:1 char:1
-+ New-Item -ItemType ScriptFile -Path 'C:\\Program Files (x86)\\Mozilla ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [New-Item], PSArgumentException
-    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.NewItemCommand
- 
-
-2024/10/02 04:08:49 Failed to execute command 'powershell -Command "New-Item -ItemType ScriptFile -Path 'C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe'"' after 3 attempts.
-2024/10/02 04:08:53 Error executing AutoHotkey script: error executing AutoHotkey script: exit status 2
-Output: 
-2024/10/02 04:09:24 Error reading input: EOF
-2024/10/02 04:09:47 Logging started
-2024/10/02 04:10:02 Executing command (Attempt 1): powershell -Command "if (-Not (Test-Path -Path 'C:\Program Files\Blender Foundation\2.80\blender.exe')) { Start-Process blender.exe -Wait }"
-2024/10/02 04:10:04 Error executing command 'powershell -Command "if (-Not (Test-Path -Path 'C:\Program Files\Blender Foundation\2.80\blender.exe')) { Start-Process blender.exe -Wait }"': error executing command: exit status 1
-Output: Start-Process : This command cannot be run due to the error: The system cannot find the file specified.
-At line:1 char:86
-+ ... er Foundation\2.80\blender.exe')) { Start-Process blender.exe -Wait }
-+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
-    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
- 
-
-2024/10/02 04:10:04 Error getting improved command from LLM: no commands generated by LLM
-2024/10/02 04:10:04 Failed to execute command 'powershell -Command "if (-Not (Test-Path -Path 'C:\Program Files\Blender Foundation\2.80\blender.exe')) { Start-Process blender.exe -Wait }"' after 3 attempts.
-2024/10/02 04:10:07 Error executing AutoHotkey script: error executing AutoHotkey script: exit status 2
-Output: 
-2024/10/02 04:10:48 Logging started
-2024/10/02 04:10:55 Executing command (Attempt 1): powershell -Command "if (-Not (Test-Path -Path 'C:\\Users\\User\\Desktop\\Notes')) { New-Item -ItemType Directory -Path 'C:\\Users\\User\\Desktop\\Notes' }"
-2024/10/02 04:10:56 Command 'powershell -Command "if (-Not (Test-Path -Path 'C:\\Users\\User\\Desktop\\Notes')) { New-Item -ItemType Directory -Path 'C:\\Users\\User\\Desktop\\Notes' }"' executed successfully on attempt 1.
-2024/10/02 04:11:05 Error executing AutoHotkey script: error executing AutoHotkey script: exit status 2
-Output: 
-2024/10/02 04:19:14 Logging started
-2024/10/02 04:19:27 Executing command (Attempt 1): cd C:\
-2024/10/02 04:19:27 Executing command (Attempt 1): notepad.exe
-2024/10/02 04:19:27 Executing command (Attempt 1): ^i This is a test^j Enter
-2024/10/02 04:19:28 Command 'notepad.exe' executed successfully on attempt 1.
-2024/10/02 04:19:28 Command 'cd C:\' executed successfully on attempt 1.
-2024/10/02 04:19:29 Error executing command '^i This is a test^j Enter': error executing command: exit status 1
-Output: ^i : The term '^i' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
-spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:1
-+ ^i This is a test^j Enter
-+ ~~
-    + CategoryInfo          : ObjectNotFound: (^i:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/02 04:19:29 Retrying with improved command: notepad
-2024/10/02 04:19:29 Executing command (Attempt 2): notepad
-2024/10/02 04:19:43 Command 'notepad' executed successfully on attempt 2.
-2024/10/02 04:19:55 Executing command (Attempt 1): type firefox
-2024/10/02 04:19:55 Executing command (Attempt 1): Windows + R
-2024/10/02 04:19:56 Error executing command 'type firefox': error executing command: exit status 1
-Output: type : Cannot find path 'H:\WSA\firefox' because it does not exist.
-At line:1 char:1
-+ type firefox
-+ ~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (H:\WSA\firefox:String) [Get-Content], ItemNotFoundException
-    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
- 
-
-2024/10/02 04:19:56 Error executing command 'Windows + R': error executing command: exit status 1
-Output: Windows : The term 'Windows' is not recognized as the name of a cmdlet, function, script file, or operable program. 
-Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:1
-+ Windows + R
-+ ~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (Windows:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/02 04:19:56 Executing command (Attempt 2): type firefox
-2024/10/02 04:19:57 Retrying with improved command: rundll32.exe user32.dll,UpdatePerUserSystemParameters
-2024/10/02 04:19:57 Executing command (Attempt 2): rundll32.exe user32.dll,UpdatePerUserSystemParameters
-2024/10/02 04:19:57 Command 'rundll32.exe user32.dll,UpdatePerUserSystemParameters' executed successfully on attempt 2.
-2024/10/02 04:19:58 Error executing command 'type firefox': error executing command: exit status 1
-Output: type : Cannot find path 'H:\WSA\firefox' because it does not exist.
-At line:1 char:1
-+ type firefox
-+ ~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (H:\WSA\firefox:String) [Get-Content], ItemNotFoundException
-    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
- 
-
-2024/10/02 04:19:58 Error getting improved command from LLM: no commands generated by LLM
-2024/10/02 04:19:58 Failed to execute command 'type firefox' after 3 attempts.
-2024/10/02 04:20:09 Error executing AutoHotkey script: AutoHotkey.exe not found in PATH. Please ensure AutoHotkey is installed and the PATH is set correctly.
-2024/10/02 04:20:59 Executing command (Attempt 1): rchrome.exe https://www.google.com/search?q=anime
-2024/10/02 04:20:59 Executing command (Attempt 1): rnotepad
-2024/10/02 04:20:59 Executing command (Attempt 1): pause 5000
-2024/10/02 04:20:59 Executing command (Attempt 1): type This is a search query for anime on Google Chrome{Enter}
-2024/10/02 04:21:00 Error executing command 'type This is a search query for anime on Google Chrome{Enter}': error executing command: exit status 1
-Output: Get-Content : A positional parameter cannot be found that accepts argument 'is'.
-At line:1 char:1
-+ type This is a search query for anime on Google Chrome{Enter}
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [Get-Content], ParameterBindingException
-    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.GetContentCommand
- 
-
-2024/10/02 04:21:00 Command 'pause 5000' executed successfully on attempt 1.
-2024/10/02 04:21:00 Error executing command 'rnotepad': error executing command: exit status 1
-Output: rnotepad : The term 'rnotepad' is not recognized as the name of a cmdlet, function, script file, or operable program. 
-Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:1
-+ rnotepad
-+ ~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (rnotepad:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/02 04:21:00 Error executing command 'rchrome.exe https://www.google.com/search?q=anime': error executing command: exit status 1
-Output: rchrome.exe : The term 'rchrome.exe' is not recognized as the name of a cmdlet, function, script file, or operable 
-program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:1
-+ rchrome.exe https://www.google.com/search?q=anime
-+ ~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (rchrome.exe:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/02 04:21:01 Error getting improved command from LLM: failed to parse assistant's message as CombinedPrompt: unexpected end of JSON input
-Message content: {":" 
-    
-
-
-
-
-
- 
-  
-
-
-
- 
-
- 
-  
-
-
-
-
-  
-
-
-
-   
-
-
-
-
-
-  
- 
-
- 
-
-
-
- 
- 
-  
-   
-   
-   
-
-
-
-
-
-
-   
-
-
-
-
-
-  
- 
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-2024/10/02 04:21:01 Failed to execute command 'type This is a search query for anime on Google Chrome{Enter}' after 3 attempts.
-2024/10/02 04:21:01 Error getting improved command from LLM: failed to parse assistant's message as CombinedPrompt: unexpected end of JSON input
-Message content: {
-"AUTOHOTKEY:chrome.exe https://www.google.com/search?q=anime" 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-  
- 
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-  
- 
-
-
-
-
-
-   
- 
-
-
-
-
-  
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-   
-   
-
-
-
-
-
-
-   
-    
-
-
-
-
-
-
-
-
-
-
-     
-      
-      
-      
-      
-      
-2024/10/02 04:21:01 Failed to execute command 'rchrome.exe https://www.google.com/search?q=anime' after 3 attempts.
-2024/10/02 04:21:05 Error getting improved command from LLM: no commands generated by LLM
-2024/10/02 04:21:05 Failed to execute command 'rnotepad' after 3 attempts.
-2024/10/02 04:21:26 Executing command (Attempt 1): cmd /k start chrome https://www.google.com/search?q=anime
-2024/10/02 04:21:26 Command 'cmd /k start chrome https://www.google.com/search?q=anime' executed successfully on attempt 1.
-2024/10/02 04:21:46 Error getting shell command: LLM generated a dangerous command: taskkill /im Spotify.exe
-2024/10/02 04:44:03 Logging started
-2024/10/02 04:44:16 AutoHotkey script 'script.ahk' executed successfully.
-2024/10/02 04:59:28 Logging started
-2024/10/02 04:59:28 System information saved successfully.
-2024/10/02 04:59:32 Error getting shell command: LLM_API_ENDPOINT environment variable is not set
-2024/10/02 05:03:46 Logging started
-2024/10/02 05:03:46 System information saved successfully.
-2024/10/02 05:03:49 Error getting shell command: LLM_API_ENDPOINT environment variable is not set
-2024/10/02 05:11:50 Logging started
-2024/10/02 05:11:50 System information saved successfully.
-2024/10/02 05:11:52 Error getting shell command: LLM_API_ENDPOINT environment variable is not set
-2024/10/02 05:13:03 Logging started
-2024/10/02 05:13:03 System information saved successfully.
-2024/10/02 05:13:09 Error getting shell command: LLM request failed with status 404: 404 page not found
-2024/10/02 05:15:34 Logging started
-2024/10/02 05:15:34 System information saved successfully.
-2024/10/02 05:15:38 Error getting shell command: LLM request failed with status 404: {"error":"model \"llama2\" not found, try pulling it first"}
-2024/10/02 05:16:03 Logging started
-2024/10/02 05:16:03 System information saved successfully.
-2024/10/02 05:16:51 Logging started
-2024/10/02 05:16:51 System information saved successfully.
-2024/10/02 05:23:34 Logging started
-2024/10/02 05:23:39 Error getting shell command: LLM request failed with status 404: 404 page not found
-2024/10/02 05:28:47 Logging started
-2024/10/02 05:28:47 System information saved successfully.
-2024/10/02 05:28:50 Error getting shell command: LLM request failed with status 404: {"error":"model \"llama3\" not found, try pulling it first"}
-2024/10/02 05:29:21 Logging started
-2024/10/02 05:29:21 System information saved successfully.
-2024/10/02 05:30:05 Error getting shell command: LLM response does not contain valid JSON
-2024/10/02 05:31:12 Logging started
-2024/10/02 05:31:12 System information saved successfully.
-2024/10/02 05:31:54 Error getting shell command: LLM response does not contain valid JSON
-2024/10/02 20:21:38 Logging started
-2024/10/02 20:21:46 Executing command (Attempt 1): powershell New-Item -ItemType Directory -Path C:\Program Files\Google\Chrome\Application
-2024/10/02 20:21:48 Error executing command 'powershell New-Item -ItemType Directory -Path C:\Program Files\Google\Chrome\Application': error executing command: exit status 1
-Output: New-Item : A positional parameter cannot be found that accepts argument 'Files\Google\Chrome\Application'.
-At line:1 char:1
-+ New-Item -ItemType Directory -Path C:\Program Files\Google\Chrome\App ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [New-Item], ParameterBindingException
-    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.NewItemCommand
- 
-
-2024/10/02 20:21:48 Retrying with improved command: start "Google Chrome" "C:\Program Files\Google\Chrome\Application\chrome.exe"
-2024/10/02 20:21:48 Executing command (Attempt 2): start "Google Chrome" "C:\Program Files\Google\Chrome\Application\chrome.exe"
-2024/10/02 20:21:50 Error executing command 'start "Google Chrome" "C:\Program Files\Google\Chrome\Application\chrome.exe"': error executing command: exit status 1
-Output: start : This command cannot be run due to the error: The system cannot find the file specified.
-At line:1 char:1
-+ start "Google Chrome" "C:\Program Files\Google\Chrome\Application\chr ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
-    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
- 
-
-2024/10/02 20:21:50 Retrying with improved command: start chrome.exe
-2024/10/02 20:21:50 Executing command (Attempt 3): start chrome.exe
-2024/10/02 20:21:51 Command 'start chrome.exe' executed successfully on attempt 3.
-2024/10/02 20:22:37 Executing command (Attempt 1): chrome --new-window https://www.youtube.com
-2024/10/02 20:22:38 Error executing command 'chrome --new-window https://www.youtube.com': error executing command: exit status 1
-Output: chrome : The term 'chrome' is not recognized as the name of a cmdlet, function, script file, or operable program. 
-Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:1
-+ chrome --new-window https://www.youtube.com
-+ ~~~~~~
-    + CategoryInfo          : ObjectNotFound: (chrome:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/02 20:22:39 Retrying with improved command: chrome --new-window https://www.youtube.com
-2024/10/02 20:22:39 Executing command (Attempt 2): chrome --new-window https://www.youtube.com
-2024/10/02 20:22:40 Error executing command 'chrome --new-window https://www.youtube.com': error executing command: exit status 1
-Output: chrome : The term 'chrome' is not recognized as the name of a cmdlet, function, script file, or operable program. 
-Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:1
-+ chrome --new-window https://www.youtube.com
-+ ~~~~~~
-    + CategoryInfo          : ObjectNotFound: (chrome:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/02 20:22:40 Retrying with improved command: chrome --new-window https://www.youtube.com
-2024/10/02 20:22:40 Executing command (Attempt 3): chrome --new-window https://www.youtube.com
-2024/10/02 20:22:41 Error executing command 'chrome --new-window https://www.youtube.com': error executing command: exit status 1
-Output: chrome : The term 'chrome' is not recognized as the name of a cmdlet, function, script file, or operable program. 
-Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-At line:1 char:1
-+ chrome --new-window https://www.youtube.com
-+ ~~~~~~
-    + CategoryInfo          : ObjectNotFound: (chrome:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
- 
-
-2024/10/02 20:22:42 Retrying with improved command: chrome --new-window https://www.youtube.com
-2024/10/02 20:22:42 Failed to execute command 'chrome --new-window https://www.youtube.com' after 3 attempts.
-2024/10/02 20:27:06 Logging started
-2024/10/02 20:27:19 Executing command (Attempt 1): powershell Get-ChildItem -Path C:\Users\YourUsername\Music -Recurse | foreach-object { if (_ -match '\.mp3$') { Start-Process chrome.exe -ArgumentList "https://open.spotify.com/playlist/4rL7Zu9UdKAyZ1JkzYs7aA" } }
-2024/10/02 20:27:19 Executing command (Attempt 1): powershell Get-ChildItem -Path C:\Users\YourUsername\Music -Recurse | foreach-object { if (_ -match '\.mp3$') { Send-Item -To 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe' -ArgumentList "https://open.spotify.com/playlist/4rL7Zu9UdKAyZ1JkzYs7aA" } } }
-2024/10/02 20:27:20 Error executing command 'powershell Get-ChildItem -Path C:\Users\YourUsername\Music -Recurse | foreach-object { if (_ -match '\.mp3$') { Send-Item -To 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe' -ArgumentList "https://open.spotify.com/playlist/4rL7Zu9UdKAyZ1JkzYs7aA" } } }': error executing command: exit status 1
-Output: At line:1 char:266
-+ ... List "https://open.spotify.com/playlist/4rL7Zu9UdKAyZ1JkzYs7aA" } } }
-+                                                                         ~
-Unexpected token '}' in expression or statement.
-    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
-    + FullyQualifiedErrorId : UnexpectedToken
- 
-
-2024/10/02 20:27:21 Command 'powershell Get-ChildItem -Path C:\Users\YourUsername\Music -Recurse | foreach-object { if (_ -match '\.mp3$') { Start-Process chrome.exe -ArgumentList "https://open.spotify.com/playlist/4rL7Zu9UdKAyZ1JkzYs7aA" } }' executed successfully on attempt 1.
-2024/10/02 20:27:22 Retrying with improved command: powershell -Command "Invoke-WebRequest -Uri https://open.spotify.com/playlist/4rL7Zu9UdKAyZ1JkzYs7aA -OutFile temp.json"
-2024/10/02 20:27:22 Executing command (Attempt 2): powershell -Command "Invoke-WebRequest -Uri https://open.spotify.com/playlist/4rL7Zu9UdKAyZ1JkzYs7aA -OutFile temp.json"
-2024/10/02 20:27:24 Error executing command 'powershell -Command "Invoke-WebRequest -Uri https://open.spotify.com/playlist/4rL7Zu9UdKAyZ1JkzYs7aA -OutFile temp.json"': error executing command: exit status 1
-Output: Invoke-WebRequest : The remote server returned an error: (404) Not Found.
-At line:1 char:1
-+ Invoke-WebRequest -Uri https://open.spotify.com/playlist/4rL7Zu9UdKAy ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebExc 
-   eption
-    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
- 
-
-2024/10/02 20:27:25 Retrying with improved command: Invoke-WebRequest -Uri https://open.spotify.com/playlist/4rL7Zu9UdKAy ...
-2024/10/02 20:27:25 Executing command (Attempt 3): Invoke-WebRequest -Uri https://open.spotify.com/playlist/4rL7Zu9UdKAy ...
-2024/10/02 20:27:27 Error executing command 'Invoke-WebRequest -Uri https://open.spotify.com/playlist/4rL7Zu9UdKAy ...': error executing command: exit status 1
-Output: Invoke-WebRequest : A positional parameter cannot be found that accepts argument '...'.
-At line:1 char:1
-+ Invoke-WebRequest -Uri https://open.spotify.com/playlist/4rL7Zu9UdKAy ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [Invoke-WebRequest], ParameterBindingException
-    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
- 
-
-2024/10/02 20:27:28 Retrying with improved command: cmd /c start spotify.exe
-2024/10/02 20:27:28 Failed to execute command 'cmd /c start spotify.exe' after 3 attempts.
-2024/10/02 20:27:34 Error reading input: EOF
-2024/10/02 20:29:40 Logging started
-2024/10/02 20:30:03 AutoHotkey script 'script.ahk' executed successfully.
-2024/10/02 20:32:07 Logging started
-2024/10/02 20:32:13 Logging started
-2024/10/02 20:32:26 Executing command (Attempt 1): powershell -Command "Invoke-Item -Path 'https://www.youtube.com'"
-2024/10/02 20:32:26 Executing command (Attempt 1): powershell -Command "Start-Process -FilePath 'C:\Program Files\Mozilla Firefox\firefox.exe'"
-2024/10/02 20:32:28 Command 'powershell -Command "Start-Process -FilePath 'C:\Program Files\Mozilla Firefox\firefox.exe'"' executed successfully on attempt 1.
-2024/10/02 20:32:29 Error executing command 'powershell -Command "Invoke-Item -Path 'https://www.youtube.com'"': error executing command: exit status 1
-Output: Invoke-Item : Cannot find drive. A drive with the name 'https' does not exist.
-At line:1 char:1
-+ Invoke-Item -Path 'https://www.youtube.com'
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : ObjectNotFound: (https:String) [Invoke-Item], DriveNotFoundException
-    + FullyQualifiedErrorId : DriveNotFound,Microsoft.PowerShell.Commands.InvokeItemCommand
- 
-
-2024/10/02 20:32:30 Retrying with improved command: powershell -Command "Invoke-Item -Path 'C:\Program Files\Mozilla Firefox\firefox.exe'"
-2024/10/02 20:32:30 Executing command (Attempt 2): powershell -Command "Invoke-Item -Path 'C:\Program Files\Mozilla Firefox\firefox.exe'"
-2024/10/02 20:32:32 Command 'powershell -Command "Invoke-Item -Path 'C:\Program Files\Mozilla Firefox\firefox.exe'"' executed successfully on attempt 2.

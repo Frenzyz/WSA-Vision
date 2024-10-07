@@ -1,267 +1,191 @@
-///H:\WSA\WSA\main.go
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"log"
-	"os"
-	"strings"
-	"sync"
+    "bufio"
+    "fmt"
+    "log"
+    "os"
+    "strings"
 
-	"WSAVision/pkg/assistant"
-	"WSAVision/pkg/logging"
-	"WSAVision/pkg/types"
+    "WSA/pkg/assistant"
+    "WSA/pkg/goalengine"
+    "WSA/pkg/logging"
+    "WSA/pkg/types"
 )
 
 func main() {
-	logging.SetupLogging()
+    logging.SetupLogging()
 
-	// Ensure the model is loaded
-	err := assistant.PullModel("")
-	if err != nil {
-		log.Fatalf("Failed to load model: %v", err)
-	}
+    // Ensure the model is loaded
+    err := assistant.PullModel("")
+    if err != nil {
+        log.Fatalf("Failed to load model: %v", err)
+    }
 
-	// Generate system index if it doesn't exist
-	indexFilePath := "system_index.txt"
-	if _, err := os.Stat(indexFilePath); os.IsNotExist(err) {
-		err = assistant.GenerateSystemIndex(indexFilePath)
-		if err != nil {
-			log.Fatalf("Failed to generate system index: %v", err)
-		}
-		log.Println("System index generation completed successfully.")
-	}
+    // Generate system index if it doesn't exist
+    indexFilePath := "system_index.txt"
+    if _, err := os.Stat(indexFilePath); os.IsNotExist(err) {
+        err = assistant.GenerateSystemIndex(indexFilePath)
+        if err != nil {
+            log.Fatalf("Failed to generate system index: %v", err)
+        }
+        log.Println("System index generation completed successfully.")
+    }
 
-	fmt.Println("Enter a command (e.g., 'open notes and write something in notepad', 'install package xyz', or 'exit' to quit):")
+    fmt.Println("Enter a high-level goal (e.g., 'set up a development environment', 'organize my files', or 'exit' to quit):")
 
-	reader := bufio.NewReader(os.Stdin)
-	chatHistory := []types.PromptMessage{} // Stores the conversation history
+    reader := bufio.NewReader(os.Stdin)
 
-	for {
-		fmt.Print("> ")
-		userInput, err := reader.ReadString('\n')
-		if err != nil {
-			fmt.Printf("Error reading input: %v\n", err)
-			log.Printf("Error reading input: %v\n", err)
-			continue
-		}
-		userInput = strings.TrimSpace(userInput)
+    for {
+        fmt.Print("> ")
+        userInput, err := reader.ReadString('\n')
+        if err != nil {
+            fmt.Printf("Error reading input: %v\n", err)
+            log.Printf("Error reading input: %v\n", err)
+            continue
+        }
+        userInput = strings.TrimSpace(userInput)
 
-		if strings.ToLower(userInput) == "exit" {
-			fmt.Println("Goodbye!")
-			break
-		}
+        if strings.ToLower(userInput) == "exit" {
+            fmt.Println("Goodbye!")
+            break
+        }
 
-		// Append user message to chat history
-		chatHistory = append(chatHistory, types.PromptMessage{
-			Role:    "user",
-			Content: userInput,
-		})
+        // Initialize GoalEngine
+        goal := &goalengine.Goal{
+            Description:  userInput,
+            Tasks:        []*goalengine.Task{},
+            CurrentState: &goalengine.State{}, // Initialize with current state
+            DesiredState: &goalengine.State{}, // Define desired state
+        }
 
-		// Determine if the command is an installation task based on keywords
-		isInstallation := isInstallationCommand(userInput)
+        // Generate tasks from the high-level goal
+        tasks, err := assistant.GenerateTasksFromGoal(goal.Description)
+        if err != nil {
+            fmt.Printf("Failed to generate tasks: %v\n", err)
+            log.Printf("Failed to generate tasks: %v\n", err)
+            continue
+        }
+        goal.Tasks = tasks
 
-		// Process input with LLM through assistant package
-		errorContext := ""
-		if len(chatHistory) > 1 {
-			// Get the last assistant response if any
-			lastAssistant := chatHistory[len(chatHistory)-1]
-			errorContext = lastAssistant.Content
-		}
+        // Start processing the goal
+        processGoal(goal)
+    }
+}
 
-		combinedPrompt, err := assistant.GetShellCommand(userInput, chatHistory, errorContext, isInstallation)
-		if err != nil {
-			fmt.Printf("Error: %v\n", err)
-			log.Printf("Error getting shell command: %v\n", err)
-			continue
-		}
+func processGoal(goal *goalengine.Goal) {
+    // Check if no tasks are available to prevent an infinite loop
+    if len(goal.Tasks) == 0 {
+        fmt.Println("No tasks generated. Exiting goal processing.")
+        log.Println("No tasks generated. Exiting goal processing.")
+        return
+    }
 
-		// Append assistant response to chat history
-		chatHistory = append(chatHistory, types.PromptMessage{
-			Role:    "assistant",
-			Content: combinedPrompt.NLResponse,
-		})
+    for !goal.IsGoalAchieved() {
+        for _, task := range goal.Tasks {
+            if task.Status == goalengine.Pending {
+                // Process the task
+                executeTask(task)
+            }
+        }
+        // Update the goal's current state
+        err := goal.UpdateCurrentState()
+        if err != nil {
+            fmt.Printf("Error updating current state: %v\n", err)
+            log.Printf("Error updating current state: %v\n", err)
+        } else {
+            fmt.Printf("Current State Updated: CPU Usage: %.2f%%, Memory Usage: %.2f%%\n",
+                goal.CurrentState.CPUUsage, goal.CurrentState.MemoryUsage)
+            log.Printf("Current State Updated: CPU Usage: %.2f%%, Memory Usage: %.2f%%\n",
+                goal.CurrentState.CPUUsage, goal.CurrentState.MemoryUsage)
+        }
+    }
+    fmt.Println("All tasks completed successfully!")
+}
 
-		// Process LLM response
-		if combinedPrompt != nil {
-			fmt.Printf("Natural Language Response: %s\n", combinedPrompt.NLResponse)
-			fmt.Printf("Generated Commands: %v\n", combinedPrompt.Commands)
+func executeTask(task *goalengine.Task) {
+    task.Attempt++
+    task.Status = goalengine.InProgress
 
-			// Separate shell commands and AutoHotkey commands
-			var shellCommands []string
-			var autoHotkeyCommands []string
+    // Get commands for the task
+    chatHistory := []types.PromptMessage{
+        {
+            Role:    "user",
+            Content: task.Description,
+        },
+    }
 
-			for _, cmd := range combinedPrompt.Commands {
-				// Trim whitespace
-				cmd = strings.TrimSpace(cmd)
-				if cmd == "" {
-					continue // Skip empty commands
-				}
+    combinedPrompt, err := assistant.GetShellCommand(task.Description, chatHistory, task.Feedback, isInstallationCommand(task.Description))
+    if err != nil {
+        fmt.Printf("Error getting commands for task '%s': %v\n", task.Description, err)
+        log.Printf("Error getting commands for task '%s': %v\n", task.Description, err)
+        task.Status = goalengine.Failed
+        task.Feedback = err.Error()
+        logging.LogTaskExecution(task)
+        return
+    }
 
-				// Determine if it's an AutoHotkey command
-				if strings.HasPrefix(cmd, "AUTOHOTKEY:") {
-					// Extract the AutoHotkey command
-					scriptLine := strings.TrimPrefix(cmd, "AUTOHOTKEY:")
-					scriptLine = strings.TrimSpace(scriptLine)
-					if scriptLine != "" {
-						autoHotkeyCommands = append(autoHotkeyCommands, scriptLine)
-					}
-				} else {
-					// Clean the shell command
-					cleanCmd := cleanCommand(cmd)
-					if cleanCmd != "" {
-						shellCommands = append(shellCommands, cleanCmd)
-					}
-				}
-			}
+    task.Commands = combinedPrompt.Commands
 
-			var wg sync.WaitGroup
-			var mu sync.Mutex
+    success := true
+    for _, command := range task.Commands {
+        if strings.HasPrefix(command, "AUTOHOTKEY:") {
+            // Handle AutoHotkey command
+            scriptContent := strings.TrimPrefix(command, "AUTOHOTKEY:")
+            scriptFileName := "script.ahk"
+            err := assistant.SaveAutoHotkeyScript(scriptContent, scriptFileName)
+            if err != nil {
+                fmt.Printf("Error saving AutoHotkey script: %v\n", err)
+                log.Printf("Error saving AutoHotkey script: %v\n", err)
+                success = false
+                task.Feedback = err.Error()
+                break
+            }
+            err = assistant.ExecuteAutoHotkeyScript(scriptFileName)
+            if err != nil {
+                fmt.Printf("Error executing AutoHotkey script: %v\n", err)
+                log.Printf("Error executing AutoHotkey script: %v\n", err)
+                success = false
+                task.Feedback = err.Error()
+                break
+            }
+        } else {
+            // Execute shell command
+            err := assistant.ExecuteShellCommand(command)
+            if err != nil {
+                fmt.Printf("Error executing command '%s': %v\n", command, err)
+                log.Printf("Error executing command '%s': %v\n", command, err)
+                success = false
+                task.Feedback = err.Error()
+                break
+            }
+        }
+    }
 
-			// Execute shell commands
-			for _, cmd := range shellCommands {
-				cmd := cmd // capture loop variable
-				wg.Add(1)
-				go func(command string) {
-					defer wg.Done()
+    if success {
+        task.Status = goalengine.Completed
+    } else {
+        if task.Attempt < task.MaxRetries {
+            // Retry the task with improved commands
+            executeTask(task)
+        } else {
+            task.Status = goalengine.Failed
+        }
+    }
 
-					maxRetries := 3
-					var execErr error
-					errorContext := ""
-
-					for attempt := 1; attempt <= maxRetries; attempt++ {
-						fmt.Printf("Executing command (Attempt %d): %s\n", attempt, command)
-						log.Printf("Executing command (Attempt %d): %s\n", attempt, command)
-						execErr = assistant.ExecuteShellCommand(command)
-						if execErr == nil {
-							// Command executed successfully
-							mu.Lock()
-							fmt.Printf("Command '%s' executed successfully on attempt %d.\n", command, attempt)
-							log.Printf("Command '%s' executed successfully on attempt %d.\n", command, attempt)
-							mu.Unlock()
-							return
-						}
-
-						// Command failed, collect error context
-						mu.Lock()
-						fmt.Printf("Error executing command '%s': %v\n", command, execErr)
-						log.Printf("Error executing command '%s': %v\n", command, execErr)
-						mu.Unlock()
-
-						errorContext = execErr.Error()
-
-						// Get improved command from LLM using error context
-						improvedPrompt, err := assistant.GetShellCommand(command, chatHistory, errorContext, isInstallation)
-						if err != nil {
-							mu.Lock()
-							fmt.Printf("Error getting improved command from LLM: %v\n", err)
-							log.Printf("Error getting improved command from LLM: %v\n", err)
-							mu.Unlock()
-							break // Cannot get improved command, exit retry loop
-						}
-
-						// Append assistant response to chat history
-						chatHistory = append(chatHistory, types.PromptMessage{
-							Role:    "assistant",
-							Content: improvedPrompt.NLResponse,
-						})
-
-						// Append improved commands to generated commands
-						for _, improvedCmd := range improvedPrompt.Commands {
-							improvedCmd = strings.TrimSpace(improvedCmd)
-							if improvedCmd != "" && !strings.HasPrefix(improvedCmd, "AUTOHOTKEY:") {
-								command = cleanCommand(improvedCmd)
-								fmt.Printf("Retrying with improved command: %s\n", command)
-								log.Printf("Retrying with improved command: %s\n", command)
-								break // Retry with the first improved command
-							}
-						}
-					}
-
-					if execErr != nil {
-						mu.Lock()
-						fmt.Printf("Failed to execute command '%s' after %d attempts.\n", command, maxRetries)
-						log.Printf("Failed to execute command '%s' after %d attempts.\n", command, maxRetries)
-						mu.Unlock()
-					}
-				}(cmd)
-			}
-
-			// Execute AutoHotkey commands if any
-			if len(autoHotkeyCommands) > 0 {
-				wg.Add(1)
-				go func(commands []string) {
-					defer wg.Done()
-
-					// Combine AutoHotkey commands into a single script
-					scriptContent := strings.Join(commands, "\n")
-
-					// Define script file name
-					scriptFileName := "script.ahk"
-
-					// Save the script to a file
-					err := assistant.SaveAutoHotkeyScript(scriptContent, scriptFileName)
-					if err != nil {
-						mu.Lock()
-						fmt.Printf("Error saving AutoHotkey script: %v\n", err)
-						log.Printf("Error saving AutoHotkey script: %v\n", err)
-						mu.Unlock()
-						return
-					}
-
-					// Execute the script
-					err = assistant.ExecuteAutoHotkeyScript(scriptFileName)
-					if err != nil {
-						mu.Lock()
-						fmt.Printf("Error executing AutoHotkey script: %v\n", err)
-						log.Printf("Error executing AutoHotkey script: %v\n", err)
-						mu.Unlock()
-						return
-					}
-
-					mu.Lock()
-					fmt.Printf("AutoHotkey script '%s' executed successfully.\n", scriptFileName)
-					log.Printf("AutoHotkey script '%s' executed successfully.\n", scriptFileName)
-					mu.Unlock()
-				}(autoHotkeyCommands)
-			}
-
-			// Wait for all commands to finish
-			wg.Wait()
-		} else {
-			fmt.Println("No commands generated.")
-		}
-	}
+    logging.LogTaskExecution(task)
 }
 
 // isInstallationCommand determines if the user input is related to installing packages
 func isInstallationCommand(input string) bool {
-	installationKeywords := []string{
-		"install", "setup", "download", "add", "configure", "deploy",
-	}
-	inputLower := strings.ToLower(input)
-	for _, keyword := range installationKeywords {
-		if strings.Contains(inputLower, keyword) {
-			return true
-		}
-	}
-	return false
-}
-
-// cleanCommand removes excessive line breaks and escape characters for shell commands
-func cleanCommand(cmd string) string {
-	// Replace escaped quotes with actual quotes
-	cmd = strings.ReplaceAll(cmd, `\"`, `"`)
-	// Remove carriage returns
-	cmd = strings.ReplaceAll(cmd, "\r", "")
-	// Do not modify AutoHotkey commands
-	if strings.HasPrefix(cmd, "AUTOHOTKEY:") {
-		return ""
-	}
-	// Replace newlines with spaces for shell commands
-	cmd = strings.ReplaceAll(cmd, "\n", " ")
-	// Remove redundant spaces
-	cmd = strings.Join(strings.Fields(cmd), " ")
-	return cmd
+    installationKeywords := []string{
+        "install", "setup", "download", "add", "configure", "deploy",
+    }
+    inputLower := strings.ToLower(input)
+    for _, keyword := range installationKeywords {
+        if strings.Contains(inputLower, keyword) {
+            return true
+        }
+    }
+    return false
 }

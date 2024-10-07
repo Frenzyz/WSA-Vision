@@ -1,8 +1,9 @@
-// pkg/goalengine/goalengine.go
 package goalengine
 
 import (
     "sync"
+
+    "WSA/pkg/statemonitor"
 )
 
 // Goal represents a high-level objective
@@ -38,8 +39,10 @@ const (
 
 // State represents the system state
 type State struct {
-    // Define relevant system state properties
-    // For example, installed packages, running services, etc.
+    RunningProcesses []string
+    CPUUsage         float64
+    MemoryUsage      float64
+    // Add more fields as needed
 }
 
 // AddTask adds a new task to the goal
@@ -66,4 +69,19 @@ func (g *Goal) IsGoalAchieved() bool {
         }
     }
     return true
+}
+
+// UpdateCurrentState updates the current state of the goal
+func (g *Goal) UpdateCurrentState() error {
+    state, err := statemonitor.GetCurrentState()
+    if err != nil {
+        return err
+    }
+    g.CurrentState = &State{
+        RunningProcesses: state.RunningProcesses,
+        CPUUsage:         state.CPUUsage,
+        MemoryUsage:      state.MemoryUsage,
+        // Map additional fields from SystemState to State here
+    }
+    return nil
 }
