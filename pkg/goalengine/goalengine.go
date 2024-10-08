@@ -59,12 +59,12 @@ func (g *Goal) UpdateTaskStatus(task *Task, status TaskStatus) {
     task.Status = status
 }
 
-// IsGoalAchieved checks if all tasks are completed
+// IsGoalAchieved checks if all tasks are completed or failed
 func (g *Goal) IsGoalAchieved() bool {
     g.Mutex.Lock()
     defer g.Mutex.Unlock()
     for _, task := range g.Tasks {
-        if task.Status != Completed {
+        if task.Status == Pending || task.Status == InProgress {
             return false
         }
     }

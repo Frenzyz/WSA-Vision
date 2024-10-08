@@ -1,9 +1,12 @@
+// File: pkg/types/types.go
+
 package types
 
 // CombinedPrompt is the structured LLM response that contains natural language and shell commands
 type CombinedPrompt struct {
-    NLResponse string   `json:"nlResponse"`
-    Commands   []string `json:"commands"`
+    NLResponse  string   `json:"nlResponse"`
+    Commands    []string `json:"commands"`
+    VisionNeeded bool     `json:"visionNeeded"` // Indicates if vision is needed for the task
 }
 
 // PromptMessage represents a message in the chat history.
@@ -16,6 +19,7 @@ type PromptMessage struct {
 type ChatData struct {
     Model    string          `json:"model"`
     Messages []PromptMessage `json:"messages"`
+    Stream   bool            `json:"stream"` // Indicates whether to use streaming
 }
 
 // LLMResponse represents the response from the LLM API when streaming is disabled

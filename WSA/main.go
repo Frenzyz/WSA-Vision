@@ -1,3 +1,5 @@
+// File: WSA/main.go
+
 package main
 
 import (
@@ -16,10 +18,10 @@ import (
 func main() {
     logging.SetupLogging()
 
-    // Ensure the model is loaded
+    // Ensure the models are loaded
     err := assistant.PullModel("")
     if err != nil {
-        log.Fatalf("Failed to load model: %v", err)
+        log.Fatalf("Failed to load models: %v", err)
     }
 
     // Generate system index if it doesn't exist
@@ -74,7 +76,6 @@ func main() {
 }
 
 func processGoal(goal *goalengine.Goal) {
-    // Check if no tasks are available to prevent an infinite loop
     if len(goal.Tasks) == 0 {
         fmt.Println("No tasks generated. Exiting goal processing.")
         log.Println("No tasks generated. Exiting goal processing.")
@@ -100,7 +101,23 @@ func processGoal(goal *goalengine.Goal) {
                 goal.CurrentState.CPUUsage, goal.CurrentState.MemoryUsage)
         }
     }
-    fmt.Println("All tasks completed successfully!")
+
+    // After processing, check for failed tasks
+    var failedTasks []string
+    for _, task := range goal.Tasks {
+        if task.Status == goalengine.Failed {
+            failedTasks = append(failedTasks, task.Description)
+        }
+    }
+
+    if len(failedTasks) > 0 {
+        fmt.Println("Some tasks could not be completed:")
+        for _, desc := range failedTasks {
+            fmt.Printf("- %s\n", desc)
+        }
+    } else {
+        fmt.Println("All tasks completed successfully!")
+    }
 }
 
 func executeTask(task *goalengine.Task) {
@@ -128,37 +145,27 @@ func executeTask(task *goalengine.Task) {
     task.Commands = combinedPrompt.Commands
 
     success := true
+
+    // Use vision model if needed
+    if combinedPrompt.VisionNeeded {
+        err := assistant.UseVisionModel(task.Description)
+        if err != nil {
+            fmt.Printf("Error using vision model for task '%s': %v\n", task.Description, err)
+            log.Printf("Error using vision model for task '%s': %v\n", task.Description, err)
+            success = false
+            task.Feedback = err.Error()
+        }
+    }
+
+    // Execute commands
     for _, command := range task.Commands {
-        if strings.HasPrefix(command, "AUTOHOTKEY:") {
-            // Handle AutoHotkey command
-            scriptContent := strings.TrimPrefix(command, "AUTOHOTKEY:")
-            scriptFileName := "script.ahk"
-            err := assistant.SaveAutoHotkeyScript(scriptContent, scriptFileName)
-            if err != nil {
-                fmt.Printf("Error saving AutoHotkey script: %v\n", err)
-                log.Printf("Error saving AutoHotkey script: %v\n", err)
-                success = false
-                task.Feedback = err.Error()
-                break
-            }
-            err = assistant.ExecuteAutoHotkeyScript(scriptFileName)
-            if err != nil {
-                fmt.Printf("Error executing AutoHotkey script: %v\n", err)
-                log.Printf("Error executing AutoHotkey script: %v\n", err)
-                success = false
-                task.Feedback = err.Error()
-                break
-            }
-        } else {
-            // Execute shell command
-            err := assistant.ExecuteShellCommand(command)
-            if err != nil {
-                fmt.Printf("Error executing command '%s': %v\n", command, err)
-                log.Printf("Error executing command '%s': %v\n", command, err)
-                success = false
-                task.Feedback = err.Error()
-                break
-            }
+        err := assistant.ExecuteShellCommand(command)
+        if err != nil {
+            fmt.Printf("Error executing command '%s': %v\n", command, err)
+            log.Printf("Error executing command '%s': %v\n", command, err)
+            success = false
+            task.Feedback = err.Error()
+            break
         }
     }
 

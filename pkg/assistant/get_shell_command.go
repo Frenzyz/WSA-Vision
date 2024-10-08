@@ -1,16 +1,18 @@
 package assistant
 
 import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "io"
-    "net/http"
-    "os"
-    "os/user"
-    "strings"
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"net/http"
+	"os"
+	"os/user"
+	"path/filepath"
+	"regexp"
+	"strings"
 
-    "WSA/pkg/types"
+	"WSA/pkg/types"
 )
 
 // GetShellCommand generates commands from the LLM based on user input, chat history, optional error context, and command type
@@ -41,25 +43,34 @@ func GetShellCommand(userInput string, chatHistory []types.PromptMessage, errorC
     summarizedIndex := summarizeSystemIndex(systemIndex, username)
 
     // Construct system prompt with error context if available
-systemPrompt := "You are an assistant that helps break down high-level goals into actionable tasks for a Windows-based operating system. " +
-    "Please provide a JSON array of tasks with descriptions only. Do not include any additional text or explanations.\n\n" +
-    "Response format strictly as follows:\n" +
-    "```json\n" +
-    "[\n" +
-    "  { \"description\": \"First task description\" },\n" +
-    "  { \"description\": \"Second task description\" }\n" +
-    "]\n" +
-    "```\n" +
-    "Ensure that the JSON is properly formatted and contains no syntax errors."
-
+    systemPrompt := "You are an AI assistant that helps generate Windows PowerShell commands to achieve user tasks. " +
+        "For starting applications, always use the format 'start appname' (e.g., 'start notepad', 'start spotify'). " +
+        "Do not include file paths, extensions, or any additional parameters. " +
+        "Based on the user's input and system information, provide the necessary commands wrapped in a JSON object. " +
+        "Ensure the commands are compatible with PowerShell and do not include any dangerous operations. " +
+        "Do not include any additional text or explanations.\n\n" +
+        "Response format strictly as follows:\n" +
+        "```json\n" +
+        "{\n" +
+        "  \"nlResponse\": \"Your natural language response to the user.\",\n" +
+        "  \"commands\": [\n" +
+        "    \"First command\",\n" +
+        "    \"Second command\"\n" +
+        "  ],\n" +
+        "  \"visionNeeded\": false // Set to true if vision is needed, else false.\n" +
+        "}\n" +
+        "```\n" +
+        "Ensure that the JSON is properly formatted and contains no syntax errors. " +
+        "Ensure that in the JSON output, all backslashes in file paths are properly escaped as '\\\\'. " +
+        "**Do not deviate from the 'start appname' format when starting applications.**"
 
     if errorContext != "" {
-        systemPrompt += "The previous command failed with the following error: \"" + sanitizeError(errorContext) + "\". " +
-            "Please provide an improved command to address this error.\n\n"
+        systemPrompt += "\n\nNote: The previous command failed with the following error: \"" + sanitizeError(errorContext) + "\". " +
+            "Please provide an improved command to address this error."
     }
 
     // Append the summarized system index to the prompt
-    systemPrompt += "Here is a summary of key system directories:\n" + summarizedIndex
+    systemPrompt += "\n\nHere is a summary of key system directories:\n" + summarizedIndex
 
     systemMessage := types.PromptMessage{
         Role:    "system",
@@ -74,6 +85,7 @@ systemPrompt := "You are an assistant that helps break down high-level goals int
     chatData := types.ChatData{
         Model:    os.Getenv("LLM_MODEL"), // Model name from environment variable
         Messages: messages,
+        Stream:   false, // Disable streaming
     }
 
     if chatData.Model == "" {
@@ -117,11 +129,32 @@ systemPrompt := "You are an assistant that helps break down high-level goals int
 
     assistantMessage := llmResponse.Message.Content
 
+    // Log the assistant's message separately
+    fmt.Printf("Assistant's Message Content:\n%s\n", assistantMessage)
+
+    // Escape backslashes in the assistant's message
+    assistantMessage = escapeBackslashesInJSON(assistantMessage)
+
     // Now parse assistantMessage into CombinedPrompt
     var combinedPrompt types.CombinedPrompt
     err = json.Unmarshal([]byte(assistantMessage), &combinedPrompt)
     if err != nil {
-        return nil, fmt.Errorf("failed to parse assistant's message as CombinedPrompt: %w\nMessage content: %s", err, assistantMessage)
+        // Attempt to extract JSON from the assistant's message
+        extractedJSON, extractErr := ExtractJSON(assistantMessage)
+        if extractErr != nil {
+            return nil, fmt.Errorf("failed to parse assistant's message as CombinedPrompt: %w\nMessage content: %s", err, assistantMessage)
+        }
+
+        // Retry unmarshaling with the extracted JSON
+        err = json.Unmarshal([]byte(extractedJSON), &combinedPrompt)
+        if err != nil {
+            return nil, fmt.Errorf("failed to parse extracted JSON as CombinedPrompt: %w\nExtracted JSON: %s", err, extractedJSON)
+        }
+    }
+
+    // Post-process commands to correct any deviations
+    for i, cmd := range combinedPrompt.Commands {
+        combinedPrompt.Commands[i] = fixStartCommand(cmd)
     }
 
     // Validate the commands
@@ -136,7 +169,33 @@ systemPrompt := "You are an assistant that helps break down high-level goals int
         }
     }
 
+    // Check if vision is needed and ask the user for permission
+    if combinedPrompt.VisionNeeded {
+        fmt.Println("The assistant requires access to the vision model to proceed. Do you allow this? (yes/no)")
+        var userResponse string
+        fmt.Print("> ")
+        fmt.Scanln(&userResponse)
+        if strings.ToLower(userResponse) != "yes" {
+            return nil, fmt.Errorf("user denied access to the vision model")
+        }
+    }
+
     return &combinedPrompt, nil
+}
+
+// fixStartCommand ensures that the command uses the correct 'start appname' format
+func fixStartCommand(cmd string) string {
+    // Regular expression to match 'start' commands
+    re := regexp.MustCompile(`(?i)^start\s+(.+?)(\.exe)?$`)
+    matches := re.FindStringSubmatch(cmd)
+    if len(matches) > 1 {
+        appName := matches[1]
+        // Remove any file paths or backslashes
+        appName = filepath.Base(appName)
+        appName = strings.TrimSuffix(appName, ".exe")
+        return fmt.Sprintf("start %s", appName)
+    }
+    return cmd
 }
 
 // summarizeSystemIndex creates a summary of key directories from the system index using the actual username
@@ -171,4 +230,10 @@ func sanitizeError(errorMsg string) string {
     // Implement any necessary sanitization, such as removing file paths or sensitive data
     // For simplicity, we'll just trim whitespace here
     return strings.TrimSpace(errorMsg)
+}
+
+// escapeBackslashesInJSON escapes backslashes in JSON strings to ensure valid JSON parsing.
+func escapeBackslashesInJSON(s string) string {
+    // Replace single backslashes with double backslashes
+    return strings.ReplaceAll(s, `\`, `\\`)
 }
