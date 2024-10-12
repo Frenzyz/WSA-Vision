@@ -1,16 +1,17 @@
 package main
 
 import (
-	"bufio"
+	"encoding/json"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 	"strings"
 
 	"WSA/pkg/assistant"
 	"WSA/pkg/goalengine"
 	"WSA/pkg/logging"
-	"WSA/pkg/settings" // New import for settings management
+	"WSA/pkg/settings"
 	"WSA/pkg/types"
 )
 
@@ -33,95 +34,104 @@ func main() {
 		log.Println("System index generation completed successfully.")
 	}
 
-	// Load or initialize system settings
-	settingsData, err := settings.LoadSettings()
+	//// Load or initialize system settings
+	//settingsData, err := settings.LoadSettings()
+	//if err != nil {
+	//	fmt.Printf("Failed to load settings: %v\n", err)
+	//	log.Printf("Failed to load settings: %v\n", err)
+	//	return
+	//}
+
+	// Start HTTP server
+	http.HandleFunc("/execute", executeHandler)
+	http.HandleFunc("/settings", settingsHandler)
+	fmt.Println("Server started at http://localhost:8080")
+	log.Println("Server started at http://localhost:8080")
+	err = http.ListenAndServe(":8080", nil)
 	if err != nil {
-		fmt.Printf("Failed to load settings: %v\n", err)
-		log.Printf("Failed to load settings: %v\n", err)
+		log.Fatalf("Failed to start server: %v", err)
+	}
+}
+
+// Handler for executing commands
+func executeHandler(w http.ResponseWriter, r *http.Request) {
+	var req struct {
+		Goal string `json:"goal"`
+	}
+	err := json.NewDecoder(r.Body).Decode(&req)
+	if err != nil {
+		http.Error(w, "Invalid request body", http.StatusBadRequest)
 		return
 	}
 
-	// Prompt the user to confirm default browser if not already set
-	if settingsData.DefaultBrowser == "" {
-		reader := bufio.NewReader(os.Stdin)
-		fmt.Println("Please enter your default browser (e.g., Safari, Google Chrome, Firefox):")
-		fmt.Print("> ")
-		browserInput, _ := reader.ReadString('\n')
-		settingsData.DefaultBrowser = strings.TrimSpace(browserInput)
-		err = settingsData.SaveSettings()
-		if err != nil {
-			fmt.Printf("Failed to save settings: %v\n", err)
-			log.Printf("Failed to save settings: %v\n", err)
-			return
-		}
+	goalDescription := strings.TrimSpace(req.Goal)
+	if goalDescription == "" {
+		http.Error(w, "Goal cannot be empty", http.StatusBadRequest)
+		return
 	}
 
-	fmt.Println("Enter a high-level goal (e.g., 'set up a development environment', 'organize my files', 'ch' to clear history, or 'exit' to quit):")
+	// Initialize GoalEngine
+	goal := &goalengine.Goal{
+		Description:  goalDescription,
+		Tasks:        []*goalengine.Task{},
+		CurrentState: &goalengine.State{}, // Initialize with current state
+		DesiredState: &goalengine.State{}, // Define desired state
+	}
 
-	reader := bufio.NewReader(os.Stdin)
+	// Generate tasks from the high-level goal
+	tasks, err := assistant.GenerateTasksFromGoal(goal.Description)
+	if err != nil {
+		http.Error(w, fmt.Sprintf("Failed to generate tasks: %v", err), http.StatusInternalServerError)
+		return
+	}
+	goal.Tasks = tasks
+
 	var chatHistory []types.PromptMessage // Initialize chat history
 
-	for {
-		fmt.Print("> ")
-		userInput, err := reader.ReadString('\n')
+	// Process the goal
+	processGoal(goal, &chatHistory)
+
+	// Prepare response
+	response := struct {
+		Message string `json:"message"`
+	}{
+		Message: "Goal processed successfully",
+	}
+	json.NewEncoder(w).Encode(response)
+}
+
+// Handler for getting and setting settings
+func settingsHandler(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case http.MethodGet:
+		// Return current settings
+		settingsData, err := settings.LoadSettings()
 		if err != nil {
-			fmt.Printf("Error reading input: %v\n", err)
-			log.Printf("Error reading input: %v\n", err)
-			continue
+			http.Error(w, fmt.Sprintf("Failed to load settings: %v", err), http.StatusInternalServerError)
+			return
 		}
-		userInput = strings.TrimSpace(userInput)
-
-		if strings.ToLower(userInput) == "exit" {
-			fmt.Println("Goodbye!")
-			break
-		}
-
-		if strings.ToLower(userInput) == "ch" {
-			chatHistory = nil // Clear chat history
-			fmt.Println("Chat history cleared.")
-			continue
-		}
-
-		// Directly handle 'close app' commands
-		if strings.HasPrefix(strings.ToLower(userInput), "close ") {
-			appName := strings.TrimSpace(userInput[6:])
-			if appName != "" {
-				err := assistant.CloseApplication(appName)
-				if err != nil {
-					fmt.Printf("Failed to close %s: %v\n", appName, err)
-					log.Printf("Failed to close %s: %v\n", appName, err)
-				} else {
-					fmt.Printf("%s has been closed successfully.\n", appName)
-				}
-				continue
-			}
-		}
-
-		// Initialize GoalEngine
-		goal := &goalengine.Goal{
-			Description:  userInput,
-			Tasks:        []*goalengine.Task{},
-			CurrentState: &goalengine.State{}, // Initialize with current state
-			DesiredState: &goalengine.State{}, // Define desired state
-		}
-
-		// Generate tasks from the high-level goal
-		tasks, err := assistant.GenerateTasksFromGoal(goal.Description)
+		json.NewEncoder(w).Encode(settingsData)
+	case http.MethodPost:
+		// Update settings
+		var settingsData settings.Settings
+		err := json.NewDecoder(r.Body).Decode(&settingsData)
 		if err != nil {
-			fmt.Printf("Failed to generate tasks: %v\n", err)
-			log.Printf("Failed to generate tasks: %v\n", err)
-			continue
+			http.Error(w, "Invalid request body", http.StatusBadRequest)
+			return
 		}
-		goal.Tasks = tasks
-
-		// Start processing the goal
-		processGoal(goal, &chatHistory)
+		err = settingsData.SaveSettings()
+		if err != nil {
+			http.Error(w, fmt.Sprintf("Failed to save settings: %v", err), http.StatusInternalServerError)
+			return
+		}
+		json.NewEncoder(w).Encode(settingsData)
+	default:
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 	}
 }
 
 func processGoal(goal *goalengine.Goal, chatHistory *[]types.PromptMessage) {
 	if len(goal.Tasks) == 0 {
-		fmt.Println("No tasks generated. Exiting goal processing.")
 		log.Println("No tasks generated. Exiting goal processing.")
 		return
 	}
@@ -136,11 +146,8 @@ func processGoal(goal *goalengine.Goal, chatHistory *[]types.PromptMessage) {
 		// Update the goal's current state
 		err := goal.UpdateCurrentState()
 		if err != nil {
-			fmt.Printf("Error updating current state: %v\n", err)
 			log.Printf("Error updating current state: %v\n", err)
 		} else {
-			fmt.Printf("Current State Updated: CPU Usage: %.2f%%, Memory Usage: %.2f%%\n",
-				goal.CurrentState.CPUUsage, goal.CurrentState.MemoryUsage)
 			log.Printf("Current State Updated: CPU Usage: %.2f%%, Memory Usage: %.2f%%\n",
 				goal.CurrentState.CPUUsage, goal.CurrentState.MemoryUsage)
 		}
@@ -155,12 +162,12 @@ func processGoal(goal *goalengine.Goal, chatHistory *[]types.PromptMessage) {
 	}
 
 	if len(failedTasks) > 0 {
-		fmt.Println("Some tasks could not be completed:")
+		log.Println("Some tasks could not be completed:")
 		for _, desc := range failedTasks {
-			fmt.Printf("- %s\n", desc)
+			log.Printf("- %s\n", desc)
 		}
 	} else {
-		fmt.Println("All tasks completed successfully!")
+		log.Println("All tasks completed successfully!")
 	}
 }
 
@@ -177,7 +184,6 @@ func executeTask(task *goalengine.Task, chatHistory *[]types.PromptMessage) {
 	// Get commands for the task
 	combinedPrompt, err := assistant.GetShellCommand(task.Description, *chatHistory, task.Feedback, isInstallationCommand(task.Description))
 	if err != nil {
-		fmt.Printf("Error getting commands for task '%s': %v\n", task.Description, err)
 		log.Printf("Error getting commands for task '%s': %v\n", task.Description, err)
 		task.Status = goalengine.Failed
 		task.Feedback = err.Error()
@@ -199,7 +205,6 @@ func executeTask(task *goalengine.Task, chatHistory *[]types.PromptMessage) {
 	if combinedPrompt.VisionNeeded {
 		err := assistant.UseVisionModel(task.Description)
 		if err != nil {
-			fmt.Printf("Error using vision model for task '%s': %v\n", task.Description, err)
 			log.Printf("Error using vision model for task '%s': %v\n", task.Description, err)
 			success = false
 			task.Feedback = err.Error()
@@ -210,12 +215,11 @@ func executeTask(task *goalengine.Task, chatHistory *[]types.PromptMessage) {
 	for _, command := range task.Commands {
 		command = strings.TrimSpace(command)
 		if command == "" {
-			fmt.Printf("Skipping empty or invalid command.\n")
+			log.Printf("Skipping empty or invalid command.\n")
 			continue
 		}
 		err := assistant.ExecuteShellCommand(command)
 		if err != nil {
-			fmt.Printf("Error executing command '%s': %v\n", command, err)
 			log.Printf("Error executing command '%s': %v\n", command, err)
 			success = false
 			task.Feedback = err.Error()

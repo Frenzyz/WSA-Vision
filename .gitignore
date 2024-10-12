@@ -2,3 +2,8 @@
 /system_settings.json
 /app.db
 /app.log
+/electron-app/node_modules/
+/electron-app/app.db
+/electron-app/app.log
+/electron-app/go_build_WSA_WSA
+/electron-app/system_index.txt

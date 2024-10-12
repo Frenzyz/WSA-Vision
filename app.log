@@ -371,3 +371,73 @@ Output: Unable to find application named 'Netflix'
 2024/10/12 17:50:42 Logging started
 2024/10/12 17:55:24 Logging started
 2024/10/12 18:00:24 Logging started
+2024/10/12 18:04:21 Current State Updated: CPU Usage: 15.93%, Memory Usage: 78.52%
+2024/10/12 18:05:20 Error executing command 'open -a Safari --new-window https://www.linkedin.com': error executing command: exit status 1
+Output: open: unrecognized option `--new-window'
+Usage: open [-e] [-t] [-f] [-W] [-R] [-n] [-g] [-h] [-s <partial SDK name>][-b <bundle identifier>] [-a <application>] [-u URL] [filenames] [--args arguments]
+Help: Open opens files from a shell.
+      By default, opens each file using the default application for that file.  
+      If the file is in the form of a URL, the file will be opened as a URL.
+Options: 
+      -a                    Opens with the specified application.
+      --arch ARCH           Open with the given cpu architecture type and subtype.
+      -b                    Opens with the specified application bundle identifier.
+      -e                    Opens with TextEdit.
+      -t                    Opens with default text editor.
+      -f                    Reads input from standard input and opens with TextEdit.
+      -F  --fresh           Launches the app fresh, that is, without restoring windows. Saved persistent state is lost, excluding Untitled documents.
+      -R, --reveal          Selects in the Finder instead of opening.
+      -W, --wait-apps       Blocks until the used applications are closed (even if they were already running).
+          --args            All remaining arguments are passed in argv to the application's main() function instead of opened.
+      -n, --new             Open a new instance of the application even if one is already running.
+      -j, --hide            Launches the app hidden.
+      -g, --background      Does not bring the application to the foreground.
+      -h, --header          Searches header file locations for headers matching the given filenames, and opens them.
+      -s                    For -h, the SDK to use; if supplied, only SDKs whose names contain the argument value are searched.
+                            Otherwise the highest versioned SDK in each platform is used.
+      -u, --url URL         Open this URL, even if it matches exactly a filepath
+      -i, --stdin  PATH     Launches the application with stdin connected to PATH; defaults to /dev/null
+      -o, --stdout PATH     Launches the application with /dev/stdout connected to PATH; 
+          --stderr PATH     Launches the application with /dev/stderr connected to PATH to
+          --env    VAR      Add an enviroment variable to the launched process, where VAR is formatted AAA=foo or just AAA for a null string value.
+
+2024/10/12 18:05:23 Error getting commands for task 'Type 'linkedin.com' in address bar': failed to parse extracted JSON as CombinedPrompt: invalid character 'a' after array element
+Extracted JSON: {
+  "nlResponse": "You are already on the webpage.",
+  "commands": [
+    "open -a Safari",
+    "osascript -e \\\\"activate application \\\\"Safari\\\\"" 
+  ],
+  "visionNeeded": false // Set to true if vision is needed, else false.
+}
+2024/10/12 18:05:23 Current State Updated: CPU Usage: 12.46%, Memory Usage: 77.62%
+2024/10/12 18:06:13 Current State Updated: CPU Usage: 9.54%, Memory Usage: 79.37%
+2024/10/12 18:15:52 Error getting commands for task 'open -a Screen Mirroring': failed to parse extracted JSON as CombinedPrompt: invalid character 'q' after array element
+Extracted JSON: {
+  "nlResponse": "No application named Screen Mirroring found.",
+  "commands": [
+    "osascript -e \\\\"quit app \\\\"Screen Mirroring\\\\"\\\\"",
+    "open -a Apple TV"
+  ],
+  "visionNeeded": false
+}
+2024/10/12 18:15:54 Error getting commands for task 'go to AirPlay settings (System Preferences > Displays > Arrangement tab)': failed to parse extracted JSON as CombinedPrompt: invalid character 't' after array element
+Extracted JSON: {
+  "nlResponse": "Error: Screen Mirroring application not found.",
+  "commands": [
+    "open -a Apple TV",
+    "osascript -e \\\\"tell application \\\\"Apple System Events\\\\" to select menu item \\\\\\\\"Show Preferences\\\\\\\\" of menu bar 1 of window \\\\\\\\"System Preferences\\\\\\\\".\\\\""
+  ],
+  "visionNeeded": false
+}
+2024/10/12 18:15:54 Current State Updated: CPU Usage: 10.52%, Memory Usage: 78.41%
+2024/10/12 18:19:10 Logging started
+2024/10/12 18:21:11 Logging started
+2024/10/12 18:32:24 Logging started
+2024/10/12 18:32:24 Server started at http://localhost:8080
+2024/10/12 18:33:37 Logging started
+2024/10/12 18:33:37 Server started at http://localhost:8080
+2024/10/12 18:37:38 Logging started
+2024/10/12 18:37:38 Server started at http://localhost:8080
+2024/10/12 18:40:14 Logging started
+2024/10/12 18:40:14 Server started at http://localhost:8080
