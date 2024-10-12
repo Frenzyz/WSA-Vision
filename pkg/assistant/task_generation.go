@@ -9,54 +9,20 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"regexp"
-	"strings"
 )
-
-// ExtractJSON attempts to find and return the first JSON object or array in the input string.
-func ExtractJSON(input string) (string, error) {
-	// Regular expression to match JSON objects or arrays
-	jsonRegex := regexp.MustCompile(`(?s)\{.*?\}|\[.*?\]`)
-	matches := jsonRegex.FindAllString(input, -1)
-	if len(matches) == 0 {
-		return "", fmt.Errorf("no JSON object or array found in the input")
-	}
-	// Combine all found JSON arrays into one
-	if len(matches) > 1 {
-		// Assume they are arrays and merge them
-		combinedArray := "["
-		for i, match := range matches {
-			trimmed := strings.TrimSpace(match)
-			// Remove the opening and closing brackets
-			trimmed = strings.TrimPrefix(trimmed, "[")
-			trimmed = strings.TrimSuffix(trimmed, "]")
-			combinedArray += trimmed
-			if i < len(matches)-1 {
-				combinedArray += ","
-			}
-		}
-		combinedArray += "]"
-		return combinedArray, nil
-	}
-	return matches[0], nil
-}
 
 // GenerateTasksFromGoal breaks down a high-level goal into tasks using the LLM
 func GenerateTasksFromGoal(goalDescription string) ([]*goalengine.Task, error) {
-    // Prepare the system prompt
-    systemPrompt := "You are an assistant that helps break down high-level goals into actionable tasks for a Windows-based operating system. " +
-        "When starting applications, always use the 'start appname' format (e.g., 'start notepad', 'start spotify'). " +
-        "Do not include file paths, extensions, or any additional parameters in the descriptions. " +
-        "Please provide a single JSON array of tasks with descriptions only. " +
-        "**Do not include multiple JSON arrays or multiple copies of the response.** " +
-        "Do not include any additional text, explanations, or commentary.\n\n" +
-        "Response format strictly as follows:\n" +
-        "```json\n" +
-        "[\n  { \"description\": \"First task description\" },\n  { \"description\": \"Second task description\" }\n]\n" +
-        "```\n" +
-        "Ensure that the JSON is properly formatted and contains no syntax errors. " +
-        "**Do not include any other text outside the JSON array.**"
-        
+	// Prepare the system prompt
+	systemPrompt := "You are an assistant that helps break down high-level goals into actionable tasks for a macOS-based operating system. " +
+		"When starting applications, always use the 'open -a appname' format (e.g., 'open -a TextEdit', 'open -a Spotify'). " +
+		"Do not include file paths, extensions, or any additional parameters in the descriptions. " +
+		"Please provide a single JSON array of tasks with descriptions only. " +
+		"**Do not include multiple JSON arrays or multiple copies of the response.** " +
+		"Do not include any additional text, explanations, or commentary.\n\n" +
+		"Response format strictly as follows:\n```json\n[\n  { \"description\": \"First task description\" },\n  { \"description\": \"Second task description\" }\n]\n" +
+		"```\nEnsure that the JSON is properly formatted and contains no syntax errors. **Do not include any other text outside the JSON array.**"
+
 	// Prepare the user message with the goal description
 	userMessage := "Goal: " + goalDescription
 

@@ -1,761 +1,373 @@
-2024/10/07 19:21:52 Logging started
-2024/10/07 19:22:22 Logging started
-2024/10/07 19:24:20 System index generation completed successfully.
-2024/10/07 19:24:28 Failed to generate tasks: failed to parse extracted JSON as LLM response: invalid character '{' after top-level value
-Extracted JSON: {"model":"llama3.2","created_at":"2024-10-07T23:24:27.9606524Z","message":{"role":"assistant","content":"```"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0062284Z","message":{"role":"assistant","content":"json"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.012358Z","message":{"role":"assistant","content":"\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0192484Z","message":{"role":"assistant","content":"[\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0253272Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0320983Z","message":{"role":"assistant","content":" {\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0392989Z","message":{"role":"assistant","content":"   "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0462979Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0533664Z","message":{"role":"assistant","content":"description"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0601698Z","message":{"role":"assistant","content":"\":"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0683512Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0754456Z","message":{"role":"assistant","content":"Update"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0809584Z","message":{"role":"assistant","content":" Windows"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0876912Z","message":{"role":"assistant","content":" to"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.0942593Z","message":{"role":"assistant","content":" latest"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1014003Z","message":{"role":"assistant","content":" version"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1083497Z","message":{"role":"assistant","content":"\"\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1144369Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1216151Z","message":{"role":"assistant","content":" },\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1285786Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1352015Z","message":{"role":"assistant","content":" {\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1417023Z","message":{"role":"assistant","content":"   "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1482608Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1551983Z","message":{"role":"assistant","content":"description"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1617966Z","message":{"role":"assistant","content":"\":"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1680366Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1754122Z","message":{"role":"assistant","content":"Disable"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1809271Z","message":{"role":"assistant","content":" startup"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.1988624Z","message":{"role":"assistant","content":" programs"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2056268Z","message":{"role":"assistant","content":"\"\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2118003Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2195973Z","message":{"role":"assistant","content":" },\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2256921Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2327457Z","message":{"role":"assistant","content":" {\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2397148Z","message":{"role":"assistant","content":"   "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2461873Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2521242Z","message":{"role":"assistant","content":"description"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2589582Z","message":{"role":"assistant","content":"\":"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2653918Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2720488Z","message":{"role":"assistant","content":"Run"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2782615Z","message":{"role":"assistant","content":" disk"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2839824Z","message":{"role":"assistant","content":" cleanup"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2910696Z","message":{"role":"assistant","content":" and"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.2981244Z","message":{"role":"assistant","content":" def"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3052665Z","message":{"role":"assistant","content":"ragment"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3111081Z","message":{"role":"assistant","content":"ation"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3176699Z","message":{"role":"assistant","content":"\"\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3245111Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3311244Z","message":{"role":"assistant","content":" },\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3379807Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3443488Z","message":{"role":"assistant","content":" {\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3508667Z","message":{"role":"assistant","content":"   "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3575354Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3652228Z","message":{"role":"assistant","content":"description"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.371923Z","message":{"role":"assistant","content":"\":"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3784229Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3855043Z","message":{"role":"assistant","content":"Create"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.3934381Z","message":{"role":"assistant","content":" system"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4004422Z","message":{"role":"assistant","content":" image"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4074464Z","message":{"role":"assistant","content":" backup"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4159997Z","message":{"role":"assistant","content":"\"\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4224002Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4300093Z","message":{"role":"assistant","content":" },\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4365856Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4440991Z","message":{"role":"assistant","content":" {\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4509125Z","message":{"role":"assistant","content":"   "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.457491Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4638262Z","message":{"role":"assistant","content":"description"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4713396Z","message":{"role":"assistant","content":"\":"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4774242Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4836985Z","message":{"role":"assistant","content":"Install"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4902368Z","message":{"role":"assistant","content":" security"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.4970921Z","message":{"role":"assistant","content":" updates"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.5042263Z","message":{"role":"assistant","content":" and"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.5107394Z","message":{"role":"assistant","content":" patches"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.5174736Z","message":{"role":"assistant","content":"\"\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.5237643Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.5302761Z","message":{"role":"assistant","content":" }\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.5381938Z","message":{"role":"assistant","content":"]\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.5442596Z","message":{"role":"assistant","content":"```"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:24:28.5518635Z","message":{"role":"assistant","content":""},"done_reason":"stop","done":true,"total_duration":7694013600,"load_duration":6961237200,"prompt_eval_count":133,"prompt_eval_duration":138071000,"eval_count":81,"eval_duration":590721000}
-2024/10/07 19:27:11 Logging started
-2024/10/07 19:27:16 Failed to generate tasks: failed to parse extracted JSON as LLM response: invalid character '{' after top-level value
-Extracted JSON: {"model":"llama3.2","created_at":"2024-10-07T23:27:15.805253Z","message":{"role":"assistant","content":"[\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8143248Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8221586Z","message":{"role":"assistant","content":" {"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8287804Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8351958Z","message":{"role":"assistant","content":"description"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8421526Z","message":{"role":"assistant","content":"\":"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8481536Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8555959Z","message":{"role":"assistant","content":"Click"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8620394Z","message":{"role":"assistant","content":" on"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8684558Z","message":{"role":"assistant","content":" the"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8760446Z","message":{"role":"assistant","content":" Spotify"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8829164Z","message":{"role":"assistant","content":" icon"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8900855Z","message":{"role":"assistant","content":" on"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.8963326Z","message":{"role":"assistant","content":" the"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9028651Z","message":{"role":"assistant","content":" task"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9103805Z","message":{"role":"assistant","content":"bar"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9175498Z","message":{"role":"assistant","content":" or"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9246617Z","message":{"role":"assistant","content":" in"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9305784Z","message":{"role":"assistant","content":" the"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9374865Z","message":{"role":"assistant","content":" Start"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9445819Z","message":{"role":"assistant","content":" menu"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9514752Z","message":{"role":"assistant","content":"\""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9592556Z","message":{"role":"assistant","content":" },\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9656858Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9724134Z","message":{"role":"assistant","content":" {"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9804069Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9875535Z","message":{"role":"assistant","content":"description"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:15.9963663Z","message":{"role":"assistant","content":"\":"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0023383Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0092493Z","message":{"role":"assistant","content":"Hover"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0163283Z","message":{"role":"assistant","content":" over"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0234109Z","message":{"role":"assistant","content":" the"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0299259Z","message":{"role":"assistant","content":" Spotify"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0362222Z","message":{"role":"assistant","content":" icon"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0425886Z","message":{"role":"assistant","content":" to"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0501044Z","message":{"role":"assistant","content":" open"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0579415Z","message":{"role":"assistant","content":" the"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0641566Z","message":{"role":"assistant","content":" Spotify"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0710024Z","message":{"role":"assistant","content":" launcher"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0774289Z","message":{"role":"assistant","content":"\""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0852859Z","message":{"role":"assistant","content":" },\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0920418Z","message":{"role":"assistant","content":" "},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.0985904Z","message":{"role":"assistant","content":" {"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1042157Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.110508Z","message":{"role":"assistant","content":"description"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1181991Z","message":{"role":"assistant","content":"\":"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1252974Z","message":{"role":"assistant","content":" \""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1311271Z","message":{"role":"assistant","content":"Double"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1377207Z","message":{"role":"assistant","content":"-click"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1445178Z","message":{"role":"assistant","content":" on"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1515661Z","message":{"role":"assistant","content":" the"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1593904Z","message":{"role":"assistant","content":" Spotify"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1656214Z","message":{"role":"assistant","content":" icon"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1722666Z","message":{"role":"assistant","content":" to"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1786954Z","message":{"role":"assistant","content":" launch"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1861978Z","message":{"role":"assistant","content":" the"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1930201Z","message":{"role":"assistant","content":" application"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.1994886Z","message":{"role":"assistant","content":"\""},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.2057434Z","message":{"role":"assistant","content":" }\n"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.2144113Z","message":{"role":"assistant","content":"]"},"done":false}
-{"model":"llama3.2","created_at":"2024-10-07T23:27:16.2228331Z","message":{"role":"assistant","content":""},"done_reason":"stop","done":true,"total_duration":651618300,"load_duration":19129600,"prompt_eval_count":134,"prompt_eval_duration":213648000,"eval_count":61,"eval_duration":416676000}
-2024/10/07 19:36:03 Logging started
-2024/10/07 19:36:11 Error getting commands for task 'Click on Spotify icon': failed to parse extracted JSON as CombinedPrompt: invalid character 'D' in string escape code
-Extracted JSON: {
-  "nlResponse": "You clicked on the Spotify icon.",
-  "commands": [
-    "New-Item -ItemType Directory -Path $env:USERPROFILE\Downloads",
-    "explorer $env:USERPROFILE\Downloads"
-  ]
-}
-2024/10/07 19:36:13 Error getting commands for task 'Select Spotify as default app': failed to parse extracted JSON as CombinedPrompt: invalid character 'P' in string escape code
-Extracted JSON: {
-  "nlResponse": "Spotify has been set as your default music player.",
-  "commands": [
-    "Set-Location -Path 'C:\Program Files\Spotify'\ -Name 'Spotify' -Type Directory",
-    "New-Item -Path 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\DefaultApps' -ItemType Directory",
-    "Set-ItemProperty -Path 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\DefaultApps\Apps' -Name '.defindex' -Value '""
-  ]
-}
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.32%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 3.57%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 4.17%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 2.22%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 3.85%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 4.17%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 4.17%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 4.17%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 2.22%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:13 Current State Updated: CPU Usage: 3.85%, Memory Usage: 49.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 4.17%, Memory Usage: 49.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 49.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 4.55%, Memory Usage: 49.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 3.57%, Memory Usage: 49.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 4.17%, Memory Usage: 49.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 4.44%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 4.35%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 3.57%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 3.33%, Memory Usage: 48.00%
-2024/10/07 19:36:14 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 7.14%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 3.85%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 2.56%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 3.57%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:15 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 2.70%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 3.03%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 3.85%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 2.13%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 4.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 3.12%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 2.17%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 3.85%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:16 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 4.35%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 4.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 2.94%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 3.45%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:17 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 3.70%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 1.39%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 2.17%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 4.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 4.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 2.08%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 2.13%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 2.08%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:18 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 2.27%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 4.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 2.94%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 3.70%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:19 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 3.03%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 2.63%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 3.33%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 3.85%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 4.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 2.63%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 4.35%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 3.85%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 4.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:20 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 2.63%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 2.13%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 3.85%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 2.44%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:21 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:22 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:22 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:22 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:22 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:22 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:22 Current State Updated: CPU Usage: 0.00%, Memory Usage: 48.00%
-2024/10/07 19:36:22 Current State Updated: CPU Usage: 4.17%, Memory Usage: 48.00%
-2024/10/07 19:51:15 Logging started
-2024/10/07 19:51:26 Error getting commands for task 'Open Spotify application': failed to parse extracted JSON as CombinedPrompt: invalid character 'C' after array element
-Extracted JSON: {
-  "nlResponse": "The Spotify application has been opened.",
-  "commands": [
-    "Get-ChildItem -Path C:\\\\Program Files (x86)\\\\Music\\\\Spotify\\\\App\\\\Application.exe",
-    "Start-Process -FilePath \\"C:\\\\Program Files (x86)\\\\Music\\\\Spotify\\\\App\\\\Application.exe\\""
-  ]
-}
-2024/10/07 19:51:29 Error executing command '$playlist = Read-Host -Prompt 'Enter the name of the playlist' -Default 'New Playlist'': error executing command: exit status 1
-Output: Read-Host : A parameter cannot be found that matches parameter name 'Default'.
-At line:1 char:64
-+ ... = Read-Host -Prompt 'Enter the name of the playlist' -Default 'New Pl ...
-+                                                          ~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (:) [Read-Host], ParameterBindingException
-    + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.ReadHostCommand
- 
+2024/10/12 16:48:02 Logging started
+2024/10/12 16:49:41 System index generation completed successfully.
+2024/10/12 16:49:49 Error executing command 'defaults write com.apple.Safari WebPreferences pluginEnabled -array disable': error executing command: exit status 1
+Output: 2024-10-12 16:49:49.017 defaults[12660:1799594] Unexpected argument -array; leaving defaults unchanged.
 
-2024/10/07 19:51:30 Error getting commands for task 'Search for desired playlist or create new one': LLM generated a dangerous command: Get-PSDrive | Where-Object {$_.Name -eq 'C$'} | Select-Object -ExpandProperty RootDir | Get-ChildItem MusicLibrary | ForEach-Object {$_ | Select-Object -Last 1}| Export-Date | Format-Path -Path ('%Y-%m-%d %H:%M:%S')
-2024/10/07 19:51:32 Error executing command '$musicPlayer = New-Object System.Media.SoundPlayer('C:\\Users\\User\\Music\\Audio\\song.mp3'); $musicPlayer.Play();': error executing command: exit status 1
-Output: Exception calling "Play" with "0" argument(s): "Please be sure a sound file exists at the specified location."
-At line:1 char:96
-+ ... ayer('C:\\Users\\User\\Music\\Audio\\song.mp3'); $musicPlayer.Play();
-+                                                      ~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
-    + FullyQualifiedErrorId : FileNotFoundException
- 
-
-2024/10/07 19:51:34 Error executing command '$musicPlayer = New-Object MusicPlayer': error executing command: exit status 1
-Output: New-Object : Cannot find type [MusicPlayer]: verify that the assembly containing this type is loaded.
-At line:1 char:16
-+ $musicPlayer = New-Object MusicPlayer
-+                ~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidType: (:) [New-Object], PSArgumentException
-    + FullyQualifiedErrorId : TypeNotFound,Microsoft.PowerShell.Commands.NewObjectCommand
- 
-
-2024/10/07 19:51:35 Error getting commands for task 'Start playing music': failed to parse extracted JSON as CombinedPrompt: invalid character '`' after top-level value
-Extracted JSON: {
-  "nlResponse": "No MusicPlayer class found. Cannot play music.",
+2024/10/12 16:49:54 Error getting commands for task 'set default browser to Safari': failed to parse extracted JSON as CombinedPrompt: json: cannot unmarshal array into Go value of type types.CombinedPrompt
+Extracted JSON: [{
+  "nlResponse": "Safari set as the default browser.",
   "commands": [
-    "$musicDir = 'C:\\\\Program Files\\\\Windows Media Player\\\\wmplayer.exe'",
-    "$musicDir"
-  ]
-}
-```
-
-```json
-{
-  "nlResponse": "No MusicPlayer class found. Cannot play music.",
-  "commands": [
-    "$musicDir = 'C:\\\\Program Files\\\\Windows Media Player\\\\wmplayer.exe'",
-    "$musicDir"
+    "defaults write com.apple.Browser.plistDefaultBrowser -string /Applications/Safari.app"
   ],
-  "commandsContinue": [
-    "$musicDir",
-    '"$musicDir" -Play'
-  ]
-}
-2024/10/07 19:51:35 Current State Updated: CPU Usage: 0.46%, Memory Usage: 49.00%
-2024/10/07 20:33:45 Logging started
-2024/10/07 20:33:52 Failed to generate tasks: failed to parse extracted JSON as tasks: invalid character '[' after top-level value
-Extracted JSON: [
-  {"description": "Start Spotify"},
-  {"description": "Navigate to account page"}
-]
-[
-  {"description": "Start Spotify"},
-  {"description": "Go to playlist section"}
-]
-[
-  {"description": "Start Spotify"},
-  {"description": "Open specific playlist or search for music"}
-]
-2024/10/07 20:39:37 Logging started
-2024/10/07 20:39:49 Error getting commands for task 'start appname\\Spotify.exe': failed to parse extracted JSON as CombinedPrompt: invalid character '-' after array element
-Extracted JSON: {
-  "nlResponse": "Starting Spotify.",
+  "visionNeeded": false
+},{
+  "nlResponse": "Safari set as the default browser.",
   "commands": [
-    "start \\"--title \\"Spotify\\" appname\\\\Spotify.exe",
-    "[Console]::Input('Press any key to continue.') | Out-Null"
+    "export Browser.plistDefaultBrowser=/Applications/Safari.app; export Browser=AppleWebKit"
+  ],
+  "visionNeeded": false
+},{
+  "nlResponse": "Safari set as the default browser.",
+  "commands": [
+    "defaults write com.apple.Browser.plistDefaultBrowser -string /Applications/Safari.app",
+    "launchctl unload ~/Library/GroupContainer/group.com.apple.browser.plist"
+  ],
+  "visionNeeded": false
+}]
+2024/10/12 16:50:02 Error getting commands for task 'create alias for Terminal in Applications/Utilities': failed to parse extracted JSON as CombinedPrompt: json: cannot unmarshal array into Go value of type types.CombinedPrompt
+Extracted JSON: [{
+  "nlResponse": "You have created an alias for Terminal.",
+  "commands": [
+    "cd /Applications/Utilities"
+  ],
+  "visionNeeded": false
+},{
+  "nlResponse": "Confirming your location.",
+  "commands": [
+    "ls -A"
+  ],
+  "visionNeeded": false
+},{
+  "nlResponse": "Creating an alias for Terminal...",
+  "commands": [
+    "ln -s /usr/bin/terminal terminal_alias",
+    "rm terminal_alias"
+  ],
+  "visionNeeded": true
+},{
+  "nlResponse": "Renaming Terminal.",
+  "commands": [
+    "mv /Applications/Terminal.app /Applications/terminal.app"
+  ],
+  "visionNeeded": false
+}]
+2024/10/12 16:50:04 Current State Updated: CPU Usage: 16.00%, Memory Usage: 81.04%
+2024/10/12 16:50:12 Error getting commands for task 'Open Mail.app to compose a new email': failed to parse extracted JSON as CombinedPrompt: json: cannot unmarshal array into Go value of type types.CombinedPrompt
+Extracted JSON: [{
+  "nlResponse": "Opens Mail.app to compose a new email.",
+  "commands": [
+    "open -a Mail"
+  ],
+  "visionNeeded": false
+},{
+  "nlResponse": "Opens TextEdit to create a new document.",
+  "commands": [
+    "open -aTextEdit"
+  ],
+  "visionNeeded": false
+}]
+2024/10/12 16:50:17 Error getting commands for task 'Open Finder window': failed to parse extracted JSON as CombinedPrompt: invalid character '/' after array element
+Extracted JSON: [{
+  "nlResponse": "Finder window opened.",
+  "commands": [
+    "open -a Finder"
+  ],
+  "visionNeeded": false
+},{
+  "nlResponse": "Finder window opened.",
+  "commands": [
+    "\\"/Applications/Finder.app\\""
+  ],
+  "visionNeeded": false
+}]
+2024/10/12 16:50:21 Error getting commands for task 'Open TextEdit for creating a new document': failed to parse extracted JSON as CombinedPrompt: json: cannot unmarshal array into Go value of type types.CombinedPrompt
+Extracted JSON: [{
+  "nlResponse": "Launches TextEdit to create a new document.",
+  "commands": [
+    "open -a TextEdit"
+  ],
+  "visionNeeded": false
+},{
+  "nlResponse": "Opens TextEdit for creating a new document.",
+  "commands": [
+    "open -a TextEdit"
+  ],
+  "visionNeeded": false
+}]
+2024/10/12 16:50:23 Error executing command 'open -a iTunes': error executing command: exit status 1
+Output: Unable to find application named 'iTunes'
+
+2024/10/12 16:50:26 Error executing command 'open -a iTunes': error executing command: exit status 1
+Output: Unable to find application named 'iTunes'
+
+2024/10/12 16:50:28 Error executing command 'open -a iTunes': error executing command: exit status 1
+Output: Unable to find application named 'iTunes'
+
+2024/10/12 16:51:57 Logging started
+2024/10/12 16:52:09 Error getting commands for task 'Command + Q': failed to parse extracted JSON as CombinedPrompt: json: cannot unmarshal array into Go value of type types.CombinedPrompt
+Extracted JSON: [{
+  "nlResponse": "Quit",
+  "commands": [
+    "quit"
+  ],
+  "visionNeeded": false
+},{
+  "nlResponse": "Quit all applications",
+  "commands": [
+    "killall"
+  ],
+  "visionNeeded": false
+}]
+2024/10/12 16:52:09 Current State Updated: CPU Usage: 16.01%, Memory Usage: 81.01%
+2024/10/12 17:09:17 Logging started
+2024/10/12 17:09:28 Current State Updated: CPU Usage: 15.98%, Memory Usage: 83.42%
+2024/10/12 17:09:56 Failed to generate tasks: failed to parse extracted JSON as tasks: invalid character 'S' after object key:value pair
+Extracted JSON: [
+  { "description": "open -a Spotify && osascript -e 'tell application \\"Spotify\\" to activate' && applescript exec script "
+}
+]
+2024/10/12 17:15:05 Logging started
+2024/10/12 17:15:14 Error getting commands for task 'open -a Spotify; quit': failed to parse extracted JSON as CombinedPrompt: invalid character 'q' after array element
+Extracted JSON: {
+  "nlResponse": "Spotify has started, then closed.",
+  "commands": [
+    "open -a Spotify",
+    "osascript -e \\"quit app \\"Spotify\\"" 
   ],
   "visionNeeded": false
 }
-2024/10/07 20:39:49 Current State Updated: CPU Usage: 0.16%, Memory Usage: 52.00%
-2024/10/07 20:43:14 Logging started
-2024/10/07 20:43:22 Current State Updated: CPU Usage: 0.46%, Memory Usage: 51.00%
+2024/10/12 17:15:14 Current State Updated: CPU Usage: 15.99%, Memory Usage: 82.12%
+2024/10/12 17:19:13 Logging started
+2024/10/12 17:19:23 Error getting commands for task 'Cmd + Q': failed to parse extracted JSON as CombinedPrompt: invalid character 'q' after array element
+Extracted JSON: {
+  "nlResponse": "Quit the application.",
+  "commands": [
+    "osascript -e \\\\"quit app \\\\\\"\\\\u0077indow\\\\\\\\"""
+  ],
+  "visionNeeded": false
+}
+2024/10/12 17:19:23 Current State Updated: CPU Usage: 16.00%, Memory Usage: 83.15%
+2024/10/12 17:23:08 Logging started
+2024/10/12 17:23:18 Current State Updated: CPU Usage: 16.01%, Memory Usage: 79.97%
+2024/10/12 17:23:45 Current State Updated: CPU Usage: 31.73%, Memory Usage: 82.12%
+2024/10/12 17:24:24 Error getting commands for task 'Open -a About This Mac': failed to parse extracted JSON as CombinedPrompt: invalid character 'A' after object key:value pair
+Extracted JSON: {
+  "nlResponse": "Opens \\\\"About This Mac\\\\" in the default browser.",
+  "commands": ["open -a About\\ This\\ Mac"],
+  "visionNeeded": false
+}
+2024/10/12 17:24:26 Error getting commands for task 'View Storage tab in About This Mac window': failed to parse extracted JSON as CombinedPrompt: invalid character 'S' after object key:value pair
+Extracted JSON: {
+  "nlResponse": "To view the Storage tab in About This Mac, click on \\\\\\"System Report\\\\\\\\\\" and then click \\\\\\"Storage\\\\\\\\".",
+  "commands": ["open -a System\\ Reporting\\ App"],
+  "visionNeeded": false
+}
+2024/10/12 17:24:32 Error executing command 'cd /Users/aaditchetan/Library/Preferences/com.apple.LaunchServices.plist': error executing command: exit status 1
+Output: /bin/sh: line 0: cd: /Users/aaditchetan/Library/Preferences/com.apple.LaunchServices.plist: No such file or directory
+
+2024/10/12 17:24:36 Error executing command 'open -a "Disk\ Util"': error executing command: exit status 1
+Output: Unable to find application named 'Disk\ Util'
+
+2024/10/12 17:24:40 Error executing command 'open -a "Disk\ Util"': error executing command: exit status 1
+Output: Unable to find application named 'Disk\ Util'
+
+2024/10/12 17:24:42 Error getting commands for task 'Confirm that you want to view all storage items': failed to parse extracted JSON as CombinedPrompt: invalid character '/' after object key:value pair
+Extracted JSON: {
+  "nlResponse": "Do you want to view all storage items?",
+  "commands": ["open -a Disk\\ Util"],
+  "visionNeeded": false // Set to true if vision is needed, else false.
+}
+2024/10/12 17:24:45 Error executing command 'open -a "Finder && click Go"': chained commands detected and blocked: open -a "Finder && click Go"
+2024/10/12 17:24:47 Error getting commands for task 'Navigate to 'Go' menu in Finder': failed to parse extracted JSON as CombinedPrompt: invalid character 'F' after array element
+Extracted JSON: {
+  "nlResponse": "Select Go from the Finder menu.",
+  "commands": [
+    "osascript -e 'tell application \\\\"Finder\\\\" to activate' && osascript -e 'display dialog \\\\"Go\\\\" buttons {\\["\\\\u21B5\\\\u21B4\\\\u2113\\\\\\"}
+2024/10/12 17:24:48 Error executing command 'open -a "Library"': error executing command: exit status 1
+Output: Unable to find application named 'Library'
+
+2024/10/12 17:24:54 Error executing command 'open -a "Library"': error executing command: exit status 1
+Output: Unable to find application named 'Library'
+
+2024/10/12 17:24:55 Error executing command 'open -a "Library"': error executing command: exit status 1
+Output: Unable to find application named 'Library'
+
+2024/10/12 17:24:59 Error executing command 'df -h | grep All Storage': error executing command: exit status 2
+Output: grep: Storage: No such file or directory
+
+2024/10/12 17:25:03 Error executing command 'df -h | grep 'All Storage'': error executing command: exit status 1
+Output: 
+2024/10/12 17:25:04 Error getting commands for task 'Type the following command and press Enter: df -h | grep 'All Storage'': failed to parse extracted JSON as CombinedPrompt: invalid character 'A' after array element
+Extracted JSON: {
+  "nlResponse": "Running df -h | grep All Storage",
+  "commands": [
+    "open -a Terminal",
+    "df -h | grep \\\\"All Storage\\\\""
+  ],
+  "visionNeeded": false
+}
+2024/10/12 17:25:04 Current State Updated: CPU Usage: 16.68%, Memory Usage: 81.87%
+2024/10/12 17:25:49 Error executing command 'open -a "Chrome"': error executing command: exit status 1
+Output: Unable to find application named 'Chrome'
+
+2024/10/12 17:25:51 Error getting commands for task 'open -a Chrome': failed to parse extracted JSON as CombinedPrompt: invalid character 'G' after array element
+Extracted JSON: {
+  "nlResponse": "Unable to find application named 'Chrome'.",
+  "commands": [
+    "open -a \\\\"Google\\ Chrome\\\\""
+  ],
+  "visionNeeded": false
+}
+2024/10/12 17:25:53 Error executing command 'open -a "Google Maps"': error executing command: exit status 1
+Output: Unable to find application named 'Google Maps'
+
+2024/10/12 17:25:54 Error executing command 'open -a "Google Maps"': error executing command: exit status 1
+Output: Unable to find application named 'Google Maps'
+
+2024/10/12 17:26:02 Error executing command 'open -a "Google\ Maps"': error executing command: exit status 1
+Output: Unable to find application named 'Google\ Maps'
+
+2024/10/12 17:26:02 Current State Updated: CPU Usage: 13.54%, Memory Usage: 81.10%
+2024/10/12 17:26:17 Error executing command 'open -a "Google\ Chrome"': error executing command: exit status 1
+Output: Unable to find application named 'Google\ Chrome'
+
+2024/10/12 17:26:19 Error executing command 'open -a "Google\ Chrome"': error executing command: exit status 1
+Output: Unable to find application named 'Google\ Chrome'
+
+2024/10/12 17:26:21 Error getting commands for task 'open -a Google Chrome': failed to parse extracted JSON as CombinedPrompt: invalid character 'G' after array element
+Extracted JSON: {
+  "nlResponse": "Google Chrome is not found on the system.",
+  "commands": [
+    "osascript -e 'quit application \\\\"Google Chrome\\\\"'",
+    "open -a /Applications/Google\\ Chrome.app"
+  ],
+  "visionNeeded": false
+}
+2024/10/12 17:26:22 Current State Updated: CPU Usage: 13.92%, Memory Usage: 80.82%
+2024/10/12 17:26:47 Error getting commands for task 'open -a Safari https://www.linkedin.com': failed to parse extracted JSON as CombinedPrompt: invalid character '/' after object key:value pair
+Extracted JSON: {
+  "nlResponse": "Opens Safari with the specified URL.",
+  "commands": [
+    "open -a Safari",
+    "open"
+  ],
+  "visionNeeded": false // Set to true if vision is needed, else false.
+}
+2024/10/12 17:26:49 Current State Updated: CPU Usage: 26.80%, Memory Usage: 83.35%
+2024/10/12 17:27:16 Error executing command 'open -a "LinkedIn"': error executing command: exit status 1
+Output: Unable to find application named 'LinkedIn'
+
+2024/10/12 17:27:18 Error getting commands for task 'open -a LinkedIn': failed to parse extracted JSON as CombinedPrompt: invalid character 'q' after array element
+Extracted JSON: {
+  "nlResponse": "Unable to find application named 'LinkedIn'.",
+  "commands": [
+    "osascript -e \\\\"quit app \\\\"LinkedIn\\\\"\\\\"",
+    "open -a Finder"
+  ],
+  "visionNeeded": false
+}
+2024/10/12 17:27:18 Current State Updated: CPU Usage: 32.01%, Memory Usage: 85.63%
+2024/10/12 17:27:40 Error getting commands for task 'open -a Safari https://www.linkedin.com/': failed to parse extracted JSON as CombinedPrompt: invalid character 'h' after array element
+Extracted JSON: {
+  "nlResponse": "Opening Safari with the specified URL.",
+  "commands": [
+    "open -a Safari",
+    "open \\\\"https://www.linkedin.com\\\\""
+  ],
+  "visionNeeded": false
+}
+2024/10/12 17:27:41 Error executing command 'open -a "Chrome"': error executing command: exit status 1
+Output: Unable to find application named 'Chrome'
+
+2024/10/12 17:27:43 Error getting commands for task 'open -a Chrome https://www.linkedin.com/': failed to parse extracted JSON as CombinedPrompt: invalid character 'C' after array element
+Extracted JSON: {
+  "nlResponse": "Opening Chrome with default browser",
+  "commands": [
+    "open -a \\\\"Chrome\\\\" \\\\"https://www.linkedin.com/\\\\""
+  ],
+  "visionNeeded": false
+}
+2024/10/12 17:27:43 Current State Updated: CPU Usage: 24.87%, Memory Usage: 84.77%
+2024/10/12 17:34:25 Logging started
+2024/10/12 17:34:41 Error executing command 'open -a "www.linkedin.com"': error executing command: exit status 1
+Output: Unable to find application named 'www.linkedin.com'
+
+2024/10/12 17:34:43 Error executing command 'open -a "www.linkedin.com"': error executing command: exit status 1
+Output: Unable to find application named 'www.linkedin.com'
+
+2024/10/12 17:34:44 Error executing command 'open -a "www.linkedin.com"': error executing command: exit status 1
+Output: Unable to find application named 'www.linkedin.com'
+
+2024/10/12 17:34:45 Error getting commands for task 'open -a Chrome https://www.linkedin.com': failed to parse extracted JSON as CombinedPrompt: invalid character 'C' after array element
+Extracted JSON: {
+  "nlResponse": "Opening Chrome with LinkedIn.",
+  "commands": ["open -a \\\\"Chrome\\\\" \\\\"https://www.linkedin.com\\\\"],
+  "visionNeeded": false
+}
+2024/10/12 17:34:47 Error executing command 'firefox https://www.linkedin.com': error executing command: exit status 127
+Output: /bin/sh: firefox: command not found
+
+2024/10/12 17:34:49 Error getting commands for task 'open -a Firefox https://www.linkedin.com': failed to parse extracted JSON as CombinedPrompt: invalid character 'h' after array element
+Extracted JSON: {
+  "nlResponse": "",
+  "commands": [
+    "open -a Firefox",
+    "open \\\\"https://www.linkedin.com\\\\""
+  ],
+  "visionNeeded": false
+}
+2024/10/12 17:34:49 Current State Updated: CPU Usage: 16.06%, Memory Usage: 84.47%
+2024/10/12 17:37:52 Current State Updated: CPU Usage: 13.23%, Memory Usage: 75.60%
+2024/10/12 17:44:59 Logging started
+2024/10/12 17:45:21 Error getting commands for task 'open -a Safari https://www.linkedin.com': failed to parse extracted JSON as CombinedPrompt: invalid character '/' after object key:value pair
+Extracted JSON: {
+  "nlResponse": "Opening Safari with the specified URL.",
+  "commands": ["open -a Safari https://www.linkedin.com"],
+  "visionNeeded": false // Set to true if vision is needed, else false.
+}
+2024/10/12 17:45:23 Error executing command 'open -a "www.linkedin.com"': error executing command: exit status 1
+Output: Unable to find application named 'www.linkedin.com'
+
+2024/10/12 17:45:24 Error executing command 'open -a "www.linkedin.com"': error executing command: exit status 1
+Output: Unable to find application named 'www.linkedin.com'
+
+2024/10/12 17:45:26 Error executing command 'open -a "www.linkedin.com"': error executing command: exit status 1
+Output: Unable to find application named 'www.linkedin.com'
+
+2024/10/12 17:45:26 Current State Updated: CPU Usage: 16.02%, Memory Usage: 74.61%
+2024/10/12 17:46:02 Error getting commands for task 'open -a Safari': failed to parse extracted JSON as CombinedPrompt: invalid character 'q' after array element
+Extracted JSON: {
+  "nlResponse": "Safari has been opened.",
+  "commands": [
+    "osascript -e \\\\"quit app \\\\"Safari\\\\"\\\\"",
+    "open -a Safari"
+  ],
+  "visionNeeded": false
+}
+2024/10/12 17:46:02 Current State Updated: CPU Usage: 8.78%, Memory Usage: 74.35%
+2024/10/12 17:46:25 Error executing command 'open -a "www.linkedin.com"': error executing command: exit status 1
+Output: Unable to find application named 'www.linkedin.com'
+
+2024/10/12 17:46:27 Error executing command 'open -a "www.linkedin\.com"': error executing command: exit status 1
+Output: Unable to find application named 'www.linkedin\.com'
+
+2024/10/12 17:46:29 Error executing command 'open -a "www.linkedin\.com"': error executing command: exit status 1
+Output: Unable to find application named 'www.linkedin\.com'
+
+2024/10/12 17:46:29 Current State Updated: CPU Usage: 21.36%, Memory Usage: 76.39%
+2024/10/12 17:48:34 Logging started
+2024/10/12 17:48:43 Current State Updated: CPU Usage: 16.03%, Memory Usage: 77.74%
+2024/10/12 17:49:30 Error executing command 'open -a "Netflix"': error executing command: exit status 1
+Output: Unable to find application named 'Netflix'
+
+2024/10/12 17:49:32 Error executing command 'open -a "Netflix"': error executing command: exit status 1
+Output: Unable to find application named 'Netflix'
+
+2024/10/12 17:49:33 Error executing command 'open -a "Netflix"': error executing command: exit status 1
+Output: Unable to find application named 'Netflix'
+
+2024/10/12 17:49:33 Current State Updated: CPU Usage: 16.88%, Memory Usage: 75.60%
+2024/10/12 17:50:22 Current State Updated: CPU Usage: 10.49%, Memory Usage: 80.65%
+2024/10/12 17:50:42 Logging started
+2024/10/12 17:55:24 Logging started
+2024/10/12 18:00:24 Logging started
