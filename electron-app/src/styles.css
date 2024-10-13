@@ -16,16 +16,28 @@ h1 {
 .goal-form {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
 }
 
-.goal-form input {
-    width: 60%;
+.goal-form input[type="text"] {
+    width: 40%;
     padding: 10px;
     font-size: 16px;
     margin-right: 10px;
     border: none;
     border-radius: 5px;
+}
+
+.goal-form .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.goal-form .checkbox-container input[type="checkbox"] {
+    margin-right: 5px;
 }
 
 .goal-form button {
@@ -43,19 +55,63 @@ h1 {
     cursor: not-allowed;
 }
 
+.goal-form button:hover:not(:disabled) {
+    background-color: #21a1f1;
+}
+
+.goal-form button:active:not(:disabled) {
+    background-color: #1b8cd8;
+}
+
+.goal-form input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px #61dafb;
+}
+
 .output {
     margin-top: 30px;
     background-color: #2e2e2e;
     padding: 20px;
     border-radius: 5px;
     min-height: 100px;
-    transition: opacity 0.5s;
+    opacity: 1;
+    transition: opacity 0.5s, transform 0.5s;
 }
 
 .output.fade-in {
-    opacity: 0.5;
+    opacity: 0;
+    transform: translateY(10px);
 }
 
 .output:not(.fade-in) {
     opacity: 1;
+    transform: translateY(0);
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #61dafb;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.logs {
+    margin-top: 20px;
+    background-color: #252525;
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.logs div {
+    margin-bottom: 5px;
 }

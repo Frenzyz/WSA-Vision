@@ -34,13 +34,13 @@ func main() {
 		log.Println("System index generation completed successfully.")
 	}
 
-	//// Load or initialize system settings
-	//settingsData, err := settings.LoadSettings()
-	//if err != nil {
-	//	fmt.Printf("Failed to load settings: %v\n", err)
-	//	log.Printf("Failed to load settings: %v\n", err)
-	//	return
-	//}
+	// Load or initialize system settings
+	_, err = settings.LoadSettings()
+	if err != nil {
+		fmt.Printf("Failed to load settings: %v\n", err)
+		log.Printf("Failed to load settings: %v\n", err)
+		return
+	}
 
 	// Start HTTP server
 	http.HandleFunc("/execute", executeHandler)
@@ -56,7 +56,8 @@ func main() {
 // Handler for executing commands
 func executeHandler(w http.ResponseWriter, r *http.Request) {
 	var req struct {
-		Goal string `json:"goal"`
+		Goal      string `json:"goal"`
+		UseVision bool   `json:"useVision"`
 	}
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
@@ -76,6 +77,8 @@ func executeHandler(w http.ResponseWriter, r *http.Request) {
 		Tasks:        []*goalengine.Task{},
 		CurrentState: &goalengine.State{}, // Initialize with current state
 		DesiredState: &goalengine.State{}, // Define desired state
+		Logs:         []string{},
+		UseVision:    req.UseVision,
 	}
 
 	// Generate tasks from the high-level goal
@@ -93,9 +96,11 @@ func executeHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Prepare response
 	response := struct {
-		Message string `json:"message"`
+		Message string   `json:"message"`
+		Logs    []string `json:"logs"`
 	}{
 		Message: "Goal processed successfully",
+		Logs:    goal.Logs,
 	}
 	json.NewEncoder(w).Encode(response)
 }
@@ -133,6 +138,7 @@ func settingsHandler(w http.ResponseWriter, r *http.Request) {
 func processGoal(goal *goalengine.Goal, chatHistory *[]types.PromptMessage) {
 	if len(goal.Tasks) == 0 {
 		log.Println("No tasks generated. Exiting goal processing.")
+		goal.Logs = append(goal.Logs, "No tasks generated. Exiting goal processing.")
 		return
 	}
 
@@ -140,16 +146,19 @@ func processGoal(goal *goalengine.Goal, chatHistory *[]types.PromptMessage) {
 		for _, task := range goal.Tasks {
 			if task.Status == goalengine.Pending {
 				// Process the task
-				executeTask(task, chatHistory)
+				executeTask(task, chatHistory, goal)
 			}
 		}
 		// Update the goal's current state
 		err := goal.UpdateCurrentState()
 		if err != nil {
 			log.Printf("Error updating current state: %v\n", err)
+			goal.Logs = append(goal.Logs, fmt.Sprintf("Error updating current state: %v", err))
 		} else {
 			log.Printf("Current State Updated: CPU Usage: %.2f%%, Memory Usage: %.2f%%\n",
 				goal.CurrentState.CPUUsage, goal.CurrentState.MemoryUsage)
+			goal.Logs = append(goal.Logs, fmt.Sprintf("Current State Updated: CPU Usage: %.2f%%, Memory Usage: %.2f%%",
+				goal.CurrentState.CPUUsage, goal.CurrentState.MemoryUsage))
 		}
 	}
 
@@ -163,15 +172,18 @@ func processGoal(goal *goalengine.Goal, chatHistory *[]types.PromptMessage) {
 
 	if len(failedTasks) > 0 {
 		log.Println("Some tasks could not be completed:")
+		goal.Logs = append(goal.Logs, "Some tasks could not be completed:")
 		for _, desc := range failedTasks {
 			log.Printf("- %s\n", desc)
+			goal.Logs = append(goal.Logs, fmt.Sprintf("- %s", desc))
 		}
 	} else {
 		log.Println("All tasks completed successfully!")
+		goal.Logs = append(goal.Logs, "All tasks completed successfully!")
 	}
 }
 
-func executeTask(task *goalengine.Task, chatHistory *[]types.PromptMessage) {
+func executeTask(task *goalengine.Task, chatHistory *[]types.PromptMessage, goal *goalengine.Goal) {
 	task.Attempt++
 	task.Status = goalengine.InProgress
 
@@ -187,6 +199,7 @@ func executeTask(task *goalengine.Task, chatHistory *[]types.PromptMessage) {
 		log.Printf("Error getting commands for task '%s': %v\n", task.Description, err)
 		task.Status = goalengine.Failed
 		task.Feedback = err.Error()
+		goal.Logs = append(goal.Logs, fmt.Sprintf("Error getting commands for task '%s': %v", task.Description, err))
 		logging.LogTaskExecution(task)
 		return
 	}
@@ -201,14 +214,20 @@ func executeTask(task *goalengine.Task, chatHistory *[]types.PromptMessage) {
 
 	success := true
 
-	// Use vision model if needed
-	if combinedPrompt.VisionNeeded {
+	// Use vision model if needed and allowed
+	if combinedPrompt.VisionNeeded && goal.UseVision {
 		err := assistant.UseVisionModel(task.Description)
 		if err != nil {
 			log.Printf("Error using vision model for task '%s': %v\n", task.Description, err)
 			success = false
 			task.Feedback = err.Error()
+			goal.Logs = append(goal.Logs, fmt.Sprintf("Error using vision model for task '%s': %v", task.Description, err))
 		}
+	} else if combinedPrompt.VisionNeeded && !goal.UseVision {
+		log.Printf("Vision model required but not enabled for task '%s'\n", task.Description)
+		success = false
+		task.Feedback = "Vision model required but not enabled."
+		goal.Logs = append(goal.Logs, fmt.Sprintf("Vision model required but not enabled for task '%s'", task.Description))
 	}
 
 	// Execute commands
@@ -216,6 +235,7 @@ func executeTask(task *goalengine.Task, chatHistory *[]types.PromptMessage) {
 		command = strings.TrimSpace(command)
 		if command == "" {
 			log.Printf("Skipping empty or invalid command.\n")
+			goal.Logs = append(goal.Logs, "Skipping empty or invalid command.")
 			continue
 		}
 		err := assistant.ExecuteShellCommand(command)
@@ -223,18 +243,24 @@ func executeTask(task *goalengine.Task, chatHistory *[]types.PromptMessage) {
 			log.Printf("Error executing command '%s': %v\n", command, err)
 			success = false
 			task.Feedback = err.Error()
+			goal.Logs = append(goal.Logs, fmt.Sprintf("Error executing command '%s': %v", command, err))
 			break
+		} else {
+			goal.Logs = append(goal.Logs, fmt.Sprintf("Command executed successfully: '%s'", command))
 		}
 	}
 
 	if success {
 		task.Status = goalengine.Completed
+		goal.Logs = append(goal.Logs, fmt.Sprintf("Task '%s' completed successfully.", task.Description))
 	} else {
 		if task.Attempt < task.MaxRetries {
 			// Retry the task with improved commands
-			executeTask(task, chatHistory)
+			goal.Logs = append(goal.Logs, fmt.Sprintf("Retrying task '%s'. Attempt %d.", task.Description, task.Attempt))
+			executeTask(task, chatHistory, goal)
 		} else {
 			task.Status = goalengine.Failed
+			goal.Logs = append(goal.Logs, fmt.Sprintf("Task '%s' failed after %d attempts.", task.Description, task.Attempt))
 		}
 	}
 
