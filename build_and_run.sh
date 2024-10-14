@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Navigate to the Go project directory
-cd ../WSA-Vision
+cd ../WSA-Vision/electron-app/
 
 # Build the Go executable
 go build -o go_build_WSA_WSA

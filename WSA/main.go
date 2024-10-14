@@ -149,17 +149,17 @@ func processGoal(goal *goalengine.Goal, chatHistory *[]types.PromptMessage) {
 				executeTask(task, chatHistory, goal)
 			}
 		}
-		// Update the goal's current state
-		err := goal.UpdateCurrentState()
-		if err != nil {
-			log.Printf("Error updating current state: %v\n", err)
-			goal.Logs = append(goal.Logs, fmt.Sprintf("Error updating current state: %v", err))
-		} else {
-			log.Printf("Current State Updated: CPU Usage: %.2f%%, Memory Usage: %.2f%%\n",
-				goal.CurrentState.CPUUsage, goal.CurrentState.MemoryUsage)
-			goal.Logs = append(goal.Logs, fmt.Sprintf("Current State Updated: CPU Usage: %.2f%%, Memory Usage: %.2f%%",
-				goal.CurrentState.CPUUsage, goal.CurrentState.MemoryUsage))
-		}
+		//// Update the goal's current state
+		//err := goal.UpdateCurrentState()
+		//if err != nil {
+		//	log.Printf("Error updating current state: %v\n", err)
+		//	goal.Logs = append(goal.Logs, fmt.Sprintf("Error updating current state: %v", err))
+		//} else {
+		//	log.Printf("Current State Updated: CPU Usage: %.2f%%, Memory Usage: %.2f%%\n",
+		//		goal.CurrentState.CPUUsage, goal.CurrentState.MemoryUsage)
+		//	goal.Logs = append(goal.Logs, fmt.Sprintf("Current State Updated: CPU Usage: %.2f%%, Memory Usage: %.2f%%",
+		//		goal.CurrentState.CPUUsage, goal.CurrentState.MemoryUsage))
+		//}
 	}
 
 	// After processing, check for failed tasks

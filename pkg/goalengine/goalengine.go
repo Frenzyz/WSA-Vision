@@ -23,10 +23,3 @@ func (g *Goal) IsGoalAchieved() bool {
 	}
 	return true
 }
-
-func (g *Goal) UpdateCurrentState() error {
-	// Update the current state with real system metrics
-	// For example, update CPU and memory usage
-	// Implement the logic to get actual system metrics
-	return nil
-}

@@ -5,5 +5,5 @@
 /electron-app/node_modules/
 /electron-app/app.db
 /electron-app/app.log
-/electron-app/go_build_WSA_WSA
+/electron-app/backend/go_build_WSA_WSA
 /electron-app/system_index.txt

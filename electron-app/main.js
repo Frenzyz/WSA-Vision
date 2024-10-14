@@ -37,10 +37,10 @@ app.on('window-all-closed', function () {
 
 function startGoBackend() {
     const isWindows = process.platform === 'win32';
-    const goExecutableName = isWindows ? 'go_build_WSA_WSA.exe' : 'go_build_WSA_WSA';
+    const goExecutableName = isWindows ? 'cypher_backend' : 'cypher_backend';
 
     // Adjust the path to the Go executable
-    const goAppPath = path.join(app.getAppPath(), goExecutableName);
+    const goAppPath = path.join(app.getAppPath(), 'backend/' ,goExecutableName);
 
     // Check if the Go executable exists
     if (!fs.existsSync(goAppPath)) {
@@ -49,7 +49,7 @@ function startGoBackend() {
         return;
     }
 
-    // Make the Go executable executable (for Unix-like systems)
+    // Make the Go executable (for Unix-like systems)
     if (!isWindows) {
         fs.chmodSync(goAppPath, '755');
     }

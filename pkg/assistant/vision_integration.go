@@ -16,7 +16,7 @@ import (
 // MoveMouse moves the mouse cursor to the specified (x, y) coordinates.
 func MoveMouse(x, y int) error {
 	fmt.Printf("Moving mouse to (%d, %d)\n", x, y)
-	robotgo.MoveMouse(x, y)
+	robotgo.Move(x, y)
 	return nil
 }
 
@@ -62,7 +62,7 @@ func CaptureScreenRegion(x, y, width, height int, savePath string) error {
 // It captures a screenshot around the current mouse position and sends it to the vision model for confirmation.
 func ConfirmMousePosition(expectedElement string) (bool, error) {
 	// Get current mouse position
-	x, y := robotgo.GetMousePos()
+	x, y := robotgo.Location()
 	fmt.Printf("Current mouse position: (%d, %d)\n", x, y)
 
 	// Define the region to capture around the mouse position

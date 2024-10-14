@@ -446,3 +446,15 @@ Extracted JSON: {
 2024/10/13 18:49:57 Logging started
 2024/10/13 18:49:57 Server started at http://localhost:8080
 2024/10/13 18:49:57 Failed to start server: listen tcp :8080: bind: address already in use
+2024/10/13 19:52:17 Logging started
+2024/10/13 19:52:17 Server started at http://localhost:8080
+2024/10/13 19:56:31 Logging started
+2024/10/13 19:56:31 Server started at http://localhost:8080
+2024/10/13 20:31:05 Logging started
+2024/10/13 20:31:05 Server started at http://localhost:8080
+2024/10/13 20:33:31 Logging started
+2024/10/13 20:33:31 Server started at http://localhost:8080
+2024/10/13 20:43:58 Logging started
+2024/10/13 20:43:58 Server started at http://localhost:8080
+2024/10/13 20:44:20 Logging started
+2024/10/13 20:44:20 Server started at http://localhost:8080

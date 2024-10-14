@@ -1,13 +1,12 @@
 {
-  "name": "wsa-electron-app",
+  "name": "cypher",
   "version": "1.0.0",
-  "description": "Electron UI for WSA",
+  "description": "Electron UI for Cypher",
   "main": "main.js",
   "scripts": {
     "start": "webpack && electron .",
-    "build-go": "go build -o go_build_WSA_WSA ../WSA-Vision/main.go",
-    "copy-go": "cp ../WSA-Vision/go_build_WSA_WSA* ./",
-    "build": "npm run build-go && npm run copy-go && webpack && electron-builder"
+    "build-go": "go build -o backend/cypher_backend ../WSA/main.go",
+    "build": "npm run build-go && webpack && electron-builder"
   },
   "author": "Aadit Chetan",
   "license": "MIT",
@@ -25,19 +24,26 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "axios": "^1.4.0"
   },
   "build": {
-    "appId": "com.example.wsa",
+    "appId": "com.example.cypher",
+    "productName": "Cypher",
     "files": [
       "**/*",
-      "go_build_WSA_WSA*"
+      "backend/**"
     ],
-    "extraFiles": [
-      "go_build_WSA_WSA*"
+    "extraResources": [
+      {
+        "from": "backend/",
+        "to": "backend/",
+        "filter": ["**/*"]
+      }
     ],
     "mac": {
-      "category": "public.app-category.utilities"
+      "category": "public.app-category.utilities",
+      "target": "dmg"
     },
     "win": {
       "target": "nsis"
