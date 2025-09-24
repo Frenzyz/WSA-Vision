@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Bot, Loader2, Terminal, Sparkles, Play, Eye, Settings, Zap, CheckCircle, Clock, AlertCircle, Command, X, Bug, MapPin, Folder, Monitor, HardDrive } from 'lucide-react';
+import { Bot, Loader2, Terminal, Sparkles, Play, Eye, Settings as SettingsIcon, Zap, CheckCircle, Clock, AlertCircle, Command, X, Bug, MapPin, Folder, Monitor, HardDrive } from 'lucide-react';
 import JellyLoader from './components/jelly-loader.tsx';
+import ShortcutCapture from './components/ShortcutCapture.jsx';
 import './styles.css';
 import WSALogo from '../public/WSA.svg';
 
@@ -32,6 +33,38 @@ function App() {
     const [mappingStage, setMappingStage] = useState('');
     const [mappingProgress, setMappingProgress] = useState(0);
     const [showContextModal, setShowContextModal] = useState(false);
+    const [showSettingsModal, setShowSettingsModal] = useState(false);
+    const [appSettings, setAppSettings] = useState({ toggleShortcut: 'Alt+C', sttShortcut: 'Shift+S', sttLanguage: '', sttBatchSize: 8, autoExecuteAfterSTT: true, sttModel: 'small', sttComputeType: 'int8' });
+    const [isRecording, setIsRecording] = useState(false);
+    const isRecordingRef = useRef(false);
+    const mediaRecorderRef = useRef(null);
+    const recordedChunksRef = useRef([]);
+
+    useEffect(() => {
+        if (window.cypher?.getSettings) {
+            window.cypher.getSettings().then(s => setAppSettings(s));
+            window.cypher.onSettingsUpdated?.((s) => setAppSettings(s));
+        }
+    }, []);
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }, []);
+
+    const inputRef = useRef(null);
+    useEffect(() => {
+        window.cypher?.onFocusRequested?.(() => {
+            if (inputRef.current) {
+                inputRef.current.focus();
+                inputRef.current.select?.();
+            }
+        });
+        window.cypher?.onSttToggle?.(() => {
+            handleRecordToggle();
+        });
+    }, []);
+
+    useEffect(() => { isRecordingRef.current = isRecording; }, [isRecording]);
 
     // Debug log for onboarding state
     useEffect(() => {
@@ -69,12 +102,13 @@ function App() {
             });
     }, []);
 
-    const handleExecute = async () => {
-        if (!goal.trim()) {
+    const handleExecute = async (overrideGoal) => {
+        const effectiveGoal = (overrideGoal ?? goal).trim();
+        if (!effectiveGoal) {
             return;
         }
 
-        console.log('Starting execution with goal:', goal, 'using model:', selectedModel);
+        console.log('Starting execution with goal:', effectiveGoal, 'using model:', selectedModel);
         setIsExecuting(true);
         setOutput('');
         setLogs([]);
@@ -92,7 +126,7 @@ function App() {
 
         // Enhanced payload with system context
         const payload = {
-            goal,
+            goal: effectiveGoal,
             useVision,
             model: selectedModel,
             systemContext: systemContext,
@@ -160,29 +194,90 @@ function App() {
     };
 
     const handleAbort = () => {
+        try {
+            if (isRecording && mediaRecorderRef.current) {
+                mediaRecorderRef.current.stop();
+                mediaRecorderRef.current.stream?.getTracks()?.forEach((t) => t.stop());
+                mediaRecorderRef.current = null;
+                setIsRecording(false);
+            }
+            window.cypher?.abortTranscription?.();
+        } catch (e) {}
         if (abortControllerRef.current) {
             abortControllerRef.current.abort();
-            
-            // Mark any running commands as failed
-            setLiveCommands(prev => 
-                prev.map(cmd => 
-                    cmd.status === 'running' 
-                        ? { ...cmd, status: 'failed' }
-                        : cmd
-                )
-            );
-            
-            // Add abort command to live commands
-            const abortCommand = {
-                command: 'ABORT: Task cancelled by user',
-                status: 'failed',
-                timestamp: new Date().toISOString()
-            };
-            setLiveCommands(prev => [...prev, abortCommand]);
-            
-            setIsExecuting(false);
-            setExecutionStage('Task aborted by user');
-            setProgress(0);
+        }
+        // Mark any running commands as failed
+        setLiveCommands(prev => 
+            prev.map(cmd => 
+                cmd.status === 'running' 
+                    ? { ...cmd, status: 'failed' }
+                    : cmd
+            )
+        );
+        // Add abort command to live commands
+        const abortCommand = {
+            command: 'ABORT: Task cancelled by user',
+            status: 'failed',
+            timestamp: new Date().toISOString()
+        };
+        setLiveCommands(prev => [...prev, abortCommand]);
+        setIsExecuting(false);
+        setExecutionStage('Task aborted by user');
+        setProgress(0);
+    };
+
+    const handleRecordToggle = async () => {
+        try {
+            if (!isRecordingRef.current) {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                const mime = MediaRecorder.isTypeSupported('audio/webm;codecs=opus') ? 'audio/webm;codecs=opus' : 'audio/webm';
+                const rec = new MediaRecorder(stream, { mimeType: mime, audioBitsPerSecond: 128000 });
+                recordedChunksRef.current = [];
+                rec.ondataavailable = (e) => {
+                    if (e.data && e.data.size > 0) recordedChunksRef.current.push(e.data);
+                };
+                rec.onstop = async () => {
+                    const blob = new Blob(recordedChunksRef.current, { type: mime });
+                    const arrayBuf = await blob.arrayBuffer();
+                    const uint8 = new Uint8Array(arrayBuf);
+                    setExecutionStage('Transcribing audio...');
+                    setIsExecuting(true);
+                    try {
+                        const result = await window.cypher?.transcribeAudio({
+                            audioBuffer: { data: Array.from(uint8) },
+                            extension: 'webm'
+                        });
+                        const text = result?.text || '';
+                        if (result?.error) {
+                            console.warn('STT error:', result.error);
+                            setOutput(`STT error: ${result.error}`);
+                        } else if (text) {
+                            const newGoal = (goal ? goal + ' ' + text : text).trim();
+                            setGoal(newGoal);
+                            if (appSettings?.autoExecuteAfterSTT && newGoal) {
+                                // Defer to ensure state updates before execute
+                                setTimeout(() => handleExecute(newGoal), 0);
+                            }
+                        }
+                        setExecutionStage('Transcription complete');
+                    } catch (e) {
+                        console.error('Transcription error', e);
+                        setExecutionStage('Transcription failed');
+                    } finally {
+                        setIsExecuting(false);
+                    }
+                };
+                mediaRecorderRef.current = rec;
+                rec.start();
+                setIsRecording(true);
+            } else {
+                mediaRecorderRef.current?.stop();
+                mediaRecorderRef.current?.stream?.getTracks()?.forEach((t) => t.stop());
+                mediaRecorderRef.current = null;
+                setIsRecording(false);
+            }
+        } catch (err) {
+            console.error('STT record toggle failed:', err);
         }
     };
 
@@ -640,6 +735,13 @@ function App() {
                             >
                                 <MapPin className="button-icon" />
                             </button>
+                            <button 
+                                onClick={() => setShowSettingsModal(true)}
+                                className="remap-button"
+                                title="Settings"
+                            >
+                                <SettingsIcon className="button-icon" />
+                            </button>
                         </div>
                     </div>
                 </header>
@@ -656,6 +758,7 @@ function App() {
                             
                             <div className="input-area">
                                 <textarea
+                                    ref={inputRef}
                                     value={goal}
                                     onChange={(e) => setGoal(e.target.value)}
                                     onKeyDown={handleKeyPress}
@@ -668,7 +771,7 @@ function App() {
                                 <div className="input-options">
                                     <div className="model-selector">
                                         <label htmlFor="model-select" className="model-label">
-                                            <Settings className="model-icon" />
+                                            <SettingsIcon className="model-icon" />
                                             Model:
                                         </label>
                                         <select
@@ -698,6 +801,15 @@ function App() {
                                         </div>
                                         <span>Enable Vision Mode</span>
                                     </label>
+
+                                    <button
+                                        onClick={handleRecordToggle}
+                                        className="remap-button"
+                                        title="Shift+S to toggle Voice Input"
+                                        disabled={isExecuting}
+                                    >
+                                        {isRecording ? 'Stop Recording (Shift+S)' : 'Start Voice Input (Shift+S)'}
+                                    </button>
                                 </div>
                             </div>
 
@@ -741,7 +853,7 @@ function App() {
                                     <Terminal className="card-icon" />
                                     <h2>Execution Progress</h2>
                                     <div className="model-badge">
-                                        <Settings className="model-badge-icon" />
+                                        <SettingsIcon className="model-badge-icon" />
                                         {selectedModel}
                                     </div>
                                 </div>
@@ -889,6 +1001,110 @@ function App() {
             {/* Onboarding Modal - Positioned outside main flow */}
             {isOnboarding && <OnboardingModal />}
             {showContextModal && <SystemContextModal />}
+            {showSettingsModal && (
+                <div className="onboarding-overlay" onClick={() => setShowSettingsModal(false)}>
+                    <div className="onboarding-modal" onClick={(e) => e.stopPropagation()}>
+                        <div className="onboarding-header">
+                            <div className="onboarding-icon-container">
+                                <SettingsIcon className="onboarding-icon" />
+                            </div>
+                            <h2>Settings</h2>
+                            <p>Customize Cypher</p>
+                        </div>
+                        <div className="onboarding-content">
+                            <div className="debug-section">
+                                <h4>App Toggle Shortcut</h4>
+                                <p style={{ opacity: 0.7 }}>Current: {appSettings?.toggleShortcut || 'Alt+C'}</p>
+                                <ShortcutCapture
+                                    value={appSettings?.toggleShortcut || 'Alt+C'}
+                                    onChange={(accel) => window.cypher?.setSettings({ toggleShortcut: accel })}
+                                />
+                            </div>
+                            <div className="debug-section">
+                                <h4>STT Shortcut</h4>
+                                <p style={{ opacity: 0.7 }}>Current: {appSettings?.sttShortcut || 'Shift+S'}</p>
+                                <ShortcutCapture
+                                    value={appSettings?.sttShortcut || 'Shift+S'}
+                                    onChange={(accel) => window.cypher?.setSettings({ sttShortcut: accel })}
+                                />
+                            </div>
+                            <div className="debug-section">
+                                <h4>STT Language</h4>
+                                <p style={{ opacity: 0.7 }}>Set language to skip detection</p>
+                                <select
+                                    className="model-select"
+                                    value={appSettings?.sttLanguage || ''}
+                                    onChange={(e) => window.cypher?.setSettings({ sttLanguage: e.target.value })}
+                                >
+                                    <option value="">Auto-detect</option>
+                                    <option value="en">English (en)</option>
+                                    <option value="fr">French (fr)</option>
+                                    <option value="de">German (de)</option>
+                                    <option value="es">Spanish (es)</option>
+                                    <option value="it">Italian (it)</option>
+                                    <option value="pt">Portuguese (pt)</option>
+                                    <option value="zh">Chinese (zh)</option>
+                                    <option value="ja">Japanese (ja)</option>
+                                    <option value="ko">Korean (ko)</option>
+                                    <option value="hi">Hindi (hi)</option>
+                                </select>
+                            </div>
+                            <div className="debug-section">
+                                <h4>STT Performance</h4>
+                                <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+                                    <label style={{ opacity: 0.8 }}>Model</label>
+                                    <select
+                                        className="model-select"
+                                        value={appSettings?.sttModel || 'small'}
+                                        onChange={(e) => window.cypher?.setSettings({ sttModel: e.target.value })}
+                                    >
+                                        <option value="tiny">tiny</option>
+                                        <option value="base">base</option>
+                                        <option value="small">small</option>
+                                        <option value="medium">medium</option>
+                                        <option value="large-v2">large-v2</option>
+                                    </select>
+                                    <label style={{ opacity: 0.8, marginLeft: 10 }}>Compute</label>
+                                    <select
+                                        className="model-select"
+                                        value={appSettings?.sttComputeType || 'int8'}
+                                        onChange={(e) => window.cypher?.setSettings({ sttComputeType: e.target.value })}
+                                    >
+                                        <option value="int8">int8 (fastest, CPU)</option>
+                                        <option value="float16">float16 (GPU)</option>
+                                        <option value="float32">float32 (accurate)</option>
+                                    </select>
+                                    <label style={{ opacity: 0.8 }}>Batch size</label>
+                                    <input
+                                        type="number"
+                                        min={1}
+                                        max={32}
+                                        step={1}
+                                        value={appSettings?.sttBatchSize ?? 8}
+                                        onChange={(e) => window.cypher?.setSettings({ sttBatchSize: Math.max(1, Math.min(32, parseInt(e.target.value || '8', 10))) })}
+                                        className="model-select"
+                                        style={{ width: 100 }}
+                                    />
+                                    <label className="vision-toggle" style={{ marginLeft: 10 }}>
+                                        <input
+                                            type="checkbox"
+                                            checked={!!appSettings?.autoExecuteAfterSTT}
+                                            onChange={(e) => window.cypher?.setSettings({ autoExecuteAfterSTT: e.target.checked })}
+                                        />
+                                        <div className="toggle-indicator"><span style={{ fontSize: 10 }}></span></div>
+                                        <span>Auto-execute after transcription</span>
+                                    </label>
+                                </div>
+                                <p style={{ opacity: 0.6, marginTop: 6 }}>Use smaller model and set language for speed.</p>
+                            </div>
+                            <div className="debug-section" style={{ display: 'flex', gap: 10 }}>
+                                <button className="start-mapping-button" onClick={() => window.cypher?.toggleApp()}>Test Toggle</button>
+                                <button className="skip-button" onClick={() => setShowSettingsModal(false)}>Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

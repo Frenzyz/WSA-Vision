@@ -20,3 +20,4 @@ node_modules/
 **/*.log
 # Large generated indexes
 WSA/system_index.txt
+electron-app/python/venv

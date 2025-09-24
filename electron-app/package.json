@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack --mode development && env -u ELECTRON_RUN_AS_NODE electron .",
     "build-go": "go build -C ../WSA -o ../electron-app/backend/cypher_backend main_simple.go",
-    "build": "npm run build-go && webpack --mode production && electron-builder"
+    "prepare-stt": "bash ./scripts/prepare_stt_venv.sh",
+    "build": "npm run build-go && webpack --mode production && npm run prepare-stt && electron-builder"
   },
   "author": "Aadit Chetan",
   "license": "MIT",
@@ -37,11 +38,23 @@
     "files": [
       "**/*"
     ],
+    "asarUnpack": [
+      "whisperx_runner.py"
+    ],
     "extraResources": [
       {
         "from": "backend/",
         "to": "backend/",
         "filter": ["**/*"]
+      },
+      {
+        "from": "python/",
+        "to": "python/",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "whisperx_runner.py",
+        "to": "whisperx_runner.py"
       }
     ],
     "mac": {

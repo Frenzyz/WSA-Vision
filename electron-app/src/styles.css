@@ -4,12 +4,22 @@
     box-sizing: border-box;
 }
 
+:root[data-theme="dark"] {
+    --bg: #000000;
+    --fg: #ffffff;
+}
+
+:root[data-theme="light"] {
+    --bg: #f7faf9;
+    --fg: #0b0f10;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     overflow: hidden;
     user-select: none;
-    background: #000000;
-    color: #ffffff;
+    background: var(--bg);
+    color: var(--fg);
 }
 
 .drag-region {
@@ -43,7 +53,7 @@ body {
     background:
         radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
-        linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+        linear-gradient(135deg, var(--bg) 0%, rgba(10,10,10,0.95) 100%);
     z-index: -1;
 }
 
@@ -146,6 +156,12 @@ body {
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="light"] .input-card,
+:root[data-theme="light"] .output-card {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
 }
 
 .card-header {
