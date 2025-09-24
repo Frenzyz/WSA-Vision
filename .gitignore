@@ -8,4 +8,15 @@
 /electron-app/backend/go_build_WSA_WSA
 /electron-app/system_index.txt
 electron-app/dist/mac-arm64
-/node_modules
+/node_modules# Build artifacts
+node_modules/
+**/dist/
+**/*.dmg
+**/*.blockmap
+**/*.app
+**/*.asar
+# Local DB/logs
+**/*.db
+**/*.log
+# Large generated indexes
+WSA/system_index.txt
