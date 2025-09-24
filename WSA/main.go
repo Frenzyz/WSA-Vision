@@ -45,6 +45,10 @@ func main() {
 	// Start HTTP server
 	http.HandleFunc("/execute", executeHandler)
 	http.HandleFunc("/settings", settingsHandler)
+	http.HandleFunc("/models", modelsHandler)
+	http.HandleFunc("/map-system", mapSystemHandler)
+	http.HandleFunc("/load-model", loadModelHandler)
+	http.HandleFunc("/unload-model", unloadModelHandler)
 	fmt.Println("Server started at http://localhost:8080")
 	log.Println("Server started at http://localhost:8080")
 	err = http.ListenAndServe(":8080", nil)
@@ -58,6 +62,7 @@ func executeHandler(w http.ResponseWriter, r *http.Request) {
 	var req struct {
 		Goal      string `json:"goal"`
 		UseVision bool   `json:"useVision"`
+		Model     string `json:"model"`
 	}
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
@@ -71,7 +76,16 @@ func executeHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Initialize GoalEngine
+	// Set the model for this request
+	if req.Model != "" {
+		os.Setenv("LLM_MODEL", req.Model)
+		log.Printf("Using model: %s for request: %s", req.Model, goalDescription)
+	}
+
+	// Process the goal using the internal goal engine
+	log.Printf("Processing goal: '%s'", goalDescription)
+
+	// Initialize GoalEngine for complex tasks
 	goal := &goalengine.Goal{
 		Description:  goalDescription,
 		Tasks:        []*goalengine.Task{},
@@ -267,6 +281,30 @@ func executeTask(task *goalengine.Task, chatHistory *[]types.PromptMessage, goal
 	logging.LogTaskExecution(task)
 }
 
+// Handler for getting available models
+func modelsHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Get available models from Ollama
+	models, err := assistant.GetAvailableModels()
+	if err != nil {
+		http.Error(w, fmt.Sprintf("Failed to get models: %v", err), http.StatusInternalServerError)
+		return
+	}
+
+	response := struct {
+		Models []string `json:"models"`
+	}{
+		Models: models,
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(response)
+}
+
 func isInstallationCommand(input string) bool {
 	installationKeywords := []string{
 		"install", "setup", "download", "add", "configure", "deploy",
@@ -278,4 +316,91 @@ func isInstallationCommand(input string) bool {
 		}
 	}
 	return false
+}
+
+// Handler for mapping system information
+func mapSystemHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Get system information
+	systemInfo, err := assistant.GetSystemInfo()
+	if err != nil {
+		log.Printf("Failed to get system info: %v", err)
+		http.Error(w, fmt.Sprintf("Failed to get system info: %v", err), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(systemInfo)
+}
+
+// Handler for loading a specific model
+func loadModelHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	var req struct {
+		Model string `json:"model"`
+	}
+
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		http.Error(w, "Invalid JSON", http.StatusBadRequest)
+		return
+	}
+
+	// Load the model
+	err := assistant.PullModel(req.Model)
+	if err != nil {
+		log.Printf("Failed to load model %s: %v", req.Model, err)
+		http.Error(w, fmt.Sprintf("Failed to load model: %v", err), http.StatusInternalServerError)
+		return
+	}
+
+	response := struct {
+		Message string `json:"message"`
+		Model   string `json:"model"`
+	}{
+		Message: fmt.Sprintf("Model %s loaded successfully", req.Model),
+		Model:   req.Model,
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(response)
+}
+
+// Handler for unloading a specific model
+func unloadModelHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	var req struct {
+		Model string `json:"model"`
+	}
+
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		http.Error(w, "Invalid JSON", http.StatusBadRequest)
+		return
+	}
+
+	// Unload the model (this is a placeholder - Ollama doesn't have explicit unload)
+	// In practice, Ollama manages memory automatically
+	log.Printf("Unloading model: %s", req.Model)
+
+	response := struct {
+		Message string `json:"message"`
+		Model   string `json:"model"`
+	}{
+		Message: fmt.Sprintf("Model %s unloaded successfully", req.Model),
+		Model:   req.Model,
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(response)
 }

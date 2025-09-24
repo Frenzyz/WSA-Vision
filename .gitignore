@@ -7,3 +7,5 @@
 /electron-app/app.log
 /electron-app/backend/go_build_WSA_WSA
 /electron-app/system_index.txt
+electron-app/dist/mac-arm64
+/node_modules

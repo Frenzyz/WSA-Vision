@@ -1,0 +1,30 @@
+2025/09/22 21:47:33 Logging started
+2025/09/22 21:49:54 System index generation completed successfully.
+2025/09/22 21:49:54 Server started at http://localhost:8080
+2025/09/22 21:56:04 Logging started
+2025/09/22 21:56:04 Server started at http://localhost:8080
+2025/09/22 21:59:38 Error getting commands for task 'Verify that Spotify has stopped running': failed to parse extracted JSON as CombinedPrompt: invalid character 'q' after array element
+Extracted JSON: {
+  "nlResponse": "Quitting Spotify.",
+  "commands": [
+    "osascript -e \\"quit app \\\"Spotify\\\"\\"
+  ],
+  "visionNeeded": false
+}
+2025/09/22 22:03:17 All tasks completed successfully!
+2025/09/22 22:04:08 All tasks completed successfully!
+2025/09/22 22:09:23 All tasks completed successfully!
+2025/09/22 22:10:25 All tasks completed successfully!
+2025/09/22 22:11:47 Logging started
+2025/09/22 22:11:47 Server started at http://localhost:8080
+2025/09/22 22:12:35 All tasks completed successfully!
+2025/09/22 22:13:08 Logging started
+2025/09/22 22:13:08 Server started at http://localhost:8080
+2025/09/22 22:13:08 Failed to start server: listen tcp :8080: bind: address already in use
+2025/09/22 22:13:39 All tasks completed successfully!
+2025/09/22 22:14:07 Logging started
+2025/09/22 22:14:07 Server started at http://localhost:8080
+2025/09/22 22:14:07 Failed to start server: listen tcp :8080: bind: address already in use
+2025/09/22 22:14:34 All tasks completed successfully!
+2025/09/22 22:24:04 All tasks completed successfully!
+2025/09/22 22:24:55 All tasks completed successfully!

@@ -1,5 +1,23 @@
 package goalengine
 
+type TaskStatus int
+
+const (
+	Pending TaskStatus = iota
+	InProgress
+	Completed
+	Failed
+)
+
+type Task struct {
+	Description string
+	Status      TaskStatus
+	Commands    []string
+	Feedback    string
+	Attempt     int
+	MaxRetries  int
+}
+
 type State struct {
 	CPUUsage    float64
 	MemoryUsage float64

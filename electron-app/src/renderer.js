@@ -1,5 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { createRoot } from 'react-dom/client';
+import App from './app.jsx';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+console.log('Renderer starting...');
+
+function initializeApp() {
+    const container = document.getElementById('root');
+    if (!container) {
+        console.error('No root element found');
+        return;
+    }
+
+    const root = createRoot(container);
+    root.render(React.createElement(App));
+    console.log('React app rendered successfully');
+}
+
+// Ensure DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    initializeApp();
+}

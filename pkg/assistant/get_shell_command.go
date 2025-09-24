@@ -18,6 +18,18 @@ import (
 
 // GetShellCommand generates commands from the LLM based on user input, chat history, optional error context, and command type
 func GetShellCommand(userInput string, chatHistory []types.PromptMessage, errorContext string, isInstallation bool) (*types.CombinedPrompt, error) {
+	// Check if this is a simple app control request that we can handle intelligently
+	fmt.Printf("Checking smart app control for: '%s'\n", userInput)
+	if smartCommand, err := HandleSmartAppControl(userInput); err == nil {
+		fmt.Printf("Smart app control succeeded: %s\n", smartCommand)
+		return &types.CombinedPrompt{
+			NLResponse:   fmt.Sprintf("I'll %s for you.", userInput),
+			Commands:     []string{smartCommand},
+			VisionNeeded: false,
+		}, nil
+	} else {
+		fmt.Printf("Smart app control failed: %v\n", err)
+	}
 	// Path to the system index file
 	indexFilePath := "system_index.txt"
 
@@ -150,14 +162,16 @@ func GetShellCommand(userInput string, chatHistory []types.PromptMessage, errorC
 	// Clean and fix the assistant's message before parsing
 	assistantMessage = cleanAssistantMessage(assistantMessage)
 
-	// Escape backslashes in the assistant's message
-	assistantMessage = escapeBackslashesInJSON(assistantMessage)
+	// Do not alter escape sequences; keep assistant JSON as-is
 
 	// Attempt to extract JSON from the assistant's message
 	extractedJSON, extractErr := ExtractJSON(assistantMessage)
 	if extractErr != nil {
 		return nil, fmt.Errorf("failed to extract JSON from assistant's message: %w\nMessage content: %s", extractErr, assistantMessage)
 	}
+
+	// Clean common JSON issues like trailing commas
+	extractedJSON = removeTrailingCommas(extractedJSON)
 
 	// Now parse extractedJSON into CombinedPrompt
 	var combinedPrompt types.CombinedPrompt
@@ -169,6 +183,17 @@ func GetShellCommand(userInput string, chatHistory []types.PromptMessage, errorC
 	// Post-process commands to correct any deviations
 	for i, cmd := range combinedPrompt.Commands {
 		combinedPrompt.Commands[i] = fixStartCommand(cmd)
+	}
+
+	// If the user's intent is to close/quit an app, keep only valid quit commands
+	if isCloseIntent(userInput) {
+		filtered := make([]string, 0, len(combinedPrompt.Commands))
+		for _, cmd := range combinedPrompt.Commands {
+			if isValidQuitCommand(cmd) {
+				filtered = append(filtered, cmd)
+			}
+		}
+		combinedPrompt.Commands = filtered
 	}
 
 	// Validate the commands
@@ -197,29 +222,54 @@ func GetShellCommand(userInput string, chatHistory []types.PromptMessage, errorC
 	return &combinedPrompt, nil
 }
 
+// HandleSmartAppControl handles simple app control requests intelligently
+func HandleSmartAppControl(userInput string) (string, error) {
+	input := strings.TrimSpace(userInput)
+	fmt.Printf("HandleSmartAppControl called with: '%s'\n", input)
+	
+	// Check if it's a quit/close intent
+	if IsQuitIntent(input) {
+		fmt.Printf("Detected quit intent\n")
+		appName := ExtractAppNameFromIntent(input)
+		fmt.Printf("Extracted app name: '%s'\n", appName)
+		if appName != "" {
+			return GetSmartQuitCommand(appName)
+		}
+	}
+	
+	// Check if it's an open/start intent
+	if IsOpenIntent(input) {
+		fmt.Printf("Detected open intent\n")
+		appName := ExtractAppNameFromIntent(input)
+		fmt.Printf("Extracted app name: '%s'\n", appName)
+		if appName != "" {
+			return GetSmartOpenCommand(appName)
+		}
+	}
+	
+	fmt.Printf("No smart app control match found\n")
+	return "", fmt.Errorf("not a simple app control request")
+}
+
 // fixStartCommand ensures that the command uses the correct format
 func fixStartCommand(cmd string) string {
-	// Check for 'open -a' commands with a URL
-	reOpenAURL := regexp.MustCompile(`(?i)^open\s+-a\s+("[^"]+"|\S+)\s+("[^"]+"|\S+)$`)
-	matchesOpenAURL := reOpenAURL.FindStringSubmatch(cmd)
-	if len(matchesOpenAURL) > 2 {
-		appName := matchesOpenAURL[1]
-		url := matchesOpenAURL[2]
-		appName = strings.Trim(appName, `"`)
-		appName = filepath.Base(appName)
-		appName = strings.TrimSuffix(appName, ".app")
-		return fmt.Sprintf(`open -a "%s" "%s"`, appName, url)
-	}
-
-	// Check for 'open -a' commands without a URL
-	reOpenA := regexp.MustCompile(`(?i)^open\s+-a\s+("[^"]+"|\S+)$`)
-	matchesOpenA := reOpenA.FindStringSubmatch(cmd)
-	if len(matchesOpenA) > 1 {
-		appName := matchesOpenA[1]
-		appName = strings.Trim(appName, `"`)
-		appName = filepath.Base(appName)
-		appName = strings.TrimSuffix(appName, ".app")
-		return fmt.Sprintf(`open -a "%s"`, appName)
+	// Normalize 'open -a' commands (handle app names with spaces or backslash-escaped spaces)
+	reOpenAAny := regexp.MustCompile(`(?i)^open\s+-a\s+(.+)$`)
+	matchesOpenAAny := reOpenAAny.FindStringSubmatch(cmd)
+	if len(matchesOpenAAny) > 1 {
+		appPart := strings.TrimSpace(matchesOpenAAny[1])
+		// Strip surrounding quotes if present
+		appPart = strings.Trim(appPart, `"`)
+		appPart = strings.Trim(appPart, "'")
+		// Replace backslash-escaped spaces with real spaces
+		appPart = strings.ReplaceAll(appPart, `\\ `, " ")
+		appPart = strings.ReplaceAll(appPart, `\ `, " ")
+		// Remove trailing .app if included
+		appPart = filepath.Base(appPart)
+		appPart = strings.TrimSuffix(appPart, ".app")
+		// Collapse multiple spaces
+		appPart = strings.Join(strings.Fields(appPart), " ")
+		return fmt.Sprintf(`open -a "%s"`, appPart)
 	}
 
 	// Check for 'open' commands with URLs
@@ -231,14 +281,42 @@ func fixStartCommand(cmd string) string {
 		return fmt.Sprintf(`open "%s"`, url)
 	}
 
-	// Check for 'osascript -e' commands
+	// Normalize 'osascript -e' commands; prefer single quotes around the script
 	reOsa := regexp.MustCompile(`(?i)^osascript\s+-e\s+(.+)$`)
 	matchesOsa := reOsa.FindStringSubmatch(cmd)
 	if len(matchesOsa) > 1 {
-		script := matchesOsa[1]
-		// Ensure that the script is properly quoted
-		script = strings.Trim(script, `"`)
-		return fmt.Sprintf(`osascript -e "%s"`, script)
+		script := strings.TrimSpace(matchesOsa[1])
+		// Strip only one outer pair of matching quotes if present
+		if len(script) >= 2 {
+			if (script[0] == '"' && script[len(script)-1] == '"') || (script[0] == '\'' && script[len(script)-1] == '\'') {
+				script = script[1 : len(script)-1]
+			}
+		}
+		// Unescape any JSON-escaped quotes \" to "
+		script = strings.ReplaceAll(script, `\\"`, `"`)
+		script = strings.ReplaceAll(script, `\"`, `"`)
+		// If script is a quit command, normalize to quit app "Name"
+		lower := strings.ToLower(script)
+		if strings.Contains(lower, "quit app") || strings.Contains(lower, "to quit") {
+			// Try to extract the app name inside quotes
+			name := ""
+			if m := regexp.MustCompile(`"([^"]+)"`).FindStringSubmatch(script); len(m) > 1 {
+				name = m[1]
+			}
+			if name == "" {
+				// fallback: last word
+				parts := strings.Fields(script)
+				if len(parts) > 0 {
+					name = parts[len(parts)-1]
+				}
+			}
+			if name != "" {
+				script = fmt.Sprintf("quit app \"%s\"", name)
+			}
+		}
+		// Escape single quotes for sh single-quoted string: ' -> '\''
+		script = strings.ReplaceAll(script, "'", `'"'"'`)
+		return fmt.Sprintf("osascript -e '%s'", script)
 	}
 
 	// Allow other safe commands
@@ -247,36 +325,11 @@ func fixStartCommand(cmd string) string {
 
 // cleanAssistantMessage fixes improperly escaped quotes in the assistant's message
 func cleanAssistantMessage(message string) string {
-	// Remove code fences and language tags
+	// Remove code fences and language tags only; avoid altering escapes
 	message = strings.TrimSpace(message)
 	message = strings.TrimPrefix(message, "```json")
 	message = strings.TrimPrefix(message, "```")
 	message = strings.TrimSuffix(message, "```")
-
-	// Replace any occurrences of \" with \\"
-	message = strings.ReplaceAll(message, `\"`, `\\"`)
-
-	// Ensure that inner quotes in commands are properly escaped
-	re := regexp.MustCompile(`"commands":\s*\[\s*([^\]]+)\s*\]`)
-	message = re.ReplaceAllStringFunc(message, func(match string) string {
-		// Find the commands array
-		cmdRe := regexp.MustCompile(`"commands":\s*\[\s*(.*)\s*\]`)
-		cmdMatches := cmdRe.FindStringSubmatch(match)
-		if len(cmdMatches) > 1 {
-			commandsStr := cmdMatches[1]
-			// Split commands
-			commands := splitJSONStrings(commandsStr)
-			// Properly escape inner double quotes
-			for i, cmd := range commands {
-				cmd = strings.Trim(cmd, `"`)
-				cmd = strings.ReplaceAll(cmd, `\"`, `"`)
-				cmd = strings.ReplaceAll(cmd, `"`, `\"`)
-				commands[i] = `"` + cmd + `"`
-			}
-			return `"commands": [` + strings.Join(commands, ", ") + `]`
-		}
-		return match
-	})
 	return message
 }
 
@@ -371,4 +424,34 @@ func sanitizeError(errorMsg string) string {
 func escapeBackslashesInJSON(s string) string {
 	// Replace single backslashes with double backslashes
 	return strings.ReplaceAll(s, `\`, `\\`)
+}
+
+// removeTrailingCommas removes trailing commas before closing brackets/braces in JSON.
+func removeTrailingCommas(s string) string {
+	// , ] -> ] and , } -> }
+	reCommaBeforeBracket := regexp.MustCompile(`,\s*]`)
+	s = reCommaBeforeBracket.ReplaceAllString(s, "]")
+	reCommaBeforeBrace := regexp.MustCompile(`,\s*}`)
+	s = reCommaBeforeBrace.ReplaceAllString(s, "}")
+	return s
+}
+
+// isCloseIntent returns true if the user's input is about closing/quitting an app.
+func isCloseIntent(userInput string) bool {
+	in := strings.ToLower(userInput)
+	return strings.Contains(in, "close") || strings.Contains(in, "quit") || strings.Contains(in, "exit") || strings.Contains(in, "stop")
+}
+
+// isValidQuitCommand checks if a command cleanly quits a macOS app via osascript.
+func isValidQuitCommand(cmd string) bool {
+	c := strings.TrimSpace(cmd)
+	// Accept our normalized single-quoted AppleScript
+	if regexp.MustCompile(`(?i)^osascript\s+-e\s+'quit app "[^"]+"'$`).MatchString(c) {
+		return true
+	}
+	// Accept common double-quoted variant (may come from LLM)
+	if regexp.MustCompile(`(?i)^osascript\s+-e\s+\"quit app \\\"[^\"]+\\\"\"$`).MatchString(c) {
+		return true
+	}
+	return false
 }

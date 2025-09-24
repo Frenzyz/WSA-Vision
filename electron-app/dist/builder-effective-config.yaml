@@ -1,0 +1,25 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.example.cypher
+productName: Cypher
+icon: public/WSA_Icon.icns
+files:
+  - filter:
+      - '**/*'
+extraResources:
+  - from: backend/
+    to: backend/
+    filter:
+      - '**/*'
+mac:
+  category: public.app-category.utilities
+  target: dmg
+  icon: public/WSA_Icon.icns
+win:
+  target: nsis
+  icon: public/icon.png
+linux:
+  target: AppImage
+  icon: public/icon.png
+electronVersion: 25.9.8

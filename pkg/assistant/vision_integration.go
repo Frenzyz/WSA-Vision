@@ -5,12 +5,13 @@ package assistant
 import (
 	"WSA/pkg/vision"
 	"fmt"
-	"github.com/go-vgo/robotgo"
-	"github.com/kbinani/screenshot"
 	"image/png"
 	"os"
 	"path/filepath"
 	"regexp"
+
+	"github.com/go-vgo/robotgo"
+	"github.com/kbinani/screenshot"
 )
 
 // MoveMouse moves the mouse cursor to the specified (x, y) coordinates.
@@ -109,4 +110,24 @@ func ConfirmMousePosition(expectedElement string) (bool, error) {
 
 	fmt.Println("Vision confirmation: Mouse is NOT at the correct position.")
 	return false, nil
+}
+
+// UseVisionModel is a placeholder that can be expanded to perform
+// vision-assisted actions for the provided task description.
+func UseVisionModel(taskDescription string) error {
+	fmt.Printf("Vision model invoked for task: %s\n", taskDescription)
+	// Quick sample: capture a small region around current cursor and ask a general question.
+	x, y := robotgo.Location()
+	captureWidth := 300
+	captureHeight := 180
+	captureX := x - captureWidth/2
+	captureY := y - captureHeight/2
+	screenshotPath := "tmp/vision_sample.png"
+	if err := CaptureScreenRegion(captureX, captureY, captureWidth, captureHeight, screenshotPath); err != nil {
+		return err
+	}
+	defer os.Remove(screenshotPath)
+	question := fmt.Sprintf("Based on this screenshot, what should I do to: %s?", taskDescription)
+	_, err := vision.AnalyzeImagePaths(question, []string{screenshotPath}, "")
+	return err
 }

@@ -4,9 +4,9 @@
   "description": "Electron UI for Cypher",
   "main": "main.js",
   "scripts": {
-    "start": "webpack && electron .",
-    "build-go": "go build -o backend/cypher_backend ../WSA/main.go",
-    "build": "npm run build-go && webpack && electron-builder"
+    "start": "webpack --mode development && env -u ELECTRON_RUN_AS_NODE electron .",
+    "build-go": "go build -C ../WSA -o ../electron-app/backend/cypher_backend main_simple.go",
+    "build": "npm run build-go && webpack --mode production && electron-builder"
   },
   "author": "Aadit Chetan",
   "license": "MIT",
@@ -25,14 +25,17 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "axios": "^1.4.0"
+    "axios": "^1.4.0",
+    "framer-motion": "^10.16.4",
+    "lucide-react": "^0.292.0",
+    "clsx": "^2.0.0"
   },
   "build": {
     "appId": "com.example.cypher",
     "productName": "Cypher",
+    "icon": "public/WSA_Icon.icns",
     "files": [
-      "**/*",
-      "backend/**"
+      "**/*"
     ],
     "extraResources": [
       {
@@ -43,13 +46,16 @@
     ],
     "mac": {
       "category": "public.app-category.utilities",
-      "target": "dmg"
+      "target": "dmg",
+      "icon": "public/WSA_Icon.icns"
     },
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "public/icon.png"
     },
     "linux": {
-      "target": "AppImage"
+      "target": "AppImage",
+      "icon": "public/icon.png"
     }
   }
 }
