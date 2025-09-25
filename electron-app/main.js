@@ -15,6 +15,13 @@ const path = require('path');
 const { spawn } = require('child_process');
 const fs = require('fs');
 const { globalShortcut, ipcMain } = require('electron');
+let ffmpegPath = null;
+try {
+    // Resolve ffmpeg path. In dev, use ffmpeg-static require; in packaged, use resources copy
+    if (process.env.ELECTRON_RUN_AS_NODE || !app) {
+        ffmpegPath = require('ffmpeg-static');
+    }
+} catch (_) {}
 
 let mainWindow;
 let goProcess;
@@ -279,30 +286,8 @@ ipcMain.handle('app:toggle', () => {
     if (mainWindow) mainWindow.webContents.send('focus-input');
 });
 
-function resolvePythonCmd() {
-    // 1) settings override
-    if (settings && settings.sttPythonPath && fs.existsSync(settings.sttPythonPath)) {
-        return settings.sttPythonPath;
-    }
-    // 2) bundled venv (packaged)
-    if (app.isPackaged) {
-        const venvPython = path.join(process.resourcesPath, 'python', 'venv', 'bin', 'python');
-        if (fs.existsSync(venvPython)) return venvPython;
-    } else {
-        const devVenv = path.join(app.getAppPath(), 'python', 'venv', 'bin', 'python');
-        if (fs.existsSync(devVenv)) return devVenv;
-    }
-    // 3) common Homebrew path (macOS ARM)
-    const candidates = [
-        '/opt/homebrew/bin/python3',
-        '/usr/local/bin/python3',
-        process.platform === 'darwin' ? '/usr/bin/python3' : 'python3'
-    ];
-    for (const c of candidates) {
-        try { if (fs.existsSync(c)) return c; } catch (_) {}
-    }
-    return 'python3';
-}
+// Python runner removed; keeping stub for compatibility
+function resolvePythonCmd() { return 'python3'; }
 
 // STT: Transcription via WhisperX runner
 ipcMain.handle('stt:transcribe', async (_e, payload) => {
@@ -310,7 +295,7 @@ ipcMain.handle('stt:transcribe', async (_e, payload) => {
         const {
             audioBuffer,
             extension = 'webm',
-            model = settings?.sttModel || 'large-v2',
+            model = settings?.sttModel || 'small',
             device = settings?.sttDevice || 'cpu',
             computeType = settings?.sttComputeType || 'int8'
         } = payload || {};
@@ -323,77 +308,68 @@ ipcMain.handle('stt:transcribe', async (_e, payload) => {
         const buf = Buffer.from(audioBuffer.data);
         fs.writeFileSync(srcPath, buf);
 
-        // Resolve python runner path
-        let runnerPath;
-        if (app.isPackaged) {
-            // Prefer unpacked copy
-            const unpacked = path.join(process.resourcesPath, 'app.asar.unpacked', 'whisperx_runner.py');
-            const direct = path.join(process.resourcesPath, 'whisperx_runner.py');
-            runnerPath = fs.existsSync(unpacked) ? unpacked : direct;
-        } else {
-            runnerPath = path.join(app.getAppPath(), 'whisperx_runner.py');
-        }
-
-        if (!fs.existsSync(runnerPath)) {
-            throw new Error(`WhisperX runner not found at ${runnerPath}`);
-        }
-
-        const pythonCmd = resolvePythonCmd();
-        const env = { ...process.env };
-        // Prefer system SSL (OpenSSL) over Apple's LibreSSL to avoid urllib3 warnings
-        // Homebrew OpenSSL on macOS (arm64)
-        const brewPrefix = '/opt/homebrew';
-        if (process.platform === 'darwin' && fs.existsSync(brewPrefix)) {
-            const opensslDir = path.join(brewPrefix, 'opt', 'openssl@3');
-            const libPath = path.join(opensslDir, 'lib');
-            env.LD_LIBRARY_PATH = env.LD_LIBRARY_PATH ? `${libPath}:${env.LD_LIBRARY_PATH}` : libPath;
-            env.DYLD_LIBRARY_PATH = env.DYLD_LIBRARY_PATH ? `${libPath}:${env.DYLD_LIBRARY_PATH}` : libPath;
-        }
-
-        const argsArr = [runnerPath, srcPath, '--model', model, '--device', device, '--compute_type', computeType, '--no_align'];
-        if (Number.isFinite(settings?.sttBatchSize)) {
-            argsArr.push('--batch_size', String(settings.sttBatchSize));
-        }
-        if (settings?.sttLanguage) {
-            argsArr.push('--language', settings.sttLanguage);
-        }
-        const py = spawn(pythonCmd, argsArr, { env });
-        activeSttProcess = py;
-
-        let stdout = '';
-        let stderr = '';
-        py.stdout.on('data', (d) => { stdout += d.toString(); });
-        py.stderr.on('data', (d) => { stderr += d.toString(); });
-
-        const code = await new Promise((resolve) => py.on('close', resolve));
-        if (activeSttProcess === py) activeSttProcess = null;
-
-        try { fs.unlinkSync(srcPath); } catch (_) {}
-
-        function parseJsonFromStdout(output) {
-            const trimmed = (output || '').trim();
-            const lines = trimmed.split(/\r?\n/);
-            for (let i = lines.length - 1; i >= 0; i--) {
-                const line = lines[i].trim();
-                if (!line) continue;
-                try { return JSON.parse(line); } catch (_) {}
+        // Apple Speech removed as requested; use Whisper below
+        // Fallback: local OpenAI Whisper via Python (CPU)
+        try {
+            const vendorSite = app.isPackaged
+                ? path.join(process.resourcesPath, 'python', 'site')
+                : path.join(app.getAppPath(), 'python', 'site');
+            const pythonCmd = '/usr/bin/python3';
+            const env = { ...process.env };
+            // Ensure vendored site-packages are discoverable
+            env.PYTHONPATH = env.PYTHONPATH ? `${vendorSite}:${env.PYTHONPATH}` : vendorSite;
+            env.PYTHONHOME = '';
+            // Make sure ffmpeg is available for whisper decoding
+            let localFfmpeg = ffmpegPath;
+            if (!localFfmpeg && app.isPackaged) {
+                // Use resources ffmpeg binary; ffmpeg-static structure differs per platform
+                const resFfmpegDir = path.join(process.resourcesPath, 'ffmpeg');
+                try {
+                    const entries = fs.readdirSync(resFfmpegDir);
+                    const bin = entries.find((f) => f.includes('ffmpeg'));
+                    if (bin) localFfmpeg = path.join(resFfmpegDir, bin);
+                } catch (_) {}
             }
-            const start = trimmed.lastIndexOf('{');
-            const end = trimmed.lastIndexOf('}');
-            if (start !== -1 && end !== -1 && end > start) {
-                try { return JSON.parse(trimmed.slice(start, end + 1)); } catch (_) {}
+            if (localFfmpeg && fs.existsSync(localFfmpeg)) {
+                env.PATH = `${path.dirname(localFfmpeg)}:${env.PATH || ''}`;
             }
-            return null;
-        }
 
-        if (code !== 0) {
-            const maybe = parseJsonFromStdout(stdout);
-            if (maybe) return maybe;
-            return { error: (stderr || `WhisperX runner exited with code ${code}`) };
+            // Pre-convert to WAV (16k mono) to avoid ffmpeg dependency inside whisper
+            let inputForWhisper = srcPath;
+            if (localFfmpeg && fs.existsSync(localFfmpeg)) {
+                try {
+                    const wavPath = path.join(app.getPath('temp'), `cypher_stt_${Date.now()}.wav`);
+                    await new Promise((resolve, reject) => {
+                        const ff = spawn(localFfmpeg, ['-y', '-i', srcPath, '-ac', '1', '-ar', '16000', wavPath]);
+                        ff.on('error', reject);
+                        ff.on('close', (code) => code === 0 ? resolve() : reject(new Error(`ffmpeg exit ${code}`)));
+                    });
+                    inputForWhisper = wavPath;
+                } catch (_) { /* continue with original file */ }
+            }
+            const whisperRunner = `import sys, json\n\ntry:\n    import whisper\nexcept Exception as e:\n    print(json.dumps({\"error\": f'whisper import failed: {e}'}))\n    sys.exit(0)\n\nmodel_name='small'\nif len(sys.argv) > 2 and sys.argv[2]:\n    model_name=sys.argv[2]\nlang=None\nif len(sys.argv) > 3 and sys.argv[3]:\n    lang=sys.argv[3]\ntry:\n    m = whisper.load_model(model_name, device='cpu')\n    audio = sys.argv[1]\n    kwargs = {}\n    if lang: kwargs['language'] = lang\n    r = m.transcribe(audio, **kwargs)\n    print(json.dumps({\"text\": r.get('text','').strip()}))\nexcept Exception as e:\n    print(json.dumps({\"error\": str(e)}))\n`;
+            const runnerPath = path.join(app.getPath('temp'), `whisper_runner_${Date.now()}.py`);
+            fs.writeFileSync(runnerPath, whisperRunner);
+            const chosenModel = settings?.sttModel || 'small';
+            const langArg = settings?.sttLanguage || '';
+            const args = [runnerPath, inputForWhisper, chosenModel, langArg];
+            const sp = spawn(pythonCmd, args, { env });
+            activeSttProcess = sp;
+            let out = '';
+            let err = '';
+            sp.stdout.on('data', (d) => { out += d.toString(); });
+            sp.stderr.on('data', (d) => { err += d.toString(); });
+            const code = await new Promise((r) => sp.on('close', r));
+            if (activeSttProcess === sp) activeSttProcess = null;
+            try { fs.unlinkSync(srcPath); } catch (_) {}
+            try { fs.unlinkSync(runnerPath); } catch (_) {}
+            if (out.trim()) {
+                try { return JSON.parse(out.trim()); } catch (_) { return { text: out.trim() }; }
+            }
+            return { error: err || 'whisper failed' };
+        } catch (e) {
+            return { error: String(e?.message || e) };
         }
-
-        const parsed = parseJsonFromStdout(stdout) || { text: '', error: 'Failed to parse STT output' };
-        return parsed;
     } catch (err) {
         console.error('STT transcription failed:', err);
         return { error: String(err?.message || err) };

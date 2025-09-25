@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack --mode development && env -u ELECTRON_RUN_AS_NODE electron .",
     "build-go": "go build -C ../WSA -o ../electron-app/backend/cypher_backend main_simple.go",
-    "prepare-stt": "bash ./scripts/prepare_stt_venv.sh",
-    "build": "npm run build-go && webpack --mode production && npm run prepare-stt && electron-builder"
+    "prepare-whisper": "bash ./scripts/prepare_whisper_vendor.sh",
+    "build": "npm run build-go && webpack --mode production && npm run prepare-whisper && electron-builder"
   },
   "author": "Aadit Chetan",
   "license": "MIT",
@@ -29,7 +29,8 @@
     "axios": "^1.4.0",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.292.0",
-    "clsx": "^2.0.0"
+    "clsx": "^2.0.0",
+    "ffmpeg-static": "^5.2.0"
   },
   "build": {
     "appId": "com.example.cypher",
@@ -39,7 +40,7 @@
       "**/*"
     ],
     "asarUnpack": [
-      "whisperx_runner.py"
+      "node_modules/ffmpeg-static/**"
     ],
     "extraResources": [
       {
@@ -48,19 +49,22 @@
         "filter": ["**/*"]
       },
       {
-        "from": "python/",
-        "to": "python/",
+        "from": "node_modules/ffmpeg-static/",
+        "to": "ffmpeg/",
         "filter": ["**/*"]
       },
       {
-        "from": "whisperx_runner.py",
-        "to": "whisperx_runner.py"
+        "from": "python/site/",
+        "to": "python/site/",
+        "filter": ["**/*"]
       }
     ],
     "mac": {
       "category": "public.app-category.utilities",
       "target": "dmg",
-      "icon": "public/WSA_Icon.icns"
+      "icon": "public/WSA_Icon.icns",
+      "entitlements": "entitlements.mac.plist",
+      "hardenedRuntime": true
     },
     "win": {
       "target": "nsis",
